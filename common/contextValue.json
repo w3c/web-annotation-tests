@@ -1,32 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "'http://www.w3.org/ns/anno.jsonld must be' an @contxt value (Section 3.1)",
-  "assertionType": "must",
-  "expectedResult": "valid",
-  "errorMessage": "Error: 'http://www.w3.org/ns/anno.jsonld' is neither first nor only @context value.",
-  "type": "object",
-  "properties": {
-    "@context": {
-      "AnyOf": [
-      {
-        "type": "string",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "'https://www.w3.org/ns/anno.jsonld must be' an @contxt value (Section 3.1)",
+    "assertionType": "must",
+    "expectedResult": "invalid",
+    "errorMessage": "Error: 'https://www.w3.org/ns/anno.jsonld' is not an @context value.",
+    "type": "object",
+    "properties": {"@context": {
+        "oneOf": [
+            { "type": "string",
+              "not": {"$ref": "#/definitions/contextValue"} },     
+            { "type": "array",
+              "items": {"not": {"$ref": "#/definitions/contextValue"}}},
+            { "type": "object"}
+]
+    }},
+    "definitions": {"contextValue": {
         "enum": ["http://www.w3.org/ns/anno.jsonld"]
-      },
-      {
-        "type": "array",
-        "not" : {
-          "items" : {
-            "minItems": 1,
-            "uniqueItems": true,
-            "not": { "type": "string",
-              "enum": ["http://www.w3.org/ns/anno.jsonld"]
-            }
-          }
-        }
-      }
-      ],
-      "not": { "type": "object" }
-    }
-  },
-  "required": ["@context"]
+    }}
 }
