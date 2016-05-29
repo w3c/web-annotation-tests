@@ -4,7 +4,7 @@
     "description": "'The Annotation must have 1 or more @context values' (Section 3.1)",
     "assertionType": "must",
     "expectedResult": "valid",
-    "errorMessage": "Error: Annotation does not have an @context property.",
+    "errorMessage": "Error: Annotation does not have an @context property.(Section 3.1)",
     "type": "object",
     "properties": {
       "@context": {}
