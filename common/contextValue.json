@@ -1,9 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "'https://www.w3.org/ns/anno.jsonld must be' an @contxt value (Section 3.1)",
+	"title": "Check @context value",
+    "description": "'http://www.w3.org/ns/anno.jsonld must be' an @contxt value (Section 3.1)",
     "assertionType": "must",
     "expectedResult": "invalid",
-    "errorMessage": "Error: 'https://www.w3.org/ns/anno.jsonld' is not an @context value.",
+    "errorMessage": "Error: 'http://www.w3.org/ns/anno.jsonld' is not an @context value.",
     "type": "object",
     "properties": {"@context": {
         "oneOf": [
