@@ -4,7 +4,7 @@
     "description": "'Annotation' must be one of an Annotation's type values (Section 3.1)",
     "assertionType": "must",
     "expectedResult": "invalid",
-    "errorMessage": "Error: 'Annotation' is not included as an Annotation type value.",
+    "errorMessage": "Error: 'Annotation' is not included as an Annotation type value. (Section 3.1)",
     "type": "object",
     "properties": {"type": {
         "oneOf": [
