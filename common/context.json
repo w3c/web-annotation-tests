@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "Check for @context"
+    "title": "Check for @context",
     "description": "'The Annotation must have 1 or more @context values' (Section 3.1)",
     "assertionType": "must",
     "expectedResult": "valid",
