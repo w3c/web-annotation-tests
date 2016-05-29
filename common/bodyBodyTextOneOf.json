@@ -1,21 +1,16 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "'If the bodyText property is present, then the body relationship must not also be present.' (Section 3.2.5)",
+    "title": "Confirm that body and bodyValue do not both appear in an Annotation.",
+    "description": "'If the bodyValue property is present, then the body relationship must not also be present.' (Section 3.2.5)",
     "assertionType": "must",
-    "expectedResult": "valid",
-    "errorMessage": "Error: Annotation has both body and bodyText - only 1 is allowed.",
+    "expectedResult": "invalid",
+    "errorMessage": "Error: Annotation has both body and bodyValue - only 1 is allowed.",
     "type": "object",
-    "oneOf": [
-        {"properties": {
-             "body": {}
-         },
-         "required": ["body"]
-        },
-        {"properties": {
-             "bodyText": {}
-          },
-         "required": ["bodyText"]
-         }
-    ]
-} 
+    "properties": {
+         "body": {},
+         "bodyValue": {}
+     },
+     "required": ["body", "bodyValue"]        
+}
+
  
