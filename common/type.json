@@ -4,7 +4,7 @@
   "description": "'An Annotation must have 1 or more types' (Section 3.1)",
   "assertionType": "must", 
   "expectedResult": "valid",
-  "errorMessage": "Error: Annotation does not have a 'type' (a single string or an array of strings)",
+  "errorMessage": "Error: Annotation does not have a 'type' - a single string or an array of strings. (Section 3.1)",
   "type": "object",
   "properties": {
     "type": {
