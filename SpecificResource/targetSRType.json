@@ -6,7 +6,7 @@
     "expectedResult": "valid",
     "errorMessage": "Warning: At least one Annotation Specific Resource target does not include 'SpecificResource' as only or first type. (Section 4)",
     "type": "object",
-    "properties": {"body":
+    "properties": {"target":
          {"oneOf": [
             {"type": "object",
              "oneOf" : [
