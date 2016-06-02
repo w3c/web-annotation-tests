@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "Check all body Specific Resources for type=SpecificResource.",
+    "description": "'A Specific Resource should have the SpecificResource class' (Section 4). If result is invalid, an Annotation body includes SpecificeResource keys, but does not include 'SpecificResource' or first or only type.",
+    "assertionType": "should",
+    "expectedResult": "valid",
+    "errorMessage": "Warning: At least one Annotation Specific Resource body does not include 'SpecificResource' as only or first type. (Section 4)",
+    "type": "object",
+    "properties": {"body":
+         {"oneOf": [
+            {"type": "object",
+             "oneOf" : [
+                  {"not": {"$ref": "#/definitions/SpecificResource"}},
+                  {"$ref": "#/definitions/SpecificResType"}
+              ]},
+            {"type": "array",
+             "items": {
+                 "type": "object",
+                 "oneOf" : [
+                      {"not": {"$ref": "#/definitions/SpecificResource"}},
+                      {"$ref": "#/definitions/SpecificResType"}
+                   ]
+                 }
+             }
+           ]
+         }
+     },
+    "definitions": {
+        "SpecificResource": {
+            "type": "object",
+            "properties": {
+                "selector": {},
+                "state": {},
+                "styleClass": {},
+                "renderedVia": {},
+                "scope": {},
+                "purpose": {}
+            },
+            "anyOf": [
+                {"required": ["selector"]},
+                {"required": ["state"]},
+                {"required": ["styleClass"]},
+                {"required": ["renderedVia"]},
+                {"required": ["scope"]},
+                {
+                    "required": ["purpose"],
+                    "not": {"required": ["value"]}
+                }
+            ]
+        },
+        "SpecificResType" : {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "oneOf": [
+                        {"type": "string",
+                         "enum": ["SpecificResource"]},
+                        {"type": "array",
+                         "items": [{ "type": "string",
+                                    "enum": ["SpecificResource"] }]
+                        } ]
+                }
+            },
+           "required": ["type"]
+       }
+    }
+}
