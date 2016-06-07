@@ -1,13 +1,13 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "Check for bodyValue.",
+    "title": "Check if bodyValue feature implemented.",
     "description": "'There may be exactly 1 bodyValue.' (Sections 3.2.5)",
     "assertionType": "may",
     "expectedResult": "valid",
-    "errorMessage": "Informational: Annotation does not have a bodyValue. (Section 3.2.5)",
+    "errorMessage": "Informational: Annotation does not have a bodyValue (string). (Section 3.2.5)",
     "type": "object",
     "properties": {
-         "bodyValue": {"type": "string"}
+         "bodyValue": { "type": ["string"] }
      },
      "required": ["bodyValue"]  
 }
