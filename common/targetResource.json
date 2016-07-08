@@ -1,12 +1,13 @@
 {
-"$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Check that class of target(s) is(are) valid",
   "description": "A target must be either a string/uri, a Choice/Set, a SpecificResource, or an External Web Resource (Sections 3.1, 3.2.7, 3.2.8 4, 3.2.1)",
   "assertionType": "must",
   "expectedResult": "valid",
   "errorMessage": "Error; an invalid string or class of object is used as a target of the Annotation.",
   "type": "object",
-      "properties": {"body":
+  "properties": {
+    "target":
            {"oneOf": [
               { "type" : ["string", "object"], 
                 "anyOf": [
@@ -24,7 +25,8 @@
                    {"$ref": "#/definitions/externalWebResource" }
                 ] } }
            ]      
-      } },  
+      } 
+  },  
   "definitions": {
       "stringUri" : 
           { "type": "string",
@@ -47,14 +49,15 @@
         "specificResource": 
            {   "type": "object", 
                "properties": {
-               "source": { 
+                  "source": { 
                    "type": ["string", "object" ],
                    "oneOf": [
                       { "$ref": "#/definitions/stringUri" },
                       { "$ref": "#/definitions/externalWebResource"}
                    ]
-               },
-           },
-           "required": ["source"] },
-    }
+               }
+           }
+         }
+       },
+  "required": ["target"] 
 }
