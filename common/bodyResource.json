@@ -56,8 +56,8 @@
               "required": [ "id" ]
         },            
         "specificResource": 
-           {   "type": "object", 
-               "properties": {
+           {   "type": "object",
+                "properties": {
                  "source": { 
                      "type": ["string", "object" ],
                      "oneOf": [
@@ -68,5 +68,5 @@
               }
            }
       },
-  "required": ["source"] 
+  "required": ["body"] 
 }
