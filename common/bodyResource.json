@@ -6,7 +6,8 @@
   "expectedResult": "valid",
   "errorMessage": "Error; an invalid string or class of object is used as a body of the Annotation.",
   "type": "object",
-      "properties": {"body":
+  "properties": {
+    "body":
            {"oneOf": [
               { "type" : ["string", "object"], 
                 "anyOf": [
@@ -26,7 +27,8 @@
                    {"$ref": "#/definitions/externalWebResource" }
                 ] } }
            ]      
-      } },  
+      } 
+  },  
   "definitions": {
       "stringUri" : 
           { "type": "string",
@@ -56,14 +58,15 @@
         "specificResource": 
            {   "type": "object", 
                "properties": {
-               "source": { 
-                   "type": ["string", "object" ],
-                   "oneOf": [
-                      { "$ref": "#/definitions/stringUri" },
-                      { "$ref": "#/definitions/externalWebResource"}
-                   ]
-               },
-           },
-           "required": ["source"] },
-    }
+                 "source": { 
+                     "type": ["string", "object" ],
+                     "oneOf": [
+                        { "$ref": "#/definitions/stringUri" },
+                        { "$ref": "#/definitions/externalWebResource"}
+                     ]
+                 }
+              }
+           }
+      },
+  "required": ["source"] 
 }
