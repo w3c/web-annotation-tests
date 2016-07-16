@@ -1,8 +1,8 @@
 Web Annotation Tests
 ====================
 
-Testing for the Web Annotation family of specifications is being done using the W3C's Web Platform Tests infrastructure.  
-This repository contains the sources of tests designed to exercise the specifications.  The specifications themselves, 
+Testing for the Web Annotation family of specifications is being done using the W3C's Web Platform Tests infrastructure.
+This repository contains the sources of tests designed to exercise the specifications.  The specifications themselves,
 produced by the [Web Annotation Working
 Group](http://www.w3.org/annotation/) of the W3C, are available on [the group’s main repository page](http://w3c.github.io/web-annotation/).
 For information on how these tests are run and written, see:
