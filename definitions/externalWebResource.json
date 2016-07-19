@@ -1,10 +1,10 @@
-{ 
+{
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"id" : "externalWebResource.json",
-	"type": "object", 
+	"type": "object",
 	"properties":
 	{
-  	"id": 
+  	"id":
   	{
   		"$ref": "stringUri.json#"
   	}

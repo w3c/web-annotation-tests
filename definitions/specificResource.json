@@ -1,11 +1,11 @@
-{   
+{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id" : "specificResource.json",
-  "type": "object", 
-  "properties": 
+  "type": "object",
+  "properties":
   {
-    "source": 
-    { 
+    "source":
+    {
       "type": ["string", "object" ],
       "oneOf": [
         { "$ref": "stringUri.json#" },
