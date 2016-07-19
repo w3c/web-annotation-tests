@@ -7,7 +7,7 @@ produced by the [Web Annotation Working
 Group](http://www.w3.org/annotation/) of the W3C, are available on [the group’s main repository page](http://w3c.github.io/web-annotation/).
 For information on how these tests are run and written, see:
 
-* [Annotation Model](https://github.com/Spec-Ops/web-platform-tests/tree/master/annotation-model/README.md)
+* [Annotation Model](https://github.com/w3c/web-platform-tests/tree/master/annotation-model/README.md)
 * [Annotation Protocol](https://github.com/Spec-Ops/web-platform-tests/tree/annotation-protocol/annotation-protocol/README.md)
 
 (Note: The destination URIs for these are expected to migrate to the [Web Test Platform](https://github.com/w3c/web-platform-tests)
