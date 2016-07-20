@@ -1,0 +1,61 @@
+{
+  "@context": "https://www.w3.org/ns/JSONtest-v1.jsonld",
+  "name": "When body is present and it has a value property, it is a textualBody ",
+  "description": "A textualBody MUST have a value property, and may have others",
+  "testType": "manual",
+  "ref": "https://www.w3.org/TR/annotation-model/#embedded-textual-body",
+  "assertions": [
+  "annotations/requiredProperties.json",
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "There MUST NOT be a 'bodyValue' property",
+    "description": "When there is a 'body' property, there MUST NOT be a 'bodyValue' property.",
+    "assertionType": "must",
+    "expectedResult": "valid",
+    "errorMessage": "Error: bodyValue is present when body is also present",
+    "type": "object",
+    "required": [ "body" ],
+    "properties": {
+      "bodyValue": {
+        "not": {}
+      }
+    }
+  },
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "The type for a textualBody SHOULD Be TextualBody",
+    "description": "When there is a 'body' property, there MUST NOT be a 'bodyValue' property.",
+    "assertionType": "should",
+    "expectedResult": "valid",
+    "errorMessage": "Error: type is present and does not have a value of TextualBody",
+    "type": "object",
+    "required": [ "body" ],
+    "properties": {
+      "body": {
+        "properties": {
+          "type": {
+            "oneOf": [
+            { "type": "string",
+              "$ref": "#/definitions/typeValue" },
+            { "type": "array",
+              "$ref": "#/definitions/typeArray" }
+            ]
+          }
+        }
+      }
+    },
+    "definitions": {
+      "typeValue":
+      { "enum": [ "TextualBody" ] },
+      "typeArray":
+      { "not":
+        { "items":
+          { "not":
+            { "type": "string",
+              "$ref": "#/definitions/typeValue" } }
+        }
+      }
+    }
+  }
+  ]
+}
