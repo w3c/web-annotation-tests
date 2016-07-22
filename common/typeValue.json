@@ -6,25 +6,26 @@
     "expectedResult": "valid",
     "errorMessage": "Error: 'Annotation' is not included as an Annotation type value.",
     "type": "object",
+    "required": "type",
     "properties": {
        "type": {
          "oneOf": [
             { "type": "string",
-              "$ref": "#/definitions/typeValue" },     
+              "$ref": "#/definitions/typeValue" },
             { "type": "array",
               "$ref": "#/definitions/typeArray" }
-         ]    
+         ]
        }
     },
     "definitions": {
-      "typeValue": 
+      "typeValue":
          { "enum": ["Annotation"] },
-      "typeArray": 
-       { "not": 
-          { "items": 
-             { "not": 
+      "typeArray":
+       { "not":
+          { "items":
+             { "not":
                 { "type": "string",
-                  "$ref": "#/definitions/typeValue" } } 
+                  "$ref": "#/definitions/typeValue" } }
            }
        }
     }

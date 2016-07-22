@@ -2,10 +2,11 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Check format of Annotation id ",
   "description": "Check that Annotation identifier (id), if present, is a string of format uri (Section 3.1)",
-  "assertionType": "must", 
+  "assertionType": "must",
   "expectedResult": "valid",
   "errorMessage": "Error: The Annotation identifier ('id') is not a string of format uri (Section 3.1).",
   "type": "object",
+  "required": "id",
   "properties": {
     "id": {"type": "string",
            "format": "uri"}

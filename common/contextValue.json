@@ -6,9 +6,10 @@
   "expectedResult": "valid",
   "errorMessage": "Error: 'http://www.w3.org/ns/anno.jsonld' is not an @context value.",
   "type": "object",
+  "required": "@context",
   "properties": {
     "@context": {
-      "oneOf": [ 
+      "oneOf": [
         { "type": "string",
           "$ref": "#/definitions/contextValue" },
         { "type": "array",
@@ -17,14 +18,14 @@
     }
   },
   "definitions": {
-    "contextValue": 
+    "contextValue":
        { "enum": [ "http://www.w3.org/ns/anno.jsonld" ] },
-    "contextArray": 
-       { "not": 
-          { "items": 
-             { "not": 
+    "contextArray":
+       { "not":
+          { "items":
+             { "not":
                 { "type": "string",
-                  "$ref": "#/definitions/contextValue" } } 
+                  "$ref": "#/definitions/contextValue" } }
            }
      }
   }
