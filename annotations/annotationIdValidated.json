@@ -1,0 +1,11 @@
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id" : "annotationIdValidated.json",
+    "title": "Validation: Check Annotation id value",
+    "description": "True when the object has a single id that is a string of format uri  (Section 3.1)",
+    "type": "object",
+    "required": [ "id" ],
+    "properties": {
+      "id" : { "$ref": "stringUri.json" }
+    }
+ }

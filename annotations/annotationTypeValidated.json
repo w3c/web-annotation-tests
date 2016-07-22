@@ -1,0 +1,16 @@
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id" : "annotationTypeValidated.json",
+    "title": "Validation: Check Annotation type value",
+    "description": "True when the object has Annotation as a type value (Section 3.1)",
+    "type": "object",
+    "required": [ "type" ],
+    "properties": {
+      "type": {
+        "oneOf": [
+        { "$ref": "annotationTypeValueFound.json" },
+        { "$ref": "annotationTypeValueInArrayFound.json" }
+        ]
+      }
+    }
+ }
