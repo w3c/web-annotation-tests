@@ -1,0 +1,16 @@
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id" : "contextValidated.json",
+    "title": "Validation: Check Annotation @context value",
+    "description": "True when the object has http://www.w3.org/ns/anno.jsonld as an @context value (Section 3.1)",
+    "type": "object",
+    "required": [ "@context" ],
+    "properties": {
+      "@context": {
+        "oneOf": [
+        { "$ref": "contextValueFound.json" },
+        { "$ref": "contextValueInArrayFound.json" }
+        ]
+      }
+    }
+ }

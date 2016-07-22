@@ -1,0 +1,8 @@
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id" : "annotationTypeValueFound.json",
+    "title": "Definition: Valid annotation type value string",
+    "description": "True when the string has value Annotation (Section 3.1)",
+    "type": "string",
+    "enum": [ "Annotation" ]
+ }
