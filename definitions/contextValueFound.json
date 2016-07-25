@@ -1,8 +1,0 @@
-  {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id" : "contextValueFound.json",
-    "title": "Definition: Valid @context string",
-    "description": "True when the string has value http://www.w3.org/ns/anno.jsonld (Section 3.1)",
-    "type": "string",
-    "enum": [ "http://www.w3.org/ns/anno.jsonld" ]
- }

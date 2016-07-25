@@ -1,17 +1,25 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id" : "specificResource.json",
-  "type": "object",
-  "properties":
-  {
-    "source":
-    {
-      "type": ["string", "object" ],
-      "oneOf": [
-        { "$ref": "stringUri.json#" },
-        { "$ref": "externalWebResource.json#"}
-      ]
-     }
-   },
-   "required": ["source"]
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id" : "specificResource.json",
+    "title": "Definitions: Specific Resources.",
+    "description": "Schemas in #/definitions detect or validate keys/objects used in describing Specific Resources (Section 4).",
+    "definitions": {
+    
+        "specificeResourceDetected": 
+        {
+          "type": "object",
+          "properties":
+          {
+            "source":
+            {
+              "type": ["string", "object" ],
+              "oneOf": [
+                { "$ref": "id.json#/definitions/stringUri" },
+                { "$ref": "externalWebResource.json#/definitions/externalWebResourceDetected"}
+              ]
+             }
+           },
+           "required": ["source"]        
+        }
+    }
 }

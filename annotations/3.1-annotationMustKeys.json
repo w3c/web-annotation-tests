@@ -1,0 +1,139 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "3.1-annotationMustKeys.json",
+    "title": "Checks for and validates Annotation-specific required keys",
+    "description": "Each schema in #/definitions checks a single key or constraint on Annotation object from Section 3.1 or Section 3.2.5, referencing definition / common schemas as needed.",
+    "allOf": [
+               { "$ref": "#/definitions/annotationContextValidated" },
+               { "$ref": "#/definitions/annotationIdValidated" },
+               { "$ref": "#/definitions/annotationTypeValidated" },
+               { "$ref": "#/definitions/notBodyBodyValue" },
+               { "$ref": "#/definitions/targetKeyFound" },
+               { "$ref": "#/definitions/targetObjectsRecognized" }
+             ],
+    "definitions": {
+    
+        "annotationContextValidated":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: 'http://www.w3.org/ns/anno.jsonld' is not a type value.",    
+            "title": "Validation: Check Annotation @context value",
+            "description": "True when the object has 'http://www.w3.org/ns/anno.jsonld' as an @context value (Section 3.1)",
+            "type": "object",
+            "required": [ "@context" ],
+            "properties": {
+              "@context": {
+                "oneOf": [
+                    { "$ref": "annotations.json#/definitions/contextValueFound" },
+                    { "$ref": "annotations.json#/definitions/contextValueInArrayFound" }
+                ]
+              }
+            }
+         },    
+         
+        "annotationIdValidated":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: Annotation id is not a string of format uri.",    
+            "title": "Validation: Check type and format of id key value.",
+            "description": "True when the object has a single id that is a string of format uri  (Section 3.1)",
+            "allOf": [ {"$ref": "id.json#/definitions/idValueFound"} ]
+         },        
+    
+        "annotationTypeValidated":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: 'Annotation' is not a type value.",    
+            "title": "Validation: Check Annotation type value.",
+            "description": "True when the object has 'Annotation' as a type value (Section 3.1)",
+            "type": "object",
+            "required": [ "type" ],
+            "properties": {
+              "type": {
+                "oneOf": [
+                    { "$ref": "annotations.json#/definitions/annotationTypeValueFound" },
+                    { "$ref": "annotations.json#/definitions/annotationTypeValueInArrayFound" }
+                ]
+              }
+            }
+       },
+       
+       "notBodyBodyValue" :
+       {
+           "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: body and bodyValue are exclusive keys; a single annotation cannot have both.",    
+            "title": "Validation: Check for presence of both body and bodyValue.",
+            "description": "True when the Annotation does not have both body and bodyValue (Section 3.2.5)",
+            "type": "object",
+            "not": { "required": ["body", "bodyValue"] }
+       },
+       
+       "targetKeyFound" :
+       {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: missing target key.",    
+            "title": "Validation: Check for presence of target key.",
+            "description": "True when the Annotation has a target key (Section 3.1)",
+            "type": "object",
+            "required": ["target" ]
+       },
+       
+       "targetObjectsRecognized" :
+       {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: type of one or more target objects not recognized.",    
+            "title": "Validation: Check class of target value(s).",
+            "description": "True when all targets are one of string format uri, External Web Resource, Choice or Set, Specific Resource (Sections 3.2, Section 4)",
+            "type": "object",
+            "required": ["target" ],
+            "properties": 
+              {
+                "target":
+                   {"oneOf": [
+                      { "type" : ["string", "object"], 
+                        "anyOf": [
+                           {"$ref": "id.json#/definitions/stringUri"}, 
+                           {"$ref": "choiceSet.json#/definitions/choiceDetected" }, 
+                           {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
+                           {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
+                           {"$ref": "choiceSet.json#/definitions/listDetected" }, 
+                           {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+                           {"$ref": "externalWebResource.json#/definitions/externalWebResourceDetected" }
+                         ]              
+                      },
+                      { "type" : ["array"], 
+                        "items": {"anyOf": [
+                           {"$ref": "id.json#/definitions/stringUri"}, 
+                           {"$ref": "choiceSet.json#/definitions/choiceDetected" }, 
+                           {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
+                           {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
+                           {"$ref": "choiceSet.json#/definitions/listDetected" }, 
+                           {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+                           {"$ref": "externalWebResource.json#/definitions/externalWebResourceDetected" }
+                         ] 
+                       } 
+                     }
+                   ]      
+                }
+            }            
+       }       
+    }
+}

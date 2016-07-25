@@ -1,0 +1,25 @@
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id" : "id.json",
+    "title": "Definitions: id key",
+    "description": "Schemas in #/definitions used to detect valid id (string of format uri).",
+    "definitions": 
+    { 
+        "stringUri" :
+        {
+        	"$schema": "http://json-schema.org/draft-04/schema#",
+        	"type": "string",
+          	"format": "uri"
+        },
+
+        "idValueFound":   
+        {  
+           "$schema": "http://json-schema.org/draft-04/schema#",
+           "type": "object",
+           "required": [ "id" ],
+           "properties": {
+             "id" : { "$ref": "#/definitions/stringUri" }
+           }
+        }
+    }
+}
