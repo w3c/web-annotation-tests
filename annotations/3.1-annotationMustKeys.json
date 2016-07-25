@@ -11,8 +11,8 @@
                { "$ref": "#/definitions/targetKeyFound" },
                { "$ref": "#/definitions/targetObjectsRecognized" }
              ],
-    "definitions": {
-    
+    "definitions": 
+    {    
         "annotationContextValidated":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -103,7 +103,6 @@
             "title": "Validation: Check class of target value(s).",
             "description": "True when all targets are one of string format uri, External Web Resource, Choice or Set, Specific Resource (Sections 3.2, Section 4)",
             "type": "object",
-            "required": ["target" ],
             "properties": 
               {
                 "target":
