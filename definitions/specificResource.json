@@ -15,7 +15,7 @@
               "type": ["string", "object" ],
               "oneOf": [
                 { "$ref": "id.json#/definitions/stringUri" },
-                { "$ref": "externalWebResource.json#/definitions/externalWebResourceDetected"}
+                { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected"}
               ]
              }
            },

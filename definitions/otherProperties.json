@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "otherProperties.json",
+    "title": "Definitions: Other Properties.",
+    "description": "Schemas in #/definitions detect or validate other keys, objects or constraints variously applicable to Annotations, Bodies and/or Targets (Section 3.3).",
+    "definitions":
+    {
+        "createdValidIfPresent" :
+        {
+           "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Validation: created value",
+            "description": "True when the annotation, body or target has no created or a single created of format date-time (Section 3.3.1)",
+            "type": "object", 
+            "properties": 
+            {
+                "created": 
+                {
+                    "oneOf":
+                    [
+                       { "type": "string", 
+                        "format": "date-time" },
+                       {"type": "array",
+                        "minItems": 1,
+                        "maxItems": 1,
+                        "items" : {"type": "string",
+                                   "format": "date-time"}
+                       }
+                    ]
+                }
+            }                        
+        },
+        
+       "createdPropertyFound":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: created key with qualifying body/target classes",
+            "description": "Supports implementation check of created (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+            "oneOf": 
+            [ 
+               {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+               {"$ref": "#/definitions/externalWebResourceDetected" },
+               {"$ref": "#/definitions/textualBodyFound" }
+            ],
+            "allOf" : 
+            [
+                        { "required": ["created" ] },    
+                        { "$ref": "#/definitions/createdValidIfPresent" }
+            ]
+        },        
+    }
+}

@@ -77,7 +77,17 @@
             "title": "Validation: Check for presence of both body and bodyValue.",
             "description": "True when the Annotation does not have both body and bodyValue (Section 3.2.5)",
             "type": "object",
-            "not": { "required": ["body", "bodyValue"] }
+            "dependencies" : 
+            {
+                "body" : 
+                {
+                   "not": { "required": ["bodyValue" ] } 
+                },
+                "bodyValue":
+                {
+                   "not": { "required": ["body" ] } 
+                }
+            }
        },
        
        "targetKeyFound" :
@@ -99,36 +109,17 @@
             "assertionType": "must",
             "expectedResult": "valid",
             "onUnexpectedResult" : "failAndContinue",
-            "errorMessage": "Error: type of one or more target objects not recognized.",    
+            "errorMessage": "Error: class of one or more target not recognized.",    
             "title": "Validation: Check class of target value(s).",
-            "description": "True when all targets are one of string format uri, External Web Resource, Choice or Set, Specific Resource (Sections 3.2, Section 4)",
+            "description": "True when all target(s) are one of string format uri, External Web Resource, Choice or Set, Specific Resource (Sections 3.2, Section 4)",
             "type": "object",
             "properties": 
               {
                 "target":
                    {"oneOf": [
-                      { "type" : ["string", "object"], 
-                        "anyOf": [
-                           {"$ref": "id.json#/definitions/stringUri"}, 
-                           {"$ref": "choiceSet.json#/definitions/choiceDetected" }, 
-                           {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
-                           {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
-                           {"$ref": "choiceSet.json#/definitions/listDetected" }, 
-                           {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
-                           {"$ref": "externalWebResource.json#/definitions/externalWebResourceDetected" }
-                         ]              
-                      },
+                      { "$ref": "bodyTarget.json#/definitions/targetResourcesFound" },
                       { "type" : ["array"], 
-                        "items": {"anyOf": [
-                           {"$ref": "id.json#/definitions/stringUri"}, 
-                           {"$ref": "choiceSet.json#/definitions/choiceDetected" }, 
-                           {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
-                           {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
-                           {"$ref": "choiceSet.json#/definitions/listDetected" }, 
-                           {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
-                           {"$ref": "externalWebResource.json#/definitions/externalWebResourceDetected" }
-                         ] 
-                       } 
+                        "items": { "$ref": "bodyTarget.json#/definitions/targetResourcesFound" } 
                      }
                    ]      
                 }
