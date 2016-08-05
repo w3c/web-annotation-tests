@@ -89,8 +89,18 @@
                    { "$ref": "#/definitions/formatValidIfPresent" },
                    { "$ref": "#/definitions/languageValidIfPresent" },
                    { "$ref": "#/definitions/processingLanguageValidIfPresent" },
-                   { "$ref": "#/definitions/textDirectionValidIfPresent" }
-    
+                   { "$ref": "#/definitions/textDirectionValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/creatorValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/generatorValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/generatedValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/accessibilityValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent" } 
             ]
         },        
 
@@ -110,8 +120,17 @@
                    { "$ref": "#/definitions/formatValidIfPresent" },
                    { "$ref": "#/definitions/languageValidIfPresent" },
                    { "$ref": "#/definitions/processingLanguageValidIfPresent" },
-                   { "$ref": "#/definitions/textDirectionValidIfPresent" }
-    
+                   { "$ref": "#/definitions/textDirectionValidIfPresent" },
+                   { "$ref": "otherProperties.json#/definitions/creatorValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/generatorValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/generatedValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/accessibilityValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" },
+                   { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" }
             ]
         },        
 
@@ -119,7 +138,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "title": "Validation: resource type value",
-            "description": "True when body or target type value(s) is (are) recommended class(es) (Section 3.2.2)",
+            "description": "True when no body or target type (or only TextualBody) or body or target type value(s) is (are) recommended class(es) (Section 3.2.2)",
             "type": "object", 
             "properties": 
             {
@@ -127,20 +146,65 @@
                { "oneOf":
                   [
                 	{ "type": "string",
-                	  "enum": [ "Dataset", "Image", "Video", "Sound", "Text" ] },
+                	  "enum": [ "Dataset", "Image", "Video", "Sound", "Text", "TextualBody" ] },
                 	{ "type": "array",
                 	  "items": { "type": "string",
-                	             "enum": [ "Dataset", "Image", "Video", "Sound", "Text" ] }
+                	             "enum": [ "Dataset", "Image", "Video", "Sound", "Text", "TextualBody" ] }
                 	}
                   ]
                }
             }
         },
         
+        "recognizedTypeFound":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: type key with recognized classes",
+            "description": "Supports implementation check of processingLanguage (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.2)",
+            "oneOf": 
+            [ 
+               {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+               {"$ref": "#/definitions/externalWebResourceDetected" },
+               {"$ref": "#/definitions/textualBodyFound" }
+            ],
+            "allOf" : 
+            [
+                        { "required": ["type" ] },    
+                        { "$ref": "#/definitions/resourceTypeRecognizedIfPresent" },
+                        { "not":
+                            { "properties":
+                                {
+                                    "type": 
+                                       { "oneOf":
+                                          [
+                                        	{ "type": "string",
+                                        	  "enum": [ "TextualBody" ] },
+                                        	{ "type": "array",
+                                        	  "items": { "type": "string",
+                                        	             "enum": [ "TextualBody" ] }
+                                        	}
+                                          ]
+                                       }
+                                }
+                            }
+                        }
+            ]
+            
+        },
+       
+        "formatValueCheck": 
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definitions: format value regex",
+            "description": "True when string value starts with a registered top-level Media type, including trailing slash (Section 3.2.1)",
+            "type": "string", 
+            "pattern": "^(application/|audio/|example/|image/|multipart/|text/|video/)"
+        },
+
         "formatValidIfPresent":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Validation: format value",
+            "title": "Validation: format validity",
             "description": "True when the body or target has no format or has a valid format value - single string or array of strings (Section 3.2.1)",
             "type": "object", 
             "properties": 
@@ -149,10 +213,10 @@
                 {
                     "oneOf":
                     [
-                       {"type": "string"},
+                       {"$ref": "#/definitions/formatValueCheck"},
                        {"type": "array",
                         "minItems": 1,
-                        "items" : {"type": "string"}
+                        "items" : {"$ref": "#/definitions/formatValueCheck"}
                        }
                     ]
                 }
@@ -171,11 +235,11 @@
                 {
                     "oneOf": 
                     [
-                        {"type": "string"},
+                        {"$ref": "#/definitions/formatValueCheck"},
                         {"type": "array", 
                          "minItems": 1, 
                          "maxItems": 1,
-                         "items" : {"type": "string"} }
+                         "items" : {"$ref": "#/definitions/formatValueCheck"} }
                     ]
                }
              }
@@ -217,6 +281,20 @@
             ]
         },        
 
+        "languageValueCheck" :
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definitions: language value regex",
+            "description": "True when string value starts with a two or three lc characters and a hyphen or end of string (Section 3.2.1)",
+            "type": "string", 
+            "oneOf" : 
+            [ 
+                {"pattern": "^([a-z]){2,3}$"},
+                {"pattern": "^([a-z]){2,3}-"}
+            ]
+
+        },
+
         "languageValidIfPresent":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -229,10 +307,10 @@
                 {
                     "oneOf":
                     [
-                       {"type": "string"},
+                       {"$ref": "#/definitions/languageValueCheck"},
                        {"type": "array",
                         "minItems": 1,
-                        "items" : {"type": "string"}
+                        "items" : {"$ref": "#/definitions/languageValueCheck"}
                        }
                     ]
                 }
@@ -251,11 +329,11 @@
                   {
                     "oneOf": 
                     [
-                        {"type": "string"},
+                        {"$ref": "#/definitions/languageValueCheck"},
                         {"type": "array", 
                          "minItems": 1, 
                          "maxItems": 1,
-                         "items" : {"type": "string"} }
+                         "items" : {"$ref": "#/definitions/languageValueCheck"} }
                     ]
                 }
            }
@@ -309,11 +387,11 @@
                   {
                     "oneOf": 
                     [
-                        {"type": "string"},
+                        {"$ref": "#/definitions/languageValueCheck"},
                         {"type": "array", 
                          "minItems": 1, 
                          "maxItems": 1,
-                         "items" : {"type": "string"} }
+                         "items" : {"$ref": "#/definitions/languageValueCheck"} }
                     ]
                 }
              }

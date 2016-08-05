@@ -40,7 +40,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: At least one target is an External Web Resource.",    
             "title": "Check for External Web Resources as target",
@@ -67,7 +67,7 @@
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements textDirection on one or more targets.",    
             "title": "Check for textDirection",
@@ -94,7 +94,7 @@
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements processingLanguage on one or more targets.",    
             "title": "Check for processingLanguage",
@@ -121,7 +121,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements Language on one or more targets.",    
             "title": "Check for Language",
@@ -188,7 +188,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements format on one or more targets.",    
             "title": "Check for format",
@@ -255,7 +255,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements created on one or more targets.",    
             "title": "Check for created",

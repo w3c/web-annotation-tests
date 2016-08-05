@@ -40,7 +40,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: At least one body is an External Web Resource.",    
             "title": "Check for External Web Resources as body",
@@ -67,7 +67,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: At least one body is an Embedded Textual Body.",    
             "title": "Check for Embedded Textual Body as body",
@@ -94,7 +94,7 @@
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation contains a String Body.",    
             "title": "Check for String Body as body",
@@ -107,7 +107,7 @@
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements textDirection on one or more bodies.",    
             "title": "Check for textDirection",
@@ -134,7 +134,7 @@
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements processingLanguage on one or more bodies.",    
             "title": "Check for processingLanguage",
@@ -161,7 +161,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements Language on one or more bodies.",    
             "title": "Check for Language",
@@ -228,7 +228,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements format on one or more bodies.",    
             "title": "Check for format",
@@ -295,7 +295,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
-            "expectedResult": "valid",
+            "expectedResult": "invalid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements created on one or more bodies.",    
             "title": "Check for created",
