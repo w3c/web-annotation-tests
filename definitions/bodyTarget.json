@@ -72,10 +72,10 @@
              ]              
         },
         
-        "optionalBodyProperties" :
+        "optionalBodyPropertiesShould" :
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Collate: Optional Body Keys",
+            "title": "Collate: Optional Body Keys Should Validations",
             "description": "Supports validity checks of optional keys (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
             "oneOf": 
             [ 
@@ -85,29 +85,60 @@
             ],
             "allOf" : 
             [
-                   { "$ref": "#/definitions/resourceTypeRecognizedIfPresent" },
+                   { "$ref": "#/definitions/resourceTypeShouldIfPresent" },
                    { "$ref": "#/definitions/formatValidIfPresent" },
                    { "$ref": "#/definitions/languageValidIfPresent" },
                    { "$ref": "#/definitions/processingLanguageValidIfPresent" },
-                   { "$ref": "#/definitions/textDirectionValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/creatorValidIfPresent" }, 
-                   { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/generatorValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/accessibilityValidIfPresent" } 
+            ]
+        },        
+
+        "optionalBodyPropertiesMust" :
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: Optional Body Keys Must Validations",
+            "description": "Supports validity checks of optional keys (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+            "oneOf": 
+            [ 
+               {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+               {"$ref": "#/definitions/externalWebResourceDetected" },
+               {"$ref": "#/definitions/textualBodyFound" }
+            ],
+            "allOf" : 
+            [
+                   { "$ref": "#/definitions/textDirectionValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/generatedValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" }, 
-                   { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" }, 
-                   { "$ref": "otherProperties.json#/definitions/accessibilityValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" }, 
-                   { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" } 
+            ]
+        }, 
+
+        "optionalBodyPurposePropertyShould" :
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: Optional Purpose Key",
+            "description": "Supports validity checks of optional purpose key (if/when) used on Specific Resources or Textual Body Resources (Sections 3.3.5)",
+            "oneOf": 
+            [ 
+               {"$ref": "#/definitions/externalWebResourceDetected" },
+               {"$ref": "#/definitions/textualBodyFound" }
+            ],
+            "allOf" : 
+            [
                    { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent" } 
             ]
         },        
 
-        "optionalTargetProperties" :
+        "optionalTargetPropertiesShould" :
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Collate: Optional Target Keys",
+            "title": "Collate: Optional Target Keys Should validation",
             "description": "Supports validity check of optional keys (if/when) used on External Web Resources, Specific Resources (Sections 3.2.1-6, 3.3)",
             "oneOf": 
             [ 
@@ -116,18 +147,33 @@
             ],
             "allOf" : 
             [
-                   { "$ref": "#/definitions/resourceTypeRecognizedIfPresent" },
+                   { "$ref": "#/definitions/resourceTypeShouldIfPresent" },
                    { "$ref": "#/definitions/formatValidIfPresent" },
                    { "$ref": "#/definitions/languageValidIfPresent" },
                    { "$ref": "#/definitions/processingLanguageValidIfPresent" },
-                   { "$ref": "#/definitions/textDirectionValidIfPresent" },
                    { "$ref": "otherProperties.json#/definitions/creatorValidIfPresent" }, 
-                   { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/generatorValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" }, 
+                   { "$ref": "otherProperties.json#/definitions/accessibilityValidIfPresent" } 
+            ]
+        },        
+
+        "optionalTargetPropertiesMust" :
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: Optional Target Keys Must validation",
+            "description": "Supports validity check of optional keys (if/when) used on External Web Resources, Specific Resources (Sections 3.2.1-6, 3.3)",
+            "oneOf": 
+            [ 
+               {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+               {"$ref": "#/definitions/externalWebResourceDetected" }
+            ],
+            "allOf" : 
+            [
+                   { "$ref": "#/definitions/textDirectionValidIfPresent" },
+                   { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/generatedValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" }, 
-                   { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" }, 
-                   { "$ref": "otherProperties.json#/definitions/accessibilityValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" }, 
                    { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" },
                    { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" }
@@ -137,8 +183,36 @@
         "resourceTypeRecognizedIfPresent":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Validation: resource type value",
-            "description": "True when no body or target type (or only TextualBody) or body or target type value(s) is (are) recommended class(es) (Section 3.2.2)",
+            "title": "Definitions: body / target classes",
+            "description": "True when type value for body / target is or includes item from recommended list of classes (Section 3.2.2)",
+            "type": "object", 
+            "properties": 
+            {
+                "type":
+               { "oneOf":
+                  [
+                	{ "type": "string",
+                	  "enum": [ "Dataset", "Image", "Video", "Sound", "Text" ] },
+                	{ "type": "array",
+                      "minItems": 1,
+                	  "not":
+                          { "items":
+                            { "not":
+                              { "type": "string",
+                            	"enum": [ "Dataset", "Image", "Video", "Sound", "Text" ]  } 
+                            }
+                          }
+                	}
+                  ]
+               }
+            }
+        },
+        
+        "resourceTypeShouldIfPresent":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Validation: body / target classes all from 3.2.2",
+            "description": "True when type absent or all type value(s) for body / target are from recommended list of classes (Section 3.2.2), or TextualBody",
             "type": "object", 
             "properties": 
             {
@@ -148,19 +222,21 @@
                 	{ "type": "string",
                 	  "enum": [ "Dataset", "Image", "Video", "Sound", "Text", "TextualBody" ] },
                 	{ "type": "array",
-                	  "items": { "type": "string",
-                	             "enum": [ "Dataset", "Image", "Video", "Sound", "Text", "TextualBody" ] }
+                      "minItems": 1,
+                	   "items":
+                        {   "type": "string",
+                            "enum": [ "Dataset", "Image", "Video", "Sound", "Text", "TextualBody" ]  } 
                 	}
                   ]
                }
             }
         },
-        
+
         "recognizedTypeFound":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "title": "Collate: type key with recognized classes",
-            "description": "Supports implementation check of processingLanguage (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.2)",
+            "description": "Supports implementation check of type (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.2)",
             "oneOf": 
             [ 
                {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
@@ -170,28 +246,11 @@
             "allOf" : 
             [
                         { "required": ["type" ] },    
-                        { "$ref": "#/definitions/resourceTypeRecognizedIfPresent" },
-                        { "not":
-                            { "properties":
-                                {
-                                    "type": 
-                                       { "oneOf":
-                                          [
-                                        	{ "type": "string",
-                                        	  "enum": [ "TextualBody" ] },
-                                        	{ "type": "array",
-                                        	  "items": { "type": "string",
-                                        	             "enum": [ "TextualBody" ] }
-                                        	}
-                                          ]
-                                       }
-                                }
-                            }
-                        }
+                        { "$ref": "#/definitions/resourceTypeRecognizedIfPresent" }
             ]
             
         },
-       
+
         "formatValueCheck": 
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -227,7 +286,7 @@
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "title": "Definitions: format",
-            "description": "True when the body or target has exactly one format value (Section 3.2.1)",
+            "description": "True when the body or target format value, if present, is singular and valid (Section 3.2.1)",
             "type": "object", 
             "properties":
             {
@@ -320,7 +379,7 @@
         "languageSingularIfPresent":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Definitions: language",
+            "title": "Definitions: single language valid",
             "description": "True when the body or target has no language or has exactly one language property - single string (Section 3.2.1)",
             "type": "object", 
             "properties":
