@@ -43,7 +43,7 @@
             "title": "Definition: Resources that can be used as Target",      
         	"description": "True when the string is format uri or the object is recognized as a valid target resource (Sections 3.2 and 4).",
             "type" : ["string", "object"], 
-            "anyOf": [
+            "oneOf": [
                {"$ref": "id.json#/definitions/stringUri"}, 
                {"$ref": "choiceSet.json#/definitions/choiceDetected" }, 
                {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
@@ -60,7 +60,7 @@
             "title": "Definition: Resources that can be used as Body",      
         	"description": "True when the string is format uri or the object is recognized as a valid body resource (Sections 3.2 and 4).",
             "type" : ["string", "object"], 
-            "anyOf": [
+            "oneOf": [
                {"$ref": "id.json#/definitions/stringUri"}, 
                {"$ref": "choiceSet.json#/definitions/choiceDetected" }, 
                {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
@@ -71,7 +71,7 @@
                {"$ref": "#/definitions/textualBodyFound" }
              ]              
         },
-        
+
         "optionalBodyPropertiesShould" :
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -126,7 +126,7 @@
             "description": "Supports validity checks of optional purpose key (if/when) used on Specific Resources or Textual Body Resources (Sections 3.3.5)",
             "oneOf": 
             [ 
-               {"$ref": "#/definitions/externalWebResourceDetected" },
+               {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
                {"$ref": "#/definitions/textualBodyFound" }
             ],
             "allOf" : 

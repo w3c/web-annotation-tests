@@ -521,6 +521,42 @@
                 {"required": ["motivation"]},
                 {"$ref": "#/definitions/motivationSingularIfPresent"}
             ]            
-        }
+        },
+        
+        "agentIdFound":
+        {
+            
+        },
+        
+        "agentTypeRecognized":
+        {
+            
+        },
+        
+        "agentNameFound":
+        {
+            
+        },
+        
+        "agentNicknameFound":
+        {
+            
+        },
+        
+        "agentEmailFound":
+        {
+            
+        },
+        
+        "agentEmail_sha1Found":
+        {
+            
+        },
+        
+        "agentHomepageFound":
+        {
+            
+        }        
+        
      }
 }

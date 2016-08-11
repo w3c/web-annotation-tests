@@ -15,7 +15,7 @@
                    {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
                    {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
                    {"$ref": "choiceSet.json#/definitions/listDetected" }, 
-                   {"$ref": "bodyTarget.json#/definitions/optionalBodyProperties" }
+                   {"$ref": "bodyTarget.json#/definitions/optionalBodyPropertiesMust" }
                  ]              
               },
               { "type" : ["array"], 
@@ -25,7 +25,7 @@
                    {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
                    {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
                    {"$ref": "choiceSet.json#/definitions/listDetected" }, 
-                   {"$ref": "bodyTarget.json#/definitions/optionalBodyProperties" }
+                   {"$ref": "bodyTarget.json#/definitions/optionalBodyPropertiesMust" }
                  ] 
                } 
              }
@@ -100,10 +100,15 @@
             "title": "Check for String Body as body",
             "description": "True if Annotation contains a String Body (Section 3.2.5)",
             "type": "object",
+            "properties":
+            {
+                "bodyValue":
+                { "type": "string" }
+            },
             "required": ["bodyValue" ] 
          },
-
-         "textDirectionUsed": 
+                  
+          "textDirectionUsed": 
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "may",
@@ -129,7 +134,7 @@
                 }
             }
          },
-         
+       
          "processingLanguageUsed":
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -138,7 +143,7 @@
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Informational: Annotation implements processingLanguage on one or more bodies.",    
             "title": "Check for processingLanguage",
-            "description": "True if one or more qualifying body(ies) includes processingLanguage(Section 3.2.1)",
+            "description": "True if one or more qualifying body(ies) includes processingLanguage (Section 3.2.1)",
             "type": "object",
             "properties": 
             {
@@ -156,7 +161,7 @@
                 }
             }             
          },
-         
+
         "languageUsed":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -183,7 +188,7 @@
                 }
             } 
         },
-
+         
         "singleLanguageShould":
          {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -191,7 +196,7 @@
             "expectedResult": "valid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Warning: External Web Resource Bodies, Embedded Textual Bodies, Specific Resource Bodies should each have exactly 1 language value.",    
-            "title": "Check for more than 1 language per qualifying body",
+            "title": "Check for zero or more than 1 language per qualifying body",
             "description": "True if all qualifying body(ies) have exactly 1 language value each (Section 3.2.1). Remains valid if no qualifying bodies.",
             "type": "object",
             "properties": 
@@ -244,12 +249,13 @@
                            "$ref": "bodyTarget.json#/definitions/formatPropertyFound"  
                          },
                          { "type": "array",
-                           "not": {"items": { "not": { "$ref": "otherProperties.json#/definitions/formatPropertyFound" } } } 
+                           "not": {"items": { "not": { "$ref": "bodyTarget.json#/definitions/formatPropertyFound" } } } 
                          } 
                     ]  
                 }
             } 
         },
+
 
         "singleFormatShould":
          {
@@ -258,7 +264,7 @@
             "expectedResult": "valid",
             "onUnexpectedResult" : "suceedAndContinue",
             "errorMessage": "Warning: External Web Resource Bodies, Embedded Textual Bodies, Specific Resource Bodies should each have exactly 1 format value.",    
-            "title": "Check for more than 1 format per qualifying body",
+            "title": "Check for zero or more than 1 format per qualifying body",
             "description": "True if all qualifying body(ies) have exactly 1 format value each (Section 3.2.1). Remains valid if no qualifying bodies",
             "type": "object",
             "properties": 
@@ -291,42 +297,31 @@
             }
         },
 
-        "createdUsed":
+        "createdValid":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "assertionType": "may",
-            "expectedResult": "invalid",
-            "onUnexpectedResult" : "suceedAndContinue",
-            "errorMessage": "Informational: Annotation implements created on one or more bodies.",    
-            "title": "Check for created",
-            "description": "True if one or more qualifying body(ies) includes created (Section 3.3.1)",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: At least one body has an invalid created value.",    
+            "title": "Check that all created value(s) on resource(s) are valid",
+            "description": "True if no use of created on the resource(s) checked or if all uses found are date-time format (Section 3.3.1)",
             "type": "object",
             "properties": 
             {
-                "body":
-                {
-                    "oneOf":
-                     [
-                         { "type":  "object",
-                           "$ref": "bodyTarget.json#/definitions/createdPropertyFound"  
-                         },
-                         { "type": "array",
-                           "not": {"items": { "not": { "$ref": "bodyTarget.json#/definitions/createdPropertyFound" } } } 
-                         } 
-                    ]  
-                }
-            } 
+                "body": { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }
+            }
         },
-
+        
         "singleCreatedShould":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "assertionType": "should",
             "expectedResult": "valid",
             "onUnexpectedResult" : "suceedAndContinue",
-            "errorMessage": "Warning: External Web Resource bodies, Textual Bodies, Specific Resource Bodies should each have exactly 1 created value.",    
-            "title": "Check for other than 1 created per qualifying body",
-            "description": "True if all qualifying body(ies) have exactly 1 created value each (Section 3.3.1); Remains valid if no qualifying bodies.",
+            "errorMessage": "Warning: External Web Resources, Textual Bodies, Specific Resources should each have exactly 1 created value.",    
+            "title": "Check for one created per qualifying body",
+            "description": "True if all qualifying resources have exactly 1 created value each (Section 3.3.1); Remains valid if no qualifying resources.",
             "type": "object",
             "properties": 
             {
@@ -339,7 +334,7 @@
                            {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
                            {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
                            {"$ref": "choiceSet.json#/definitions/listDetected" }, 
-                           {"$ref": "bodyTarget.json#/definitions/createdPropertyFound" }
+                           {"$ref": "otherProperties.json#/definitions/createdPropertyFound" }
                          ]              
                       },
                       { "type" : ["array"], 
@@ -349,14 +344,57 @@
                            {"$ref": "choiceSet.json#/definitions/compositeDetected" }, 
                            {"$ref": "choiceSet.json#/definitions/independentsDetected" }, 
                            {"$ref": "choiceSet.json#/definitions/listDetected" }, 
-                           {"$ref": "bodyTarget.json#/definitions/createdPropertyFound" }
+                           {"$ref": "otherProperties.json#/definitions/createdPropertyFound" }
                          ] 
                        } 
                      }
                    ]      
                 }     
             }
-        }
+        },
+        
+        "modifiedValid":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "must",
+            "expectedResult": "valid",
+            "onUnexpectedResult" : "failAndContinue",
+            "errorMessage": "Error: At least one body has an invalid modified value.",    
+            "title": "Check that all modified value(s) on resource(s) are valid",
+            "description": "True if no use of modified on the resource(s) checked or if all uses found are date-time format (Section 3.3.1)",
+            "type": "object",
+            "properties": 
+            {
+                "body": { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" }
+            }
+        },
+
+        "modifiedUsed":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "assertionType": "may",
+            "expectedResult": "invalid",
+            "onUnexpectedResult" : "suceedAndContinue",
+            "errorMessage": "Informational: Annotation implements modified correctly on one or more bodies.",    
+            "title": "Check for modified",
+            "description": "True if one or more resources includes modified (Section 3.3.1)",
+            "properties": 
+            {
+                "body":
+                {
+                    "oneOf":
+                     [
+                         { "type":  "object",
+                           "$ref": "bodyTarget.json#/definitions/modifiedPropertyFound"  
+                         },
+                         { "type": "array",
+                           "not": {"items": { "not": { "$ref": "bodyTarget.json#/definitions/modifiedPropertyFound" } } } 
+                         } 
+                    ]  
+                }
+            } 
+        }        
+       
         
    }
 }

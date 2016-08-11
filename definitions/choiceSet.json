@@ -16,8 +16,18 @@
         	  "items" :
         	  {
         	      "type" : "array",
-                  "minItems": 1 	      
-        	  }
+                  "minItems": 1,
+                  "items": {
+                   "oneOf": 
+                      [ 
+                      {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+                      {"$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
+                      {"$ref": "bodyTarget.json#/definitions/textualBodyFound" },
+                      {"$ref": "id.json#/definitions/stringUri" },
+                      {"$ref" : "#/definitions/itemsDetected"}
+                      ]
+                   }
+               }
             },
             "required": [ "items" ]
         },
@@ -25,7 +35,7 @@
         "choiceDetected": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "title": "Definition: Choice",
-            "description": "True when object's type is 'Choice' and the object has at items array (Section 3.2.7)",
+            "description": "True when object's type is 'Choice' and the object has an items array (Section 3.2.7)",
          	"type": "object", 
          	"allOf": 
          	[
