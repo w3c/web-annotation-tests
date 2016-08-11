@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "assertionType": "must",
+    "expectedResult": "valid",
+    "onUnexpectedResult" : "failAndContinue",
+    "errorMessage": "Error: 'Annotation' is not a type value.",    
+    "title": "Validation: Check Annotation type value.",
+    "description": "True when the object has 'Annotation' as a type value (Section 3.1)",
+    "type": "object",
+    "required": [ "type" ],
+    "properties": {
+      "type": {
+        "oneOf": [
+            { "$ref": "annotations.json#/definitions/annotationTypeValueFound" },
+            { "$ref": "annotations.json#/definitions/annotationTypeValueInArrayFound" }
+        ]
+      }
+    }
+}

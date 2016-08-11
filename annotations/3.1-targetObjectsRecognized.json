@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "assertionType": "must",
+    "expectedResult": "valid",
+    "onUnexpectedResult" : "failAndContinue",
+    "errorMessage": "Error: class of one or more target not recognized.",    
+    "title": "Validation: Check class of target value(s).",
+    "description": "True when all target(s) are one of string format uri, External Web Resource, Choice or Set, Specific Resource (Sections 3.2, Section 4)",
+    "type": "object",
+    "properties": 
+      {
+        "target":
+           {"oneOf": [
+              { "$ref": "bodyTarget.json#/definitions/targetResourcesFound" },
+              { "type" : ["array"], 
+                "items": { "$ref": "bodyTarget.json#/definitions/targetResourcesFound" } 
+             }
+           ]      
+        }
+    }            
+}

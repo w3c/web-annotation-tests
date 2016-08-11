@@ -23,7 +23,10 @@
            },
            "required": ["source"], 
            "anyOf": [
-                { "$ref": "#/definitions/selectorDetected" }
+                { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent",
+                  "required": ["purpose"]},
+                { "$ref": "#/definitions/selectorDetected" },
+                { "$ref": "#/definitions/stateDetected"}
            ]
         },
         
@@ -48,6 +51,7 @@
                          {"$ref": "#/definitions/textQuoteSelectorDetected"},
                          {"$ref": "#/definitions/textPositionSelectorDetected"},
                          {"$ref": "#/definitions/dataPositionSelectorDetected"},
+                         {"$ref": "#/definitions/rangeSelectorDetected"},
                          {"$ref": "#/definitions/svgSelectorDetected"}                         
                       ] 
                   },
@@ -67,6 +71,7 @@
                                  {"$ref": "#/definitions/textQuoteSelectorDetected"},
                                  {"$ref": "#/definitions/textPositionSelectorDetected"},
                                  {"$ref": "#/definitions/dataPositionSelectorDetected"},
+                                 {"$ref": "#/definitions/rangeSelectorDetected"},
                                  {"$ref": "#/definitions/svgSelectorDetected"}                                 
                               ] 
                           }
@@ -89,7 +94,9 @@
               "type": { "type": "string",
                         "enum": ["FragmentSelector"] },
               "value": { "type": "string" },
-              "conformsTo": { "type": "string" }
+              "conformsTo": { "type": "string",
+                              "format": "uri"},
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": ["value", "type"] 
        },
@@ -103,9 +110,15 @@
           {
               "type": { "type": "string",
                         "enum": ["CssSelector"] },
-              "value": { "type": "string" }
+              "value": { "type": "string" },
+              "id": { "$ref": "id.json#/definitions/stringUri" },
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
-          "required": ["value", "type"] 
+          "required": [ "type"],
+          "oneOf": [
+            {"required": ["value"] },
+            {"required": ["id"] }
+          ] 
        },
 
        "xpathSelectorDetected":
@@ -117,9 +130,15 @@
           {
               "type": { "type": "string",
                         "enum": ["XPathSelector"] },
-              "value": { "type": "string" }
+              "value": { "type": "string" },
+              "id": { "$ref": "id.json#/definitions/stringUri" },
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
-          "required": ["value", "type"]           
+          "required": ["type"],
+          "oneOf": [
+            {"required": ["value"] },
+            {"required": ["id"] }
+          ]           
        },
 
        "textQuoteSelectorDetected":
@@ -133,7 +152,8 @@
                         "enum": ["TextQuoteSelector"] },
               "exact": { "type": "string" },
               "prefix": { "type": "string"},
-              "suffix": { "type": "string"}
+              "suffix": { "type": "string"},
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": ["exact", "type"]           
        },
@@ -150,7 +170,8 @@
               "start": { "type": "integer",
                          "minimum": 0 },
               "end": { "type": "integer",
-                         "minimum": 0 }
+                         "minimum": 0 },
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": ["start", "end", "type"]                 
        },
@@ -167,7 +188,8 @@
               "start": { "type": "integer",
                          "minimum": 0 },
               "end": { "type": "integer",
-                         "minimum": 0 }
+                         "minimum": 0 },
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": ["start", "end", "type"]            
        },
@@ -182,7 +204,8 @@
               "type": { "type": "string",
                         "enum": ["SvgSelector"] },
               "value": { "type": "string" },
-              "id": { "$ref": "id.json#/definitions/stringUri" }
+              "id": { "$ref": "id.json#/definitions/stringUri" },
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": ["type"],
           "oneOf": [
@@ -194,29 +217,149 @@
        "rangeSelectorDetected":
        {
           "title": "Definition: range selector",
-          "description": "True when object is a range selelctor (Section 4.2.8)",        
-          "type": "object" 
-           
+          "description": "True when object is a range selelctor (Section 4.2.9)",        
+          "type": "object", 
+          "properties":
+           {
+              "type": { "type": "string",
+                        "enum": ["RangeSelector"] },
+              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+           },
+           "patternProperties":
+           {
+               "^(startSelector|endSelector)$":
+               {    "type": "object",
+                    "oneOf": [
+                         {"$ref": "#/definitions/fragmentSelectorDetected"},
+                         {"$ref": "#/definitions/cssSelectorDetected"},
+                         {"$ref": "#/definitions/xpathSelectorDetected"},
+                         {"$ref": "#/definitions/textQuoteSelectorDetected"},
+                         {"$ref": "#/definitions/textPositionSelectorDetected"},
+                         {"$ref": "#/definitions/dataPositionSelectorDetected"},
+                         {"$ref": "#/definitions/svgSelectorDetected"}                                 
+                      ] 
+                }                   
+             },
+             "required": ["type", "startSelector", "endSelector"]           
        },
        
-       "refinedBySelectorDetected":
+       "refinedByDetected":
        {
-           
+          "title": "Definition: refinedBy selector or state",
+          "description": "True when object is a refinedBy selelctor or state (Section 4.2.8)",        
+          "type": "object", 
+          "oneOf": [
+             {"$ref": "#/definitions/fragmentSelectorDetected"},
+             {"$ref": "#/definitions/cssSelectorDetected"},
+             {"$ref": "#/definitions/xpathSelectorDetected"},
+             {"$ref": "#/definitions/textQuoteSelectorDetected"},
+             {"$ref": "#/definitions/textPositionSelectorDetected"},
+             {"$ref": "#/definitions/dataPositionSelectorDetected"},
+             {"$ref": "#/definitions/rangeSelectorDetected"},
+             {"$ref": "#/definitions/svgSelectorDetected"},
+             {"$ref": "#/definitions/timeStateDetected"},
+             {"$ref": "#/definitions/requestHeaderStateDetected"}                                      
+           ]
        },
        
        "stateDetected" :
        {
-           
+          "title": "Definition: state",
+          "description": "True when object tested has state with value matching one or more of the state classes described in the model (Section 4.3)",        
+          "type": "object",
+          "properties":
+          {
+            "state": 
+            {
+                "oneOf": [
+                  { "type": "string",
+                    "$ref": "id.json#/definitions/stringUri" 
+                  },
+                  { "type": "object",
+                    "anyOf": [
+                         {"$ref": "id.json#/definitions/idValueFound"},
+                         {"$ref": "#/definitions/timeStateDetected"},
+                         {"$ref": "#/definitions/requestHeaderStateDetected"}                         
+                      ] 
+                  },
+                  {
+                      "type": "array",
+                      "minItems": 1,
+                      "items":
+                      { "oneOf": [
+                          { "type": "string",
+                            "$ref": "id.json#/definitions/stringUri" 
+                          },
+                          { "type": "object",
+                            "anyOf": [
+                                 {"$ref": "id.json#/definitions/idValueFound"},
+                                 {"$ref": "#/definitions/timeStateDetected"},
+                                 {"$ref": "#/definitions/requestHeaderStateDetected"}                         
+                              ] 
+                             }
+                          ]
+                      }
+                   }
+                ]                
+            }
+          }
        },
        
        "timeStateDetected": 
        {
-           
+          "title": "Definition: time state",
+          "description": "True when object is a time state (Section 4.3.1)",        
+          "type": "object", 
+          "properties":
+          {
+              "type": { "type": "string",
+                        "enum": ["TimeState"] },
+              "sourceDate": { "oneOf": [
+                                {"type": "string",
+                                 "format": "date-time"},
+                                { "type": "array", 
+                                  "minItems": 1,
+                                   "items":               
+                                        {"type": "string",
+                                         "format": "date-time"}
+                                }
+                              ]     
+                            },
+              "sourceDateStart": { "type": "string",
+                                   "format": "date-time"},
+              "sourceDateEnd": { "type": "string",
+                                 "format": "date-time"},
+              "cached": { "type": "string",
+                              "format": "uri"}
+          },
+          "required": ["type"],
+          "dependencies" : 
+          {
+                "sourceDateStart" : ["sourceDateEnd"],
+                "sourceDateEnd": ["sourceDateStart"]
+           },
+           "not": 
+           {
+               "allOf": [
+                   {"required": ["sourceDate"]},
+                   {"required": ["sourceDateStart", "sourceDateEnd"]}
+               ]
+           }
+
        },
        
-       "refinedByStateDetected":
+       "requestHeaderStateDetected": 
        {
-           
+          "title": "Definition: request header state",
+          "description": "True when object is a request header state (Section 4.3.2)",        
+          "type": "object", 
+          "properties":
+          {
+              "type": { "type": "string",
+                        "enum": ["HttpRequestState"] },
+              "value": { "type": "string"}
+          },
+          "required": ["type", "value"]
        },
        
        "stylesheetDetected":

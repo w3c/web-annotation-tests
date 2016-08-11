@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "assertionType": "must",
+    "expectedResult": "valid",
+    "onUnexpectedResult" : "failAndContinue",
+    "errorMessage": "Error: 'http://www.w3.org/ns/anno.jsonld' is not a type value.",    
+    "title": "Validation: Check Annotation @context value",
+    "description": "True when the object has 'http://www.w3.org/ns/anno.jsonld' as an @context value (Section 3.1)",
+    "type": "object",
+    "required": [ "@context" ],
+    "properties": {
+      "@context": {
+        "oneOf": [
+            { "$ref": "annotations.json#/definitions/contextValueFound" },
+            { "$ref": "annotations.json#/definitions/contextValueInArrayFound" }
+        ]
+      }
+    }
+}

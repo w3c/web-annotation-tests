@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "assertionType": "must",
+    "expectedResult": "valid",
+    "onUnexpectedResult" : "failAndContinue",
+    "errorMessage": "Error: Annotation id is not a string of format uri.",    
+    "title": "Validation: Check type and format of id key value.",
+    "description": "True when the object has a single id that is a string of format uri  (Section 3.1)",
+    "allOf": [ {"$ref": "id.json#/definitions/idValueFound"} ]
+}
