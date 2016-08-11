@@ -5,11 +5,11 @@
   "testType": "manual",
   "ref": "https://www.w3.org/TR/annotation-model/#model",
   "assertions": [
-    "3.1-annotationMustKeys.json#/definitions/annotationContextValidated",
-    "3.1-annotationMustKeys.json#/definitions/annotationIdValidated",
-    "3.1-annotationMustKeys.json#/definitions/annotationTypeValidated",
-    "3.1-annotationMustKeys.json#/definitions/notBodyBodyValue",
-    "3.1-annotationMustKeys.json#/definitions/targetKeyFound",
-    "3.1-annotationMustKeys.json#/definitions/targetObjectsRecognized" 
+    "annotations/3.1-annotationMustKeys.json#/definitions/annotationContextValidated",
+    "annotations/3.1-annotationMustKeys.json#/definitions/annotationIdValidated",
+    "annotations/3.1-annotationMustKeys.json#/definitions/annotationTypeValidated",
+    "annotations/3.1-annotationMustKeys.json#/definitions/notBodyBodyValue",
+    "annotations/3.1-annotationMustKeys.json#/definitions/targetKeyFound",
+    "annotations/3.1-annotationMustKeys.json#/definitions/targetObjectsRecognized" 
   ]
 }
