@@ -1,0 +1,15 @@
+{
+  "@context": "https://www.w3.org/ns/JSONtest-v1.jsonld",
+  "name": "Annotation has all the required properties",
+  "description": "Each annotation MUST have correctly formed @context, id, type, and target properties; references schemas in /definitions/*.json and /annotations/3.1-annotationMustKeys.json",
+  "testType": "manual",
+  "ref": "https://www.w3.org/TR/annotation-model/#model",
+  "assertions": [
+    "3.1-annotationMustKeys.json#/definitions/annotationContextValidated",
+    "3.1-annotationMustKeys.json#/definitions/annotationIdValidated",
+    "3.1-annotationMustKeys.json#/definitions/annotationTypeValidated",
+    "3.1-annotationMustKeys.json#/definitions/notBodyBodyValue",
+    "3.1-annotationMustKeys.json#/definitions/targetKeyFound",
+    "3.1-annotationMustKeys.json#/definitions/targetObjectsRecognized" 
+  ]
+}
