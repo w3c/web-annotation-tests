@@ -3,7 +3,7 @@
     "id": "singleFormatShouldWithBody.json",
     "assertionType": "should",
     "expectedResult": "valid",
-    "onUnexpectedResult" : "suceedAndContinue",
+    "onUnexpectedResult" : "succeedAndContinue",
     "errorMessage": "Warning: External Web Resource Bodies, Embedded Textual Bodies, Specific Resource Bodies should each have exactly 1 format value.",    
     "title": "Check for zero or more than 1 format per qualifying body",
     "description": "True if all qualifying body(ies) have exactly 1 format value each (Section 3.2.1). Remains valid if no qualifying bodies",

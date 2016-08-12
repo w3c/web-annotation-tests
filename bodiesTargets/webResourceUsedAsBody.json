@@ -3,7 +3,7 @@
     "id": "webResourceUsedAsBody.json",
     "assertionType": "may",
     "expectedResult": "invalid",
-    "onUnexpectedResult" : "suceedAndContinue",
+    "onUnexpectedResult" : "succeedAndContinue",
     "errorMessage": "Informational: At least one body is an External Web Resource.",    
     "title": "Check for External Web Resources as body",
     "description": "True if Annotation contains 1 or more External Web Resources as Body (Section 3.2.1)",

@@ -3,7 +3,7 @@
     "id": "modifiedUsedWithBody.json",
     "assertionType": "may",
     "expectedResult": "invalid",
-    "onUnexpectedResult" : "suceedAndContinue",
+    "onUnexpectedResult" : "succeedAndContinue",
     "errorMessage": "Informational: Annotation implements modified correctly on one or more bodies.",    
     "title": "Check for modified",
     "description": "True if one or more resources includes modified (Section 3.3.1)",
