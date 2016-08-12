@@ -3,7 +3,7 @@
     "id": "formatUsedWithBody.json",
     "assertionType": "may",
     "expectedResult": "invalid",
-    "onUnexpectedResult" : "succeedAndContinue",
+    "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "Informational: Annotation implements format on one or more bodies.",    
     "title": "Check for format",
     "description": "True if one or more qualifying body(ies) includes format (Section 3.2.1)",
