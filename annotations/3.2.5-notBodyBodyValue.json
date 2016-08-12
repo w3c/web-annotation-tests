@@ -1,5 +1,6 @@
 {
    "$schema": "http://json-schema.org/draft-04/schema#",
+   "id": "3.2.5-notBodyBodyValue.json",
     "assertionType": "must",
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
@@ -7,15 +8,6 @@
     "title": "Validation: Check for presence of both body and bodyValue.",
     "description": "True when the Annotation does not have both body and bodyValue (Section 3.2.5)",
     "type": "object",
-    "dependencies" : 
-    {
-        "body" : 
-        {
-           "not": { "required": ["bodyValue" ] } 
-        },
-        "bodyValue":
-        {
-           "not": { "required": ["body" ] } 
-        }
-    }
+    "not": 
+    { "required": [ "body", "bodyValue"] }
 }

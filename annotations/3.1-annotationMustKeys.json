@@ -43,7 +43,7 @@
             "errorMessage": "Error: Annotation id is not a string of format uri.",    
             "title": "Validation: Check type and format of id key value.",
             "description": "True when the object has a single id that is a string of format uri  (Section 3.1)",
-            "allOf": [ {"$ref": "id.json#/definitions/idValueFound"} ]
+            "$ref": "id.json#/definitions/idValueFound"
          },        
     
         "annotationTypeValidated":
@@ -77,17 +77,8 @@
             "title": "Validation: Check for presence of both body and bodyValue.",
             "description": "True when the Annotation does not have both body and bodyValue (Section 3.2.5)",
             "type": "object",
-            "dependencies" : 
-            {
-                "body" : 
-                {
-                   "not": { "required": ["bodyValue" ] } 
-                },
-                "bodyValue":
-                {
-                   "not": { "required": ["body" ] } 
-                }
-            }
+            "not": 
+            { "required": [ "body", "bodyValue"] }
        },
        
        "targetKeyFound" :

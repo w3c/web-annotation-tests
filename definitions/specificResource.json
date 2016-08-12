@@ -339,13 +339,7 @@
                 "sourceDateEnd": ["sourceDateStart"]
            },
            "not": 
-           {
-               "allOf": [
-                   {"required": ["sourceDate"]},
-                   {"required": ["sourceDateStart", "sourceDateEnd"]}
-               ]
-           }
-
+           { "required": [ "sourceDate", "sourceDateStart", "sourceDateEnd" ] }
        },
        
        "requestHeaderStateDetected": 
