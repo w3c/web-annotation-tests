@@ -9,7 +9,7 @@
         {
            "$schema": "http://json-schema.org/draft-04/schema#",
            "title": "Definition: items",      
-        	"description": "True when the object includes items key and value of items is an array containing at least 1 item (Sections 3.2.7 and 3.2.8).",
+        	"description": "True when the object includes items key and value of items is an array containing at least 1 item, which can be a specificResource, an externalWebResource, a uri, a textualBody or another choice/set (Sections 3.2.7 and 3.2.8).",
         	"type": "object",
         	"properties" : 
         	{
@@ -24,14 +24,89 @@
                       {"$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
                       {"$ref": "bodyTarget.json#/definitions/textualBodyFound" },
                       {"$ref": "id.json#/definitions/stringUri" },
-                      {"$ref" : "#/definitions/itemsDetected"}
-                      ]
+                      {"$ref" : "#/definitions/itemsDetected", 
+                       "oneOf": [
+                            { "$ref": "#/definitions/choiceTypeDefinition" },
+                            { "$ref": "#/definitions/compositeTypeDefinition" },
+                            { "$ref": "#/definitions/listTypeDefinition" },
+                            { "$ref": "#/definitions/independentsTypeDefinition" }
+                        ]
+                       }
+                    ]
                    }
                }
             },
             "required": [ "items" ]
         },
-    
+        
+        "choiceTypeDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Choice type",
+            "description": "True when object has type key and object's type is 'Choice' (Section 3.2.7)",
+         	"type": "object", 
+         	"properties":
+             {
+                "type": 
+                {
+                    "type": "string",
+                    "enum": ["Choice"]
+                }
+             },
+            "required": [ "type" ]
+        },
+        
+        "compositeTypeDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Choice type",
+            "description": "True when object has type key and object's type is 'Composite' (Section 3.2.7)",
+         	"type": "object", 
+         	"properties":
+             {
+                "type": 
+                {
+                    "type": "string",
+                    "enum": ["Composite"]
+                }
+             },
+            "required": [ "type" ]
+        },
+        
+        "listTypeDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Choice type",
+            "description": "True when object has type key and object's type is 'List' (Section 3.2.7)",
+         	"type": "object", 
+         	"properties":
+             {
+                "type": 
+                {
+                    "type": "string",
+                    "enum": ["List"]
+                }
+             },
+            "required": [ "type" ]
+        },
+        
+        "independentsTypeDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Choice type",
+            "description": "True when object has type key and object's type is 'Independents' (Section 3.2.7)",
+         	"type": "object", 
+         	"properties":
+             {
+                "type": 
+                {
+                    "type": "string",
+                    "enum": ["Independents"]
+                }
+             },
+            "required": [ "type" ]
+        },
+            
         "choiceDetected": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "title": "Definition: Choice",
@@ -39,19 +114,8 @@
          	"type": "object", 
          	"allOf": 
          	[
-                 {"properties":
-                    {
-                        "type": 
-                        {
-                            "type": "string",
-                            "enum": ["Choice"]
-                        }
-                    },
-                  "required": [ "type" ]
-                 },
-                 {
-                     "$ref": "#/definitions/itemsDetected"
-                 }
+                 { "$ref": "#/definitions/choiceTypeDefinition" },
+                 { "$ref": "#/definitions/itemsDetected" }
             ]
         }, 
         
@@ -62,19 +126,8 @@
          	"type": "object", 
          	"allOf": 
          	[
-                 {"properties":
-                    {
-                        "type": 
-                        {
-                            "type": "string",
-                            "enum": ["Composite"]
-                        }
-                    },
-                  "required": [ "type" ]
-                 },
-                 {
-                     "$ref": "#/definitions/itemsDetected"
-                 }
+                 { "$ref": "#/definitions/choiceTypeDefinition" },
+                 { "$ref": "#/definitions/compositeDetected" }
             ]
         },
         
@@ -85,19 +138,8 @@
          	"type": "object", 
          	"allOf": 
          	[
-                 {"properties":
-                    {
-                        "type": 
-                        {
-                            "type": "string",
-                            "enum": ["List"]
-                        }
-                    },
-                  "required": [ "type" ]
-                 },
-                 {
-                     "$ref": "#/definitions/itemsDetected"
-                 }
+                 { "$ref": "#/definitions/listTypeDefinition" },
+                 { "$ref": "#/definitions/itemsDetected" }
             ]
         }, 
         
@@ -108,19 +150,8 @@
          	"type": "object", 
          	"allOf": 
          	[
-                 {"properties":
-                    {
-                        "type": 
-                        {
-                            "type": "string",
-                            "enum": ["Independents"]
-                        }
-                    },
-                  "required": [ "type" ]
-                 },
-                 {
-                     "$ref": "#/definitions/itemsDetected"
-                 }
+                 { "$ref": "#/definitions/independentsTypeDefinition" },
+                 { "$ref": "#/definitions/itemsDetected" }
             ]
         } 
 

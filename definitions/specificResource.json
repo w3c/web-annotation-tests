@@ -27,6 +27,11 @@
                   "required": ["purpose"]},
                 { "$ref": "#/definitions/selectorDetected" },
                 { "$ref": "#/definitions/stateDetected"}
+                
+                
+                
+                
+                
            ]
         },
         
@@ -40,9 +45,7 @@
             "selector":
             {  
                  "oneOf": [
-                  { "type": "string",
-                    "$ref": "id.json#/definitions/stringUri" 
-                  },
+                  { "$ref": "id.json#/definitions/stringUri" },
                   { "type": "object",
                     "anyOf": [
                          {"$ref": "#/definitions/fragmentSelectorDetected"},
@@ -60,9 +63,7 @@
                       "minItems": 1,
                       "items":
                       { "oneOf": [
-                          { "type": "string",
-                            "$ref": "id.json#/definitions/stringUri" 
-                          },
+                          { "$ref": "id.json#/definitions/stringUri" },
                           { "type": "object",
                             "anyOf": [
                                  {"$ref": "#/definitions/fragmentSelectorDetected"},
@@ -111,7 +112,7 @@
               "type": { "type": "string",
                         "enum": ["CssSelector"] },
               "value": { "type": "string" },
-              "id": { "$ref": "id.json#/definitions/stringUri" },
+              "id": { "$ref": "id.json#/definitions/arraySingleStringUri" },
               "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": [ "type"],
@@ -131,7 +132,7 @@
               "type": { "type": "string",
                         "enum": ["XPathSelector"] },
               "value": { "type": "string" },
-              "id": { "$ref": "id.json#/definitions/stringUri" },
+              "id": { "$ref": "id.json#/definitions/arraySingleStringUri" },
               "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": ["type"],
@@ -204,7 +205,7 @@
               "type": { "type": "string",
                         "enum": ["SvgSelector"] },
               "value": { "type": "string" },
-              "id": { "$ref": "id.json#/definitions/stringUri" },
+              "id": { "$ref": "id.json#/definitions/arraySingleStringUri" },
               "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
           }, 
           "required": ["type"],
@@ -272,9 +273,7 @@
             "state": 
             {
                 "oneOf": [
-                  { "type": "string",
-                    "$ref": "id.json#/definitions/stringUri" 
-                  },
+                  { "$ref": "id.json#/definitions/stringUri" },
                   { "type": "object",
                     "anyOf": [
                          {"$ref": "id.json#/definitions/idValueFound"},
@@ -287,9 +286,7 @@
                       "minItems": 1,
                       "items":
                       { "oneOf": [
-                          { "type": "string",
-                            "$ref": "id.json#/definitions/stringUri" 
-                          },
+                          { "$ref": "id.json#/definitions/stringUri" },
                           { "type": "object",
                             "anyOf": [
                                  {"$ref": "id.json#/definitions/idValueFound"},
@@ -355,31 +352,105 @@
           },
           "required": ["type", "value"]
        },
+
+       "styleClassDefinition":
+        {   "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: styleClass property value",
+            "description": "True when the body/target has no styleClass property or has a styleClass property that is a string values (Section 4.4)",
+            "type": "object",
+            "properties": {
+                "styleClass": { "type": "string" }
+            }
+        },
+        
+        "styleClassDetected":
+        {   "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: styleClass key with qualifying body/target classes",
+            "description": "Supports implementation check of styleClass (if/when) used on Specific Resource Body or Textual Body (Sections 4.4)",
+            "oneOf": [
+                {"$ref": "specificResource.json#/definitions/specificeResourceDetected"},
+                {"$ref": "bodyTarget.json#/definitions/textualBodyFound"}
+            ],
+            "allOf": [
+                {"required": ["styleClass"]},
+                {"$ref": "#/definitions/styleClassDefinition"}
+            ]            
+        },
+        
+       "renderedViaDefinition":
+        {   "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: renderedVia property value",
+            "description": "True when the body/target has no renderedVia property or has a valid renderedVia property (Section 4.5)",
+            "type": "object",
+            "properties": {
+                "renderedVia": 
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/arraySingleStringUri"},
+                        { "$ref": "id.json#/definitions/idValueFound"},
+                        { "type": "array",
+                          "minItems": 1,
+                          "items": 
+                          {
+                              "oneOf":
+                              [
+                                { "$ref": "id.json#/definitions/arraySingleStringUri"},
+                                { "$ref": "id.json#/definitions/idValueFound"}              
+                              ]
+                          }
+                       }
+                    ]
+                }
+            }
+        },
+        
+        "renderedViaDetected":
+        {   "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: renderedVia key with qualifying body/target classes",
+            "description": "Supports implementation check of renderedVia (if/when) used on Specific Resource Body or Textual Body (Sections 4.4)",
+            "oneOf": [
+                {"$ref": "specificResource.json#/definitions/specificeResourceDetected"},
+                {"$ref": "bodyTarget.json#/definitions/textualBodyFound"}
+            ],
+            "allOf": [
+                {"required": ["renderedVia"]},
+                {"$ref": "#/definitions/renderedViaDefinition"}
+            ]            
+        },
        
-       "stylesheetDetected":
-       {
-           
-       },
-       
-       "cssStylesheetDetected":
-       {
-           
-       },
-       
-       "styleClassDetected":
-       {
-           
-       },
-       
-       "renderedViaDetected":
-       {
-           
-       },
-       
-       "scopeDetected":
-       {
-           
-       }
+       "scopeDefinition":
+        {   "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: scope property value",
+            "description": "True when the body/target has no scope property or has a valid scope property (Section 4.6)",
+            "type": "object",
+            "properties": {
+                "scope": 
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/stringUri"},
+                        { "type": "array",
+                          "minItems": 1,
+                          "items": { "$ref": "id.json#/definitions/stringUri"}
+                        }
+                     ]
+                }
+            }
+        },
+        
+        "scopeDetected":
+        {   "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Collate: scope key with qualifying body/target classes",
+            "description": "Supports implementation check of scope (if/when) used on Specific Resource Body (Sections 4.6)",
+            "oneOf": [
+                {"$ref": "specificResource.json#/definitions/specificeResourceDetected"}
+            ],
+            "allOf": [
+                {"required": ["scope"]},
+                {"$ref": "#/definitions/scopeDefinition"}
+            ]            
+        }
        
     }
 }

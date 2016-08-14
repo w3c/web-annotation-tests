@@ -240,6 +240,34 @@
             ]
         },
         
+        "audienceDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: audience object",
+            "description": "True when object meets our requirements for audience value (Section 3.3.3)",
+            "type": "object",
+            "properties": {
+               "id":  {"$ref": "id.json#/definitions/arraySingleStringUri"} ,
+               "type": {
+                   "oneOf": [
+                        { "type": "string",
+                          "pattern": "^(schema:)"},
+                        { "type": "array",
+                          "minItems": 1,
+                          "items": {
+                              "type": "string",
+                              "pattern": "^(schema:)"
+                          }
+                        }
+                   ]
+                }
+              },
+              "patternProperties": {
+                 "^(schema:)": { "type": ["string", "object", "array"] }
+              },
+              "additionalProperties": false  
+        },        
+        
         "audienceValidIfPresent":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
@@ -248,28 +276,22 @@
             "type": "object",
             "properties": {
               "audience":  
-                 { "type": "object", 
-                   "properties": {
-                       "id":  {"$ref": "id.json#/definitions/stringUri"} ,
-                       "type": {
-                           "oneOf": [
-                                { "type": "string",
-                                  "pattern": "^(schema:)"},
-                                { "type": "array",
-                                  "minItems": 1,
-                                  "items": {
-                                      "type": "string",
-                                      "pattern": "^(schema:)"
-                                  }
-                                }
-                           ]
-                       }
-                     },
-                     "patternProperties": {
-                         "^(schema:)": { "type": ["string", "object", "array"] }
-                     },
-                     "additionalProperties": false                     
-                   }
+                 { "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/stringUri" },
+                        { "$ref": "#/definitions/audienceDefinition" },
+                        {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "oneOf": [
+                                    { "$ref": "id.json#/definitions/stringUri" },
+                                    { "$ref": "#/definitions/audienceDefinition" }                                
+                                ]
+                            }
+                        }
+                    ]
+                 }
             }
         },
         
@@ -365,17 +387,8 @@
             "description": "True when the annotation, body or target has 0 or 1 canonical properties that are strings of format uri (Section 3.3.7)",
             "type": "object",
             "properties": {
-                "canonical": {
-                    "oneOf" : [
-                      { "$ref": "id.json#/definitions/stringUri" },
-                      { "type": "array",
-                        "minItems": 1,
-                        "maxItems": 1,
-                        "items": { "$ref": "id.json#/definitions/stringUri" }
-                      }                      
-                    ]
-                }
-              }
+                "canonical": { "$ref": "id.json#/definitions/arraySingleStringUri" }
+            }
         },
         
         "canonicalPropertyFound":
@@ -426,14 +439,6 @@
             ]            
         },
 
-        "motivationList":
-       {   "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Definitions: list of motivation and purposes",
-            "description": "List of motivations and purposes as defined in the model (Section 3.3.5).",
-            "type": "string",
-            "enum": ["assessing", "bookmarking", "classifying", "commenting", "describing", "editing", "highlighting", "identifying", "linking", "moderating", "questioning", "replying", "tagging" ]            
-        },
-
         "purposeRecognizedIfPresent":
         {   "$schema": "http://json-schema.org/draft-04/schema#",
             "title": "Validation: purpose value",
@@ -441,10 +446,10 @@
             "type": "object",
             "properties": {"purpose":
               { "oneOf": [
-                  { "$ref": "#/definitions/motivationList" }, 
+                  { "$ref": "annotations.json#/definitions/motivationList" }, 
                   { "type": "array",
                     "minItems": 1,
-                    "items": { "$ref": "#/definitions/motivationList" } }
+                    "items": { "$ref": "annotations.json#/definitions/motivationList" } }
                 ]               
               }
             }
@@ -464,99 +469,260 @@
             ]            
         },
         
-        "motivationRecognizedIfPresent":
-        {   "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Validation: motivation value",
-            "description": "True when the annotation has 0 or more motivation property values (Section 3.3.5)",
-            "type": "object",
-            "properties": {"motivation":
-              { "oneOf": [
-                  { "$ref": "#/definitions/motivationList" }, 
-                  { "type": "array",
-                    "minItems": 1,
-                    "items": { "$ref": "#/definitions/motivationList" } }
-                ]               
-              }
-            }
-        },
-        
-        "motivationSingularIfPresent":
-        {   "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Validation: motivation value",
-            "description": "True when the annotation has 0 or more motivation property values (Section 3.3.5)",
-            "type": "object",
-            "properties": {"motivation":
-              { "oneOf": [
-                  { "$ref": "#/definitions/motivationList" }, 
-                  { "type": "array",
-                    "minItems": 1,
-                    "maxItems": 1,
-                    "items": { "$ref": "#/definitions/motivationList" } }
-                ]               
-              }
-            }
-        },
-
-        "motivationPropertyFound":
-        {   "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Collate: via motivation with qualifying annotation class",
-            "description": "Supports implementation check of via (if/when) used on Annotation (Sections 3.3.5)",
-            "oneOf": [
-                {"$ref": "annotations.json#/definitions/annotationTypeValueFound"}
-            ],
-            "allOf": [
-                {"required": ["motivation"]},
-                {"$ref": "#/definitions/motivationRecognizedIfPresent"}
-            ]            
-        },
-        
-        "singleMotivationPropertyFound":
-        {   "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Collate: via motivation with qualifying annotation class",
-            "description": "Supports implementation check of via (if/when) used on Annotation (Sections 3.3.5)",
-            "oneOf": [
-                {"$ref": "annotations.json#/definitions/annotationTypeValueFound"}
-            ],
-            "allOf": [
-                {"required": ["motivation"]},
-                {"$ref": "#/definitions/motivationSingularIfPresent"}
-            ]            
-        },
-        
         "agentIdFound":
         {
-            
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Validation: Agent id Value",
+            "description": "True when the object (creator or generator agent) has a single id value of type string, format uri (Section 3.3.2)",
+            "ref": "id.json#/definitions/idValueFound"            
         },
         
-        "agentTypeRecognized":
+        "agentTypeDefinition":
         {
-            
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Agent type value",
+            "description": "True when the object (creator or generator agent) has no type or has at least one recognized Agent type value (Section 3.3.2)",
+            "type": "object", 
+            "properties":
+            {
+                "type": 
+                  {
+                    "oneOf": 
+                    [
+                        {"type": "string",
+                         "enum": ["Person", "Organization", "Software"] },
+                        {"type": "array", 
+                         "minItems": 1,
+                         "not":
+                         {
+                             "items" :
+                              { "not":
+                                    { "type": "string",
+                                      "enum": ["Person", "Organization", "Software"] } 
+                              }
+                          }
+                        }               
+                    ]
+                }
+             }
+        },
+        
+        "agentTypeFound":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Check for implementation of Agent type value",
+            "description": "True when the object (creator or generator agent) has at least one recognized Agent type value (Section 3.3.2)",
+            "allOf": [
+                {"required": ["type"]},
+                {"$ref": "#/definitions/agentTypeDefinition"}
+            ]  
+        },
+        
+        "agentNameDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Agent name value",
+            "description": "True when the object (creator or generator agent) has no name or has Agent name(s) of type string (Section 3.3.2)",
+            "type": "object", 
+            "properties":
+            {
+                "name": 
+                  {
+                    "oneOf": 
+                    [
+                        {"type": "string" },
+                        {"type": "array", 
+                         "minItems": 1,
+                         "items": {"type": "string"}
+                        }               
+                    ]
+                }
+             }
+        },
+        
+        "agentSingularNameDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Agent name value",
+            "description": "True when the object (creator or generator agent) has no name or has exactly one Agent name that is a string (Section 3.3.2)",
+            "type": "object", 
+            "properties":
+            {
+                "name": 
+                  {
+                    "oneOf": 
+                    [
+                        {"type": "string" },
+                        {"type": "array", 
+                         "minItems": 1,
+                         "maxItems": 1,
+                         "items": {"type": "string"}
+                        }               
+                    ]
+                }
+             }
         },
         
         "agentNameFound":
         {
-            
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Check for implementation of Agent name value",
+            "description": "True when the object (creator or generator agent) has Agent name value(s) (Section 3.3.2)",
+            "allOf": [
+                {"required": ["name"]},
+                {"$ref": "#/definitions/agentNameDefinition"}
+            ]  
         },
         
-        "agentNicknameFound":
+        "agentSingularNameFound":
         {
-            
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Check for implementation of Agent name value",
+            "description": "True when the object (creator or generator agent) has exactly one Agent name value (Section 3.3.2)",
+            "allOf": [
+                {"required": ["name"]},
+                {"$ref": "#/definitions/agentSingularNameDefinition"}
+            ]  
+        },
+        
+        "agentSingularNicknameDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Agent nickname value",
+            "description": "True when the object (creator or generator agent) has no nickname or has exacly one Agent nickname that is a string (Section 3.3.2)",
+            "type": "object", 
+            "properties":
+            {
+                "nickname": 
+                  {
+                    "oneOf": 
+                    [
+                        {"type": "string" },
+                        {"type": "array", 
+                         "minItems": 1,
+                         "maxItems": 1,
+                         "items": {"type": "string"}
+                        }               
+                    ]
+                }
+             }
+        },
+        
+        "agentSingularNicknameFound":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Check for implementation of Agent nickname value",
+            "description": "True when the object (creator or generator agent) has an Agent nickname value (Section 3.3.2)",
+            "allOf": [
+                {"required": ["nickname"]},
+                {"$ref": "#/definitions/agentNicknameDefinition"}
+            ]  
+        },
+        
+        "agentEmailDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Agent email value",
+            "description": "True when the object (creator or generator agent) has no email or has Agent one or more email addresses that start(s) mailto: and is format uri (Section 3.3.2)",
+            "type": "object", 
+            "properties":
+            {
+                "email": 
+                  {
+                    "oneOf": 
+                    [
+                        { "type": "string",
+                          "pattern": "^(mailto)",
+                          "format": "uri" },
+                        {"type": "array", 
+                         "minItems": 1,
+                         "items": {"type": "string",
+                          "pattern": "^(mailto)",
+                          "format": "uri" }
+                        }               
+                    ]
+                }
+             }
         },
         
         "agentEmailFound":
         {
-            
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Check for implementation of Agent email value",
+            "description": "True when the object (creator or generator agent) has Agent email value(s) (Section 3.3.2)",
+            "allOf": [
+                {"required": ["email"]},
+                {"$ref": "#/definitions/agentEmailDefinition"}
+            ]  
+        },
+        
+        "agentEmail_sha1Definition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Agent email_sha1 value",
+            "description": "True when the object (creator or generator agent) has no email_sha1 or has one or more email_sha1 that is/are a string (Section 3.3.2)",
+            "type": "object", 
+            "properties":
+            {
+                "email_sha1": 
+                  {
+                    "oneOf": 
+                    [
+                        {"type": "string" },
+                        {"type": "array", 
+                         "minItems": 1,
+                         "items": {"type": "string"}
+                        }               
+                    ]
+                }
+             }
         },
         
         "agentEmail_sha1Found":
         {
-            
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Check for implementation of Agent email_sha1 value",
+            "description": "True when the object (creator or generator agent) has has one or more email_sha1 that is/are a string (Section 3.3.2)",
+            "allOf": [
+                {"required": ["email_sha1"]},
+                {"$ref": "#/definitions/agentEmail_sha1Definition"}
+            ]  
+        },
+        
+        "agentHomepageDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Agent homepage value",
+            "description": "True when the object (creator or generator agent) has no homempage or has one or more agent homepage addresses of format uri (Section 3.3.2)",
+            "type": "object", 
+            "properties":
+            {
+                "email": 
+                  {
+                    "oneOf": 
+                    [
+                        { "type": "string",
+                          "format": "uri" },
+                        {"type": "array", 
+                         "minItems": 1,
+                         "items": {"type": "string",
+                         "format": "uri" }
+                        }               
+                    ]
+                }
+             }
         },
         
         "agentHomepageFound":
         {
-            
-        }        
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Check for implementation of Agent homepage value",
+            "description": "True when the object (creator or generator agent) has Agent homepage value(s) (Section 3.3.2)",
+            "allOf": [
+                {"required": ["homepage"]},
+                {"$ref": "#/definitions/agentHomepageDefinition"}
+            ]  
+        }      
         
      }
 }
