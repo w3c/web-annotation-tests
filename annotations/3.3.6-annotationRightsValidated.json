@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
     "errorMessage": "ERROR: Annotation has one or more values for the rights key are not strings of format uri.",    
-    "title": "If present value(s) of the Annotation rights key must be string(s) of format uri.",
+    "title": "If present value(s) of the Annotation rights key are string(s) of format uri.",
     "description": "True when no Annotation rights key present or when all values of rights key are strings of format uri (Section 3.3.6)",
     "type": "object",
     "allOf": [

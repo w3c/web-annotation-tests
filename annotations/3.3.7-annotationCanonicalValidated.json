@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
     "errorMessage": "ERROR: Annotation has more than one value for canonical key or value for canonical key is not of format uri.",    
-    "title": "If present value of the Annotation canonical key must be singular and of format uri.",
+    "title": "If present value of the Annotation canonical key is singular and is of format uri.",
     "description": "True when no Annotation canonical key present or when value of canonical key is singular and of format uri (Section 3.3.7)",
     "type": "object",
     "allOf": [
