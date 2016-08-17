@@ -4,9 +4,9 @@
     "assertionType": "must",
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
-    "errorMessage": "Error: body and bodyValue are exclusive keys; a single annotation cannot have both.",    
-    "title": "Validation: Check for presence of both body and bodyValue.",
-    "description": "True when the Annotation does not have both body and bodyValue (Section 3.2.5)",
+    "errorMessage": "ERROR: body and bodyValue are exclusive keys; a single annotation cannot have both.",    
+    "title": "Annotation has body key, bodyValue key, or neither, but NEVER booth.",
+    "description": "True when the Annotation does not have both body key and bodyValue key (Section 3.2.5)",
     "type": "object",
     "not": 
     { "required": [ "body", "bodyValue"] }

@@ -4,8 +4,8 @@
     "assertionType": "must",
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
-    "errorMessage": "Error: Annotation id is not a string of format uri.",    
-    "title": "Validation: Check type and format of id key value.",
-    "description": "True when the object has a single id that is a string of format uri  (Section 3.1)",
+    "errorMessage": "ERROR: Annotation is missing id key or its value is not a single string of format uri.",    
+    "title": "Annotation has id key and its single value is a string of format uri.",
+    "description": "True when the Annotation has a single id that is a string of format uri (Section 3.1)",
     "$ref": "id.json#/definitions/idValueFound"
 }

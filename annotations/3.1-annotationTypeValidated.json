@@ -4,9 +4,9 @@
     "assertionType": "must",
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
-    "errorMessage": "Error: 'Annotation' is not a type value.",    
-    "title": "Validation: Check Annotation type value.",
-    "description": "True when the object has 'Annotation' as a type value (Section 3.1)",
+    "errorMessage": "ERROR: Annotation is missing type key or 'Annotation' is not a value of type.",    
+    "title": "Annotation has type key and 'Annotation' is a value of type.",
+    "description": "True when the Annotation has type key and 'type' is a value of type (Section 3.1)",
     "type": "object",
     "required": [ "type" ],
     "properties": {
