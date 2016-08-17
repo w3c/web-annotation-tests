@@ -126,8 +126,8 @@
          	"type": "object", 
          	"allOf": 
          	[
-                 { "$ref": "#/definitions/choiceTypeDefinition" },
-                 { "$ref": "#/definitions/compositeDetected" }
+                 { "$ref": "#/definitions/compositeTypeDefinition" },
+                 { "$ref": "#/definitions/itemsDetected" }
             ]
         },
         
