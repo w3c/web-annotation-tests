@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
     "errorMessage": "ERROR: One or more Bodies of the Annotation is not one of a string of format uri, an External Web Resource, a Choice or Set, a Specific Resource.",    
-    "title": "Each Body is one of a string of format uri, an External Web Resource, a Choice or Set, a Specific Resource.",
+    "title": "If present each Body is one of a string of format uri, an External Web Resource, a Choice or Set, a Specific Resource.",
     "description": "True when all Body(ies) are one of a string of format uri, an External Web Resource, a Choice or Set, a Specific Resource (Sections 3.2, Section 4)",
     "type": "object",
     "properties": 

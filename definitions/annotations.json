@@ -154,6 +154,41 @@
                 {"required": ["stylesheet"]},
                 {"$ref": "#/definitions/stylesheetValueDefinition"}
             ]             
+       },
+       
+       "bodyValueValidIfPresent":
+       {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Validation: bodyValue",
+            "description": "True when the Annotation has no bodyValue key or has a bodyValue key with valid value (Section 3.2.5)",
+            "type": "object",
+            "properties": 
+            {
+                "bodyValue":
+                {
+                    "oneOf":
+                    [
+                        { "type": "string" },
+                        { "type": "array",
+                          "minItems": 1, 
+                          "maxItems": 1,
+                          "items": { "type": "string" }
+                         }
+                    ]
+                }
+            }
+       },
+
+       "bodyValueFound": 
+       {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": " Implementation: bodyValue",
+            "description": "True when the Annotation has a valid bodyValue (Section 3.2.5)",
+            "allOf":
+            [
+                { "$ref": "#/details/bodyValueValidIfPresent" },
+                { "required": [ "bodyValue" ] }
+            ]
        }
                
     }         

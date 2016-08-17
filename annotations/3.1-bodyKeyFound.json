@@ -4,7 +4,7 @@
     "assertionType": "should",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "Warning: Annotation Should have a body.",    
+    "errorMessage": "WARNING: Annotation Should have a body.",    
     "title": "Annotation has body key.",
     "description": "True when the Annotation has a body key (Section 3.1)",
     "type": "object",

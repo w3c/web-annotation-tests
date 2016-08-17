@@ -1,0 +1,18 @@
+{
+  "@context": "https://www.w3.org/ns/JSONtest-v1.jsonld",
+  "name": "Annotation implements optional keys and meets optional key value constraints",
+  "description": "Web Annotations: <ul> <li>Should include certain properties (keys)</li> <li>May include additional keys</li> <li>should have Annotation key values that conform to model recommended constraints</li> </ul>",
+  "testType": "manual",
+  "ref": "https://www.w3.org/TR/annotation-model/#other-properties",
+  "assertions": [
+    "annotations/3.1-bodyKeyFound.json",
+    "annotations/3.2.5-bodyValueImplemented.json",
+    "annotations/3.3.1-singleAnnotationCreatorImplemented.json",
+    "annotations/3.3.1-annotationCreatorImplemented.json",
+    "annotations/3.3.1-annotationGeneratorImplemented.json",
+    "annotations/3.3.1-annotationCreatedImplemented.json",
+    "annotations/3.3.1-annotationGeneratedImplemented.json",
+    "annotations/3.3.1-annotationModifiedImplemented.json"
+    
+  ]
+}
