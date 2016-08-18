@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "WARNING: Annotation Should have a body.",    
-    "title": "Annotation has body key.",
+    "title": "Annotation implements body key.",
     "description": "True when the Annotation has a body key (Section 3.1)",
     "type": "object",
     "required": ["body" ]
