@@ -6,8 +6,9 @@
   "ref": "https://www.w3.org/TR/annotation-model/#other-properties",
   "assertions": [
     "annotations/3.1-bodyKeyFound.json",
-    "annotations/3.2.5-bodyValueImplemented.json",
     "annotations/3.3.1-singleAnnotationCreatorImplemented.json",
+    "annotations/3.3.5-annotationSingleMotivationImplemented.json",
+    "annotations/3.2.5-bodyValueImplemented.json",
     "annotations/3.3.1-annotationCreatorImplemented.json",
     "annotations/3.3.1-annotationGeneratorImplemented.json",
     "annotations/3.3.1-annotationCreatedImplemented.json",
@@ -15,7 +16,6 @@
     "annotations/3.3.1-annotationModifiedImplemented.json",
     "annotations/3.3.3-annotationAudienceImplemented.json",
     "annotations/3.3.5-annotationMotivationImplemented.json",
-    "annotations/3.3.5-annotationSingleMotivationImplemented.json",
     "annotations/3.3.6-annotationRightsImplemented.json",
     "annotations/3.3.7-annotationCanonicalImplemented.json",
     "annotations/3.3.7-annotationViaImplemented.json",

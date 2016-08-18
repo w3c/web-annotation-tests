@@ -42,7 +42,7 @@
             "not":
               { "items":
                 { "not":
-                  { "$ref": "#/definitions/annotationTypeValueFound" } 
+                  { "$ref": "#/definitions/annotationTypeValueRecognized" } 
                 }
               }
         },

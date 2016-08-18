@@ -4,7 +4,7 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "INFORMATIONAL: canonical key having a single string value of format uri not found. Annotation may have canonical key with exactly one value.",    
+    "errorMessage": "  canonical key having a single string value of format uri not found. Annotation may have canonical key with exactly one value.",    
     "title": "Annotation implements canonical key with a single string of format uri value.",
     "description": "True when the Annotation implements canonical key with with single string of format uri value (Section 3.3.7)",
     "allOf": 

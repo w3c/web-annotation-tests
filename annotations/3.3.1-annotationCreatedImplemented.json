@@ -4,7 +4,7 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "INFORMATIONAL: valid created key not found. Annotation may have zero or exactly one created key value.",    
+    "errorMessage": "  valid created key not found. Annotation may have zero or exactly one created key value.",    
     "title": "Annotation implements exactly one created key value.",
     "description": "True when the Annotation implements exactly one created key value (Section 3.3.1)",
     "allOf": 

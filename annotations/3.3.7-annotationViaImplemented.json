@@ -4,7 +4,7 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "INFORMATIONAL: via key with string(s) of format uri as value(s) not found. Annotation may have via key with one or more values.",    
+    "errorMessage": "  via key with string(s) of format uri as value(s) not found. Annotation may have via key with one or more values.",    
     "title": "Annotation implements vai key with string(s) of format uri as value(s).",
     "description": "True when the Annotation implements via key with with string(s) of format uri as value(s) (Section 3.3.7)",
     "allOf": 
