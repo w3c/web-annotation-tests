@@ -9,6 +9,6 @@
     "description": "True when the Annotation has an audience key (Section 3.3.3)",
     "allOf": 
     [
-        {"$ref": "otherProperties#/definitions/audiencePropertyFound"}
+        {"$ref": "otherProperties.json#/definitions/audiencePropertyFound"}
     ]
 }
