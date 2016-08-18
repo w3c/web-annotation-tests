@@ -16,7 +16,8 @@
             { "anyOf": 
               [ 
                  { "required": ["value"] },
-                 { "required": ["source"] }
+                 { "required": ["source"] },
+                 { "required": ["target"] }
               ]
             }
         },
