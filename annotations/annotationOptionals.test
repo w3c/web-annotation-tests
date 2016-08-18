@@ -8,6 +8,7 @@
     "annotations/3.1-bodyKeyFound.json",
     "annotations/3.3.1-singleAnnotationCreatorImplemented.json",
     "annotations/3.3.5-annotationSingleMotivationImplemented.json",
+    "annotations/3.3.2-annotationAgentIdImplemented.json",
     "annotations/3.2.5-bodyValueImplemented.json",
     "annotations/3.3.1-annotationCreatorImplemented.json",
     "annotations/3.3.1-annotationGeneratorImplemented.json",
