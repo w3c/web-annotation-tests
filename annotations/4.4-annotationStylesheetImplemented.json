@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "  stylesheet key with exactly one value not found. Annotation may have stylesheet key with exactly one value.",    
-    "title": "Annotation implements stylesheet key with exactly one value (object or string of format uri).",
+    "title": "Annotation implements **_stylesheet_ key** which has a **single value** that is an **object or string of format uri**. [model 4.4](https://www.w3.org/TR/annotation-model/#styles)",
     "description": "True when the Annotation implements stylesheet key with exactly one value (object or string of format uri)(Section 4.4)",
     "allOf": 
     [

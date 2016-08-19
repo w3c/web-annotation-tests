@@ -4,8 +4,8 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "  valid created key not found. Annotation may have zero or exactly one created key value.",    
-    "title": "Annotation implements exactly one created key value.",
+    "errorMessage": "Valid Annotation-level created key not found. Annotation may have zero or exactly one created key value.",    
+    "title": "Implements Annotation-level **_created_ key** which has a **single value** that is a **string of format uri** - [model 3.3.1](https://www.w3.org/TR/annotation-model/#lifecycle-information)",
     "description": "True when the Annotation implements exactly one created key value (Section 3.3.1)",
     "allOf": 
     [
