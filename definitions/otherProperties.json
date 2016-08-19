@@ -469,14 +469,6 @@
             ]            
         },
         
-        "agentIdFound":
-        {
-            "$schema": "http://json-schema.org/draft-04/schema#",
-            "title": "Validation: Agent id Value",
-            "description": "True when the object (creator or generator agent) has a single id value of type string, format uri (Section 3.3.2)",
-            "ref": "id.json#/definitions/idValueFound"            
-        },
-        
         "agentTypeDefinition":
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
