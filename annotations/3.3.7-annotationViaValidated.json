@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
     "errorMessage": "ERROR: Annotation values for via key are not of format uri.",    
-    "title": "If present value(s) of the Annotation via key are string(s) of format uri.",
+    "title": "If present the Annotation-level **_via_ key** has values that are all **strings of format uri** - [model 3.3.7](https://www.w3.org/TR/annotation-model/#other-identities)",
     "description": "True when no Annotation via key present or when all values of via key are strings of format uri (Section 3.3.7)",
     "type": "object",
     "allOf": [
