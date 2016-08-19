@@ -607,7 +607,7 @@
             "description": "True when the object (creator or generator agent) has an Agent nickname value (Section 3.3.2)",
             "allOf": [
                 {"required": ["nickname"]},
-                {"$ref": "#/definitions/agentNicknameDefinition"}
+                {"$ref": "#/definitions/agentSingularNicknameDefinition"}
             ]  
         },
         
