@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "Type (Person, Organization, Software) for Annotation Creator (Agent) not found. Agents should have one or more type values.",    
-    "title": "Annotation implements one or more  type values (Person, Organization, Software) for Annotation Creator(s) / Agent(s).",
+    "title": "Implements Annotation-level creator (Agent) **_type_ key** with one or more values from **model-recommended list (Person, Organization, Software)** - [model 3.2.2](https://www.w3.org/TR/annotation-model/#agents)",
     "description": "True when type for Annotation Creator (Agent) is implemented (Section 3.3.2)",
     "properties": 
     {  "creator":

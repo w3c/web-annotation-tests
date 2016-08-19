@@ -4,8 +4,8 @@
     "assertionType": "should",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "  Annotation Should have a body.",    
-    "title": "Annotation implements **_body_ key** - [model 3.1](https://www.w3.org/TR/annotation-model/#annotations)",
+    "errorMessage": "Annotation Should have a body.",    
+    "title": "Implements **_body_ key** - [model 3.1](https://www.w3.org/TR/annotation-model/#annotations)",
     "description": "True when the Annotation has a body key (Section 3.1)",
     "type": "object",
     "required": ["body" ]

@@ -4,7 +4,7 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "  canonical key having a single string value of format uri not found. Annotation may have canonical key with exactly one value.",    
+    "errorMessage": "canonical key having a single string value of format uri not found. Annotation may have canonical key with exactly one value.",    
     "title": "Implements Annotation-level **_canonical_ key** which has a single value that is a **string of format uri** - [model 3.3.7](https://www.w3.org/TR/annotation-model/#other-identities)",
     "description": "True when the Annotation implements canonical key with with single string of format uri value (Section 3.3.7)",
     "allOf": 

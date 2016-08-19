@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "Id for Annotation Generator (Agent) not found or more than 1 found. Agents should have exactly one id of format uri.",    
-    "title": "Annotation implements exactly one id of format uri for Annotation Generator(s) / Agent(s).",
+    "title": "Implements Annotation-level generator (Agent) **_id_ key** with **single value** that is a **string of format uri** - [model 3.2.2](https://www.w3.org/TR/annotation-model/#agents)",
     "description": "True when type for Annotation Generator (Agent) has exactly one id (Section 3.3.2)",
     "properties": 
     {  "generator":

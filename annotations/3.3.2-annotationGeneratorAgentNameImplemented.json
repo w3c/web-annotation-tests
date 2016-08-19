@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "Name for Annotation Generator (Agent) not found. Agents may have one or more name values.",    
-    "title": "Annotation implements one or more name values for Annotation Generator(s) / Agent(s).",
+    "title": "Implements Annotation-level generator (Agent) **_name_ key** with one or more values. [model 3.2.2](https://www.w3.org/TR/annotation-model/#agents)",
     "description": "True when one or more name values for Annotation Generator (Agent) is implemented (Section 3.3.2)",
     "properties": 
     {  "generator":
