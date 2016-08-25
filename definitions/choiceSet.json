@@ -59,7 +59,7 @@
     "compositeTypeDefinition":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
-      "title": "Definition: Choice type",
+      "title": "Definition: Composite type",
       "description": "True when object has type key and object's type is 'Composite' (Section 3.2.7)",
       "type": "object",
       "properties":
@@ -76,7 +76,7 @@
     "listTypeDefinition":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
-      "title": "Definition: Choice type",
+      "title": "Definition: List type",
       "description": "True when object has type key and object's type is 'List' (Section 3.2.7)",
       "type": "object",
       "properties":
@@ -93,7 +93,7 @@
     "independentsTypeDefinition":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
-      "title": "Definition: Choice type",
+      "title": "Definition: Independents type",
       "description": "True when object has type key and object's type is 'Independents' (Section 3.2.7)",
       "type": "object",
       "properties":
@@ -153,7 +153,76 @@
         { "$ref": "#/definitions/independentsTypeDefinition" },
         { "$ref": "#/definitions/itemsDetected" }
         ]
-    }
+    },
+    
+        "choiceOrSetTypeDefinition":
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Definition: Choice or Set type",
+            "description": "True when object has type key and object's type is any of 'Choice', 'Composite', 'List', 'Independents' (Section 3.2.7)",
+         	"type": "object", 
+         	"properties":
+             {
+                "type": 
+                {
+                    "type": "string",
+                    "enum": ["Choice", "Composite", "List", "Independents"]
+                }
+             },
+            "required": [ "type" ]
+        },
+        
+        "choiceSetWithValue" :
+        {
+            "allOf":
+               [
+                { 
+                  "anyOf":
+                   [
+                     { "$ref": "#/definitions/choiceDetected" },
+                     { "$ref": "#/definitions/compositeDetected" },
+                     { "$ref": "#/definitions/listDetected" },
+                     { "$ref": "#/definitions/independentsDetected" }
+                   ]
+                },
+                { "required": [ "value" ] }
+               ] 
+        },
+
+        "choiceSetWithSource" :
+        {
+            "allOf":
+               [
+                { 
+                  "anyOf":
+                   [
+                     { "$ref": "#/definitions/choiceDetected" },
+                     { "$ref": "#/definitions/compositeDetected" },
+                     { "$ref": "#/definitions/listDetected" },
+                     { "$ref": "#/definitions/independentsDetected" }
+                   ]
+                },
+                { "required": [ "source" ] }
+               ] 
+        },
+
+        "choiceSetWithPurpose" :
+        {
+            "allOf":
+               [
+                { 
+                  "anyOf":
+                   [
+                     { "$ref": "#/definitions/choiceDetected" },
+                     { "$ref": "#/definitions/compositeDetected" },
+                     { "$ref": "#/definitions/listDetected" },
+                     { "$ref": "#/definitions/independentsDetected" }
+                   ]
+                },
+                { "required": [ "purpose" ] }
+               ] 
+        }
+    
 
   }
 }

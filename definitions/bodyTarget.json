@@ -515,6 +515,42 @@
         { "required": ["textDirection" ] },
         { "$ref": "#/definitions/textDirectionValidIfPresent" }
         ]
+    },
+
+    "ewrWithItems" :
+    {
+      "allOf":
+        [
+        { "$ref": "#/definitions/externalWebResourceDetected"},
+        { "required": [ "items" ] }
+        ] 
+    },
+
+    "ewrWithPurpose" :
+    {
+      "allOf":
+        [
+        { "$ref": "#/definitions/externalWebResourceDetected"},
+        { "required": [ "purpose" ] }
+        ] 
+    },
+
+    "embeddedTextualBodyWithItems" :
+    {
+      "allOf":
+        [
+        { "$ref": "#/definitions/textualBodyFound"},
+        { "required": [ "items" ] }
+        ] 
+    },
+
+    "embeddedTextualBodyWithSource" :
+    {
+      "allOf":
+        [
+        { "$ref": "#/definitions/textualBodyFound"},
+        { "required": [ "source" ] }
+        ] 
     }
 
   }

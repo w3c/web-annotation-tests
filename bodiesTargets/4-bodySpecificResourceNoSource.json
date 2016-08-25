@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "4-bodySpecificResourceNoSource.json",
+    "assertionType": "must",
+    "expectedResult": "valid",
+    "onUnexpectedResult" : "failAndContinue",
+    "errorMessage": "An Specific Resource body cannot include a source key. source key is only valid with Specific Resources.",    
+    "title": "If an **Specific Resource Body** is a body, it does not have a **_source_ key** - [model 4](https://www.w3.org/TR/annotation-model/#specific-resources)",
+    "description": "True when no Specific Resource bodies or when none of the Specific Resource bodies include the source key. (Section 4)",
+    "type": "object",
+    "properties":
+    {
+        "body": 
+        {
+           "allOf": [
+                      { "not": { "$ref": "specificResource.json#/definitions/specificResourceBodyWithSource" } },
+                      { "items": { "not": { "$ref": "specificResource.json#/definitions/specificResourceBodyWithSource" } } }   
+                     ]                       
+         }
+     }
+}
