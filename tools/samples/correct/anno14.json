@@ -3,7 +3,7 @@
   "id": "http://example.org/anno14",
   "type": "Annotation",
   "creator": "http://example.org/user1",
-  "created":  "2015-01-28T12:00:00Z",
+  "created": "2015-01-28T12:00:00Z",
   "modified": "2015-01-29T09:00:00Z",
   "generator": "http://example.org/client1",
   "generated": "2015-02-04T12:00:00Z",
