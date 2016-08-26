@@ -551,7 +551,51 @@
         { "$ref": "#/definitions/textualBodyFound"},
         { "required": [ "source" ] }
         ] 
-    }
+    },
+    
+    "embeddedTextTypeIncludesTextualBody":
+    {
+        "properties":
+        {
+            "type":
+            {
+                "oneOf": 
+                [
+                    { "type": "string",
+                      "enum": ["TextualBody"] },
+                    { "type": "array",
+                      "minItems": 1,
+                      "not":
+                      { "items":
+                          { "not": { "enum": [ "TextualBody"] } }                          
+                      }
+                    }
+                ]
+            }
+        }
+    },
+    
+    "embeddedTextTypeIncludesText":
+    {
+        "properties":
+        {
+            "type":
+            {
+                "oneOf": 
+                [
+                    { "type": "string",
+                      "enum": ["Text"] },
+                    { "type": "array",
+                      "minItems": 1,
+                      "not":
+                      { "items":
+                          { "not": { "enum": [ "Text"] } }                          
+                      }
+                    }
+                ]
+            }
+        }
+    }    
 
   }
 }

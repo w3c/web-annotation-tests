@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "3.3.5-bodyETBPurpose.json",
+    "assertionType": "may",
+    "expectedResult": "valid",
+    "onUnexpectedResult" : "passAndContinue",
+    "errorMessage": "The description of an Embedded Textual Body may include purpoe key with one or more values that are each drawn from model's list of Motivations.",    
+    "title": "Implements **Embedded Textual Body _purpose_ key** with one or more values are each drawn from **model's list of Motivations** [model 3.3.5](https://www.w3.org/TR/annotation-model/#motivation-and-purpose)",
+    "description": "True when Annotation includes one or more Embedded Textual Bodies, one or more of which include purpose key with one or more values that are each drawn from model's list of Motivations. (Section 3.3.5)",
+    "type": "object",
+    "properties":
+    {
+        "body": 
+        {
+           "oneOf": [
+                      { "allOf": 
+                        [
+                         { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
+                         { "$ref": "otherProperties.json#/definitions/purposePropertyFound" }
+                         ]
+                       },
+                       { "not":
+                         {
+                           "items": 
+                            { "not":
+                               { "allOf": 
+                                [
+                                  { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/purposePropertyFound" }
+                                 ]
+                               }
+                             }     
+                         }                          
+                       }
+                     ]                       
+         }
+     }
+}

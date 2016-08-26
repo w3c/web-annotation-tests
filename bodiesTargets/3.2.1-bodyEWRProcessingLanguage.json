@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "3.2.1-bodyEWRProcessingLanguage.json",
+    "assertionType": "may",
+    "expectedResult": "valid",
+    "onUnexpectedResult" : "passAndContinue",
+    "errorMessage": "The description of an External Web Resource body may include processingLanguage key with a single value that is a language code.",    
+    "title": "Implements **External Web Resource body _processingLanguage_ key** with a **single value** that is a **language code** [model 3.2.1](https://www.w3.org/TR/annotation-model/#bodies-and-targets)",
+    "description": "True when Annotation includes one or more External Web Resource bodies, one or more of which include single processingLanguage key with a language code as value. (Section 3.2.1)",
+    "type": "object",
+    "properties":
+    {
+        "body": 
+        {
+           "oneOf": [
+                      { "allOf": 
+                        [
+                         { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
+                         { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" }
+                         ]
+                       },
+                       { "not":
+                         {
+                           "items": 
+                            { "not":
+                               { "allOf": 
+                                [
+                                  { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
+                                  { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" }
+                                 ]
+                               }
+                             }     
+                         }                          
+                       }
+                     ]                       
+         }
+     }
+}
