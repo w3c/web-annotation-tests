@@ -20,16 +20,16 @@
           "items": {
             "oneOf":
               [
-              {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
-              {"$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-              {"$ref": "bodyTarget.json#/definitions/textualBodyFound" },
+                {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+                {"$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
+                {"$ref": "bodyTarget.json#/definitions/textualBodyFound" },
                 {"$ref": "id.json#/definitions/stringUri" },
-                {"$ref" : "#/definitions/itemsDetected",
+                { "required" : ["items"],
                   "oneOf": [
                   { "$ref": "#/definitions/choiceTypeDefinition" },
                   { "$ref": "#/definitions/compositeTypeDefinition" },
                   { "$ref": "#/definitions/listTypeDefinition" },
-                    { "$ref": "#/definitions/independentsTypeDefinition" }
+                  { "$ref": "#/definitions/independentsTypeDefinition" }
                   ]
                 }
               ]

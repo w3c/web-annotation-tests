@@ -13,8 +13,8 @@
         "body": 
         {
            "allOf": [
-                      { "not": { "$ref": "specificResource.json#/definitions/specificResourceBodyWithSource" } },
-                      { "items": { "not": { "$ref": "specificResource.json#/definitions/specificResourceBodyWithSource" } } }   
+                      { "not": { "$ref": "specificResource.json#/definitions/specificResourceWithSource" } },
+                      { "items": { "not": { "$ref": "specificResource.json#/definitions/specificResourceWithSource" } } }   
                      ]                       
          }
      }

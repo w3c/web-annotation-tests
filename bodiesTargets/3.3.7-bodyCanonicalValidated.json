@@ -31,7 +31,7 @@
                         { "$ref": "id.json#/definitions/arraySingleStringUri" },
                         { "allOf": 
                            [
-                              { "$ref": "otherProperties.json#/definitions/canonical" },
+                              { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" },
                               { "$ref": "specificResource.json#/definitions/sourceWithCanonical" } 
                            ]
                         }
