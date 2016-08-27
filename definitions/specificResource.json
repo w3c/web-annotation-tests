@@ -1,4 +1,3 @@
-
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id" : "specificResource.json",
@@ -6,10 +5,10 @@
   "description": "Schemas in #/definitions detect or validate keys/objects used in describing Specific Resources (Section 4).",
   "definitions": {
 
-    "specificeResourceDetected":
+    "sourceDetected":
     {
-      "title": "Detection: Specific Resource",
-      "description": "True when object has exactly 1 source value and at least one of purpose, selector, state, styleClass, renderedVia, scope (Section 4)",
+      "title": "Detection: source",
+      "description": "True when object has exactly 1 source key value and that value is of format uri or an External Web Resource (Section 4)",
       "type": "object",
       "properties":
       {
@@ -17,22 +16,27 @@
         {
           "type": ["string", "object" ],
           "oneOf": [
-          { "$ref": "id.json#/definitions/stringUri" },
-          { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected"}
+             { "$ref": "id.json#/definitions/stringUri" },
+             { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected"}
           ]
         }
       },
-      "required": ["source"],
+      "required": ["source"]   
+    },
+
+    "specificeResourceDetected":
+    {
+      "title": "Detection: Specific Resource",
+      "description": "True when object has exactly 1 source value and at least one of purpose, selector, state, styleClass, renderedVia, scope (Section 4)",
+      "type": "object",
+      "$ref": "#/definitions/sourceDetected",
       "anyOf": [
-      { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent",
-        "required": ["purpose"]},
-      { "$ref": "#/definitions/selectorDetected" },
-        { "$ref": "#/definitions/stateDetected"}
-
-
-
-
-
+        { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent", "required": ["purpose"] },
+        { "$ref": "#/definitions/selectorDetected" },
+        { "$ref": "#/definitions/stateDetected" },
+        { "$ref": "#/definitions/styleClassDetected" },
+        { "$ref": "#/definitions/renderedViaDetected" },
+        { "$ref": "#/definitions/scopeDetected" }
       ]
     },
 
@@ -93,12 +97,9 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["FragmentSelector"] },
-          "value": { "type": "string" },
-          "conformsTo": { "type": "string",
-            "format": "uri"},
-            "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["FragmentSelector"] },
+        "value": { "type": "string" },
+        "conformsTo": { "type": "string", "format": "uri"}
       },
       "required": ["value", "type"]
     },
@@ -110,11 +111,9 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["CssSelector"] },
-          "value": { "type": "string" },
-          "id": { "$ref": "id.json#/definitions/arraySingleStringUri" },
-          "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["CssSelector"] },
+        "value": { "type": "string" },
+        "id": { "$ref": "id.json#/definitions/arraySingleStringUri" }
       },
       "required": [ "type"],
       "oneOf": [
@@ -130,11 +129,9 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["XPathSelector"] },
-          "value": { "type": "string" },
-          "id": { "$ref": "id.json#/definitions/arraySingleStringUri" },
-          "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["XPathSelector"] },
+        "value": { "type": "string" },
+        "id": { "$ref": "id.json#/definitions/arraySingleStringUri" }
       },
       "required": ["type"],
       "oneOf": [
@@ -150,12 +147,10 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["TextQuoteSelector"] },
-          "exact": { "type": "string" },
-          "prefix": { "type": "string"},
-          "suffix": { "type": "string"},
-          "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["TextQuoteSelector"] },
+        "exact": { "type": "string" },
+        "prefix": { "type": "string" },
+        "suffix": { "type": "string" }
       },
       "required": ["exact", "type"]
     },
@@ -167,13 +162,9 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["TextPositionSelector"] },
-          "start": { "type": "integer",
-            "minimum": 0 },
-            "end": { "type": "integer",
-              "minimum": 0 },
-              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["TextPositionSelector"] },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer","minimum": 0 }
       },
       "required": ["start", "end", "type"]
     },
@@ -185,13 +176,9 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["DataPositionSelector"] },
-          "start": { "type": "integer",
-            "minimum": 0 },
-            "end": { "type": "integer",
-              "minimum": 0 },
-              "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["DataPositionSelector"] },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 0 }
       },
       "required": ["start", "end", "type"]
     },
@@ -203,11 +190,9 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["SvgSelector"] },
-          "value": { "type": "string" },
-          "id": { "$ref": "id.json#/definitions/arraySingleStringUri" },
-          "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["SvgSelector"] },
+        "value": { "type": "string" },
+        "id": { "$ref": "id.json#/definitions/arraySingleStringUri" }
       },
       "required": ["type"],
       "oneOf": [
@@ -223,22 +208,20 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["RangeSelector"] },
-          "refinedBy" : { "$ref": "#/definitions/refinedByDetected"}
+        "type": { "type": "string", "enum": ["RangeSelector"] }
       },
       "patternProperties":
       {
         "^(startSelector|endSelector)$":
-        {    "type": "object",
+        { "type": "object",
           "oneOf": [
-          {"$ref": "#/definitions/fragmentSelectorDetected"},
-          {"$ref": "#/definitions/cssSelectorDetected"},
-          {"$ref": "#/definitions/xpathSelectorDetected"},
+            {"$ref": "#/definitions/fragmentSelectorDetected"},
+            {"$ref": "#/definitions/cssSelectorDetected"},
+            {"$ref": "#/definitions/xpathSelectorDetected"},
             {"$ref": "#/definitions/textQuoteSelectorDetected"},
             {"$ref": "#/definitions/textPositionSelectorDetected"},
-              {"$ref": "#/definitions/dataPositionSelectorDetected"},
-              {"$ref": "#/definitions/svgSelectorDetected"}
+            {"$ref": "#/definitions/dataPositionSelectorDetected"},
+            {"$ref": "#/definitions/svgSelectorDetected"}
           ]
         }
       },
@@ -251,16 +234,16 @@
       "description": "True when object is a refinedBy selelctor or state (Section 4.2.8)",
       "type": "object",
       "oneOf": [
-      {"$ref": "#/definitions/fragmentSelectorDetected"},
-      {"$ref": "#/definitions/cssSelectorDetected"},
-      {"$ref": "#/definitions/xpathSelectorDetected"},
+        {"$ref": "#/definitions/fragmentSelectorDetected"},
+        {"$ref": "#/definitions/cssSelectorDetected"},
+        {"$ref": "#/definitions/xpathSelectorDetected"},
         {"$ref": "#/definitions/textQuoteSelectorDetected"},
         {"$ref": "#/definitions/textPositionSelectorDetected"},
-          {"$ref": "#/definitions/dataPositionSelectorDetected"},
-          {"$ref": "#/definitions/rangeSelectorDetected"},
-            {"$ref": "#/definitions/svgSelectorDetected"},
-            {"$ref": "#/definitions/timeStateDetected"},
-              {"$ref": "#/definitions/requestHeaderStateDetected"}
+        {"$ref": "#/definitions/dataPositionSelectorDetected"},
+        {"$ref": "#/definitions/rangeSelectorDetected"},
+        {"$ref": "#/definitions/svgSelectorDetected"},
+        {"$ref": "#/definitions/timeStateDetected"},
+        {"$ref": "#/definitions/requestHeaderStateDetected"}
       ]
     },
 
@@ -274,30 +257,30 @@
         "state":
         {
           "oneOf": [
-          { "$ref": "id.json#/definitions/stringUri" },
-          { "type": "object",
-            "anyOf": [
-            {"$ref": "id.json#/definitions/idValueFound"},
-            {"$ref": "#/definitions/timeStateDetected"},
-            {"$ref": "#/definitions/requestHeaderStateDetected"}
-            ]
-          },
-          {
-            "type": "array",
-            "minItems": 1,
-            "items":
-            { "oneOf": [
-              { "$ref": "id.json#/definitions/stringUri" },
-              { "type": "object",
-                "anyOf": [
+            { "$ref": "id.json#/definitions/stringUri" },
+            { "type": "object",
+              "anyOf": [
                 {"$ref": "id.json#/definitions/idValueFound"},
                 {"$ref": "#/definitions/timeStateDetected"},
                 {"$ref": "#/definitions/requestHeaderStateDetected"}
+              ]
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items":
+              { "oneOf": [
+                 { "$ref": "id.json#/definitions/stringUri" },
+                 { "type": "object",
+                   "anyOf": [
+                     {"$ref": "id.json#/definitions/idValueFound"},
+                     {"$ref": "#/definitions/timeStateDetected"},
+                     {"$ref": "#/definitions/requestHeaderStateDetected"}
+                   ]
+                 }
                 ]
               }
-            ]
             }
-          }
           ]
         }
       }
@@ -310,28 +293,24 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["TimeState"] },
-          "sourceDate": { "oneOf": [
-            {"type": "string",
-              "format": "date-time"},
-            { "type": "array",
-              "minItems": 1,
-              "items":
-              {"type": "string",
-                "format": "date-time"}
-            }
-          ]
-          },
-          "sourceDateStart": { "type": "string",
-            "format": "date-time"},
-            "sourceDateEnd": { "type": "string",
-              "format": "date-time"},
-              "cached": { "type": "string",
-                "format": "uri"}
+         "type": { "type": "string", "enum": ["TimeState"] },
+         "sourceDate": 
+            { "oneOf": [
+              { "type": "string",
+                "format": "date-time"},
+              { "type": "array",
+                "minItems": 1,
+                "items":
+                  {"type": "string", "format": "date-time"}
+               }
+              ]
+            },
+          "sourceDateStart": { "type": "string", "format": "date-time"},
+          "sourceDateEnd": { "type": "string", "format": "date-time"},
+          "cached": { "type": "string", "format": "uri"}
       },
-      "required": ["type"],
-      "dependencies" :
+        "required": ["type"],
+        "dependencies" :
       {
         "sourceDateStart" : ["sourceDateEnd"],
         "sourceDateEnd": ["sourceDateStart"]
@@ -347,15 +326,14 @@
       "type": "object",
       "properties":
       {
-        "type": { "type": "string",
-          "enum": ["HttpRequestState"] },
+        "type": { "type": "string", "enum": ["HttpRequestState"] },
           "value": { "type": "string"}
       },
       "required": ["type", "value"]
     },
 
     "styleClassDefinition":
-    {   "$schema": "http://json-schema.org/draft-04/schema#",
+    { "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Definition: styleClass property value",
       "description": "True when the body/target has no styleClass property or has a styleClass property that is a string values (Section 4.4)",
       "type": "object",
@@ -365,16 +343,13 @@
     },
 
     "styleClassDetected":
-    {   "$schema": "http://json-schema.org/draft-04/schema#",
+    { "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Collate: styleClass key with qualifying body/target classes",
-      "description": "Supports implementation check of styleClass (if/when) used on Specific Resource Body or Textual Body (Sections 4.4)",
-      "oneOf": [
-      {"$ref": "specificResource.json#/definitions/specificeResourceDetected"},
-      {"$ref": "bodyTarget.json#/definitions/textualBodyFound"}
-      ],
+      "description": "Supports implementation check of styleClass (if/when) used on Specific Resource Targets (Sections 4.4)",
+      "$ref": "#/definitions/sourceDetected" ,
       "allOf": [
-      {"required": ["styleClass"]},
-      {"$ref": "#/definitions/styleClassDefinition"}
+         {"required": ["styleClass"]},
+         {"$ref": "#/definitions/styleClassDefinition"}
       ]
     },
 
@@ -407,16 +382,13 @@
     },
 
     "renderedViaDetected":
-    {   "$schema": "http://json-schema.org/draft-04/schema#",
+    { "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Collate: renderedVia key with qualifying body/target classes",
-      "description": "Supports implementation check of renderedVia (if/when) used on Specific Resource Body or Textual Body (Sections 4.4)",
-      "oneOf": [
-      {"$ref": "specificResource.json#/definitions/specificeResourceDetected"},
-      {"$ref": "bodyTarget.json#/definitions/textualBodyFound"}
-      ],
+      "description": "Supports implementation check of renderedVia (if/when) used on Specific Resource Targets (Sections 4.4)",
+      "$ref": "#/definitions/sourceDetected",
       "allOf": [
-      {"required": ["renderedVia"]},
-      {"$ref": "#/definitions/renderedViaDefinition"}
+         {"required": ["renderedVia"]},
+         {"$ref": "#/definitions/renderedViaDefinition"}
       ]
     },
 
@@ -444,14 +416,126 @@
     {   "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Collate: scope key with qualifying body/target classes",
       "description": "Supports implementation check of scope (if/when) used on Specific Resource Body (Sections 4.6)",
-      "oneOf": [
-      {"$ref": "specificResource.json#/definitions/specificeResourceDetected"}
-      ],
+      "$ref": "#/definitions/sourceDetected",
       "allOf": [
-      {"required": ["scope"]},
-      {"$ref": "#/definitions/scopeDefinition"}
+         {"required": ["scope"]},
+         {"$ref": "#/definitions/scopeDefinition"}
       ]
-    }
+    },
+        
+        "sourceWithCreated":
+        {
+            "type": "object",
+            "properties":
+            {
+                "source":
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
+                        { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }                        
+                    ]
+                }
+            }
+        },
+        
+       "sourceWithModified":
+        {
+            "type": "object",
+            "properties":
+            {
+                "source":
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
+                        { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" }                        
+                    ]
+                }
+            }
+        },
+        
+        "sourceWithRights":
+        {
+            "type": "object",
+            "properties":
+            {
+                "source":
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
+                        { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" }                        
+                    ]
+                }
+            }
+        },
+        
+       "sourceWithCanonical":
+        {
+            "type": "object",
+            "properties":
+            {
+                "source":
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
+                        { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" }                        
+                    ]
+                }
+            }
+        },         
+        
+       "sourceWithVia":
+        {
+            "type": "object",
+            "properties":
+            {
+                "source":
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
+                        { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" }                        
+                    ]
+                }
+            }
+        },
+        
+        "sourceWithTextDirection":
+        {
+            "type": "object",
+            "properties":
+            {
+                "source":
+                {
+                    "oneOf":
+                    [
+                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
+                        { "$ref": "bodyTarget.json#/definitions/textDirectionValidIfPresent" }                        
+                    ]
+                }
+            }            
+        },
+
+        "specificResourceWithItems" :
+        {
+            "allOf":
+               [
+                { "$ref": "#/definitions/specificeResourceDetected"},
+                { "required": [ "items" ] }
+               ] 
+        },
+
+        "specificResourceWithSource" :
+        {
+            "allOf":
+               [
+                { "$ref": "#/definitions/specificeResourceDetected"},
+                { "required": [ "source" ] }
+               ] 
+        }
 
   }
 }
