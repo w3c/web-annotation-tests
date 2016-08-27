@@ -1,3 +1,4 @@
+
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id" : "specificResource.json",
@@ -26,10 +27,12 @@
       { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent",
         "required": ["purpose"]},
       { "$ref": "#/definitions/selectorDetected" },
-        { "$ref": "#/definitions/stateDetected"},
-        { "$ref": "#/definitions/styleClassDetected" },
-                { "$ref": "#/definitions/renderedViaDetected" },
-                { "$ref": "#/definitions/scopeDetected" }
+        { "$ref": "#/definitions/stateDetected"}
+
+
+
+
+
       ]
     },
 
@@ -448,121 +451,7 @@
       {"required": ["scope"]},
       {"$ref": "#/definitions/scopeDefinition"}
       ]
-    },
-        
-        "sourceWithCreated":
-        {
-            "type": "object",
-            "properties":
-            {
-                "source":
-                {
-                    "oneOf":
-                    [
-                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "$ref": "otherProperties.json#/definitions/createdValidIfPresent" }                        
-                    ]
-                }
-            }
-        },
-        
-       "sourceWithModified":
-        {
-            "type": "object",
-            "properties":
-            {
-                "source":
-                {
-                    "oneOf":
-                    [
-                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" }                        
-                    ]
-                }
-            }
-        },
-        
-        "sourceWithRights":
-        {
-            "type": "object",
-            "properties":
-            {
-                "source":
-                {
-                    "oneOf":
-                    [
-                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" }                        
-                    ]
-                }
-            }
-        },
-        
-       "sourceWithCanonical":
-        {
-            "type": "object",
-            "properties":
-            {
-                "source":
-                {
-                    "oneOf":
-                    [
-                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" }                        
-                    ]
-                }
-            }
-        },         
-        
-       "sourceWithVia":
-        {
-            "type": "object",
-            "properties":
-            {
-                "source":
-                {
-                    "oneOf":
-                    [
-                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" }                        
-                    ]
-                }
-            }
-        },
-        
-        "sourceWithTextDirection":
-        {
-            "type": "object",
-            "properties":
-            {
-                "source":
-                {
-                    "oneOf":
-                    [
-                        { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "$ref": "bodyTarget.json#/definitions/textDirectionValidIfPresent" }                        
-                    ]
-                }
-            }            
-        },
-
-        "specificResourceWithItems" :
-        {
-            "allOf":
-               [
-                { "$ref": "#/definitions/specificeResourceDetected"},
-                { "required": [ "items" ] }
-               ] 
-        },
-
-        "specificResourceWithSource" :
-        {
-            "allOf":
-               [
-                { "$ref": "#/definitions/specificeResourceDetected"},
-                { "required": [ "source" ] }
-               ] 
-        }
+    }
 
   }
 }
