@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "3.2.1-bodyEWRProcessingLanguage.json",
+    "id": "3.2.1-bodyEWRTextDirection.json",
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
