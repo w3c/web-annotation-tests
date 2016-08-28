@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                         { "$ref": "bodyTarget.json#/definitions/singleLanguagePropertyFound" }
+                         { "$ref": "bodyTarget.json#/definitions/languageSingularIfPresent" },
+                         { "required": ["language"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                                  { "$ref": "bodyTarget.json#/definitions/singleLanguagePropertyFound" }
+                                  { "$ref": "bodyTarget.json#/definitions/languageSingularIfPresent" },
+                                  { "required": ["language"] }
                                  ]
                                }
                              }     

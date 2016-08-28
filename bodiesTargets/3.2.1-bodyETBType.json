@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                         { "$ref": "bodyTarget.json#/definitions/recognizedTypeFound" }
+                         { "$ref": "bodyTarget.json#/definitions/resourceTypeRecognizedIfPresent" },
+                         { "required": ["type"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                                  { "$ref": "bodyTarget.json#/definitions/recognizedTypeFound" }
+                                  { "$ref": "bodyTarget.json#/definitions/resourceTypeRecognizedIfPresent" },
+                                  { "required": ["type"] }
                                  ]
                                }
                              }     

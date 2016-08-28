@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                         { "$ref": "otherProperties.json#/definitions/rightsPropertyFound" }
+                         { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" },
+                         { "required": ["rights"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                                  { "$ref": "otherProperties.json#/definitions/rightsPropertyFound" }
+                                  { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" },
+                                  { "required": ["rights"] }
                                  ]
                                }
                              }     

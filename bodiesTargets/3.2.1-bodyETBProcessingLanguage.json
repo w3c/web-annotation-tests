@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                         { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" }
+                         { "$ref": "bodyTarget.json#/definitions/processingLanguageValidIfPresent" },
+                         { "required": ["processingLanguage"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                                  { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" }
+                                  { "$ref": "bodyTarget.json#/definitions/processingLanguageValidIfPresent" },
+                                  { "required": ["processingLanguage"] }
                                  ]
                                }
                              }     

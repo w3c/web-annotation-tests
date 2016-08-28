@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "3.3.1-bodyEWRModified.json",
+    "id": "3.3.1-bodyModified.json",
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
@@ -13,24 +13,11 @@
         "body": 
         {
            "oneOf": [
-                      { "allOf": 
-                        [
-                         { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                         { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" },
-                         { "required": ["modified"] }
-                         ]
-                       },
+                      { "$ref": "otherProperties.json#/definitions/modifiedPropertyFound" },
                        { "not":
-                         {
-                           "items": 
+                         { "items": 
                             { "not":
-                               { "allOf": 
-                                [
-                                  { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                                  { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent" },
-                                  { "required": ["modified"] }
-                                 ]
-                               }
+                               { "$ref": "otherProperties.json#/definitions/modifiedPropertyFound" }
                              }     
                          }                          
                        }

@@ -213,7 +213,7 @@
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Validation: body / target classes all from 3.2.2",
-      "description": "True when type absent or all type value(s) for body / target are from recommended list of classes (Section 3.2.2), or TextualBody",
+      "description": "Adds TextualBody to list from 3.2.2. True when type absent or all type value(s) for body / target are from recommended list of classes (Section 3.2.2), or TextualBody",
       "type": "object",
       "properties":
       {

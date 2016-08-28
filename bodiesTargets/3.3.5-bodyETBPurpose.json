@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                         { "$ref": "otherProperties.json#/definitions/purposePropertyFound" }
+                         { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent" },
+                         { "required": ["purpose"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                                  { "$ref": "otherProperties.json#/definitions/purposePropertyFound" }
+                                  { "$ref": "otherProperties.json#/definitions/purposeRecognizedIfPresent" },
+                                  { "required": ["purpose"] }
                                  ]
                                }
                              }     

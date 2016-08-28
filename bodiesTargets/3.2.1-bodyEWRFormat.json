@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                         { "$ref": "bodyTarget.json#/definitions/formatPropertyFound" }
+                         { "$ref": "bodyTarget.json#/definitions/formatValidIfPresent" },
+                         { "required": ["format"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                                  { "$ref": "bodyTarget.json#/definitions/formatPropertyFound" }
+                                  { "$ref": "bodyTarget.json#/definitions/formatValidIfPresent" },
+                                  { "required": ["format"] }
                                  ]
                                }
                              }     

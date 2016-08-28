@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                         { "$ref": "otherProperties.json#/definitions/audiencePropertyFound" }
+                         { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" },
+                         { "required": ["audience"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
-                                  { "$ref": "otherProperties.json#/definitions/audiencePropertyFound" }
+                                  { "$ref": "otherProperties.json#/definitions/audienceValidIfPresent" },
+                                  { "required": ["audience"] }
                                  ]
                                }
                              }     
