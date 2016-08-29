@@ -13,11 +13,21 @@
         "body": 
         {
            "oneOf": [
-                      { "$ref": "otherProperties.json#/definitions/canonicalPropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "otherProperties.json#/definitions/canonicalPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/itemCanonicalPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/sourceCanonicalPropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               {  "$ref": "otherProperties.json#/definitions/canonicalPropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "otherProperties.json#/definitions/canonicalPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/itemCanonicalPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/sourceCanonicalPropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }

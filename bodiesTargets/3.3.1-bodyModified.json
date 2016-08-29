@@ -13,11 +13,21 @@
         "body": 
         {
            "oneOf": [
-                      { "$ref": "otherProperties.json#/definitions/modifiedPropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "otherProperties.json#/definitions/modifiedPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/itemModifiedPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/sourceModifiedPropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "otherProperties.json#/definitions/modifiedPropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "otherProperties.json#/definitions/modifiedPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/itemModifiedPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/sourceModifiedPropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }

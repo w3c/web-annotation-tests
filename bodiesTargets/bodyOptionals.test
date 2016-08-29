@@ -20,7 +20,7 @@
     "bodiesTargets/3.2.1-bodyFormat.json",
     "bodiesTargets/3.2.1-bodyLanguage.json",
     "bodiesTargets/3.3.1-bodyCreator.json",
-    "bodiesTargets/3.2.1-bodyType.json",
+    "bodiesTargets/3.2.2-bodyType.json",
     "bodiesTargets/3.2.1-bodyProcessingLanguage.json",
     "bodiesTargets/3.2.1-bodyTextDirection.json",    
     "bodiesTargets/3.3.1-bodyModified.json",
@@ -30,6 +30,8 @@
     "bodiesTargets/3.3.6-bodyRights.json",
     "bodiesTargets/3.3.7-bodyCanonical.json",
     "bodiesTargets/3.3.7-bodyVia.json",
+    "bodiesTargets/4.4-bodyStyleClass.json",
+    "bodiesTargets/4.5-bodyRenderedVia.json",
     "bodiesTargets/3.2.4-bodyETBTypeText.json"
   ]
 }

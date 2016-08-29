@@ -13,14 +13,25 @@
         "body": 
         {
            "oneOf": [
-                      { "$ref": "otherProperties.json#/definitions/createdPropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "otherProperties.json#/definitions/createdPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/itemCreatedPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/sourceCreatedPropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "otherProperties.json#/definitions/createdPropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "otherProperties.json#/definitions/createdPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/itemCreatedPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/sourceCreatedPropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }
+
                      ]                       
          }
      }

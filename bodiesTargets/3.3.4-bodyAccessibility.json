@@ -13,14 +13,25 @@
         "body": 
         {
            "oneOf": [
-                      {  "$ref": "otherProperties.json#/definitions/accessibilityPropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "otherProperties.json#/definitions/accessibilityPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/itemAccessibilityPropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/sourceAccessibilityPropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "otherProperties.json#/definitions/accessibilityPropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "otherProperties.json#/definitions/accessibilityPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/itemAccessibilityPropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/sourceAccessibilityPropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }
+
                      ]                       
          }
      }

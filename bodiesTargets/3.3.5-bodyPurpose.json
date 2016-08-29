@@ -13,14 +13,23 @@
         "body": 
         {
            "oneOf": [
-                      { "$ref": "otherProperties.json#/definitions/purposePropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "otherProperties.json#/definitions/purposePropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/itemPurposePropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "otherProperties.json#/definitions/purposePropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "otherProperties.json#/definitions/purposePropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/itemPurposePropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }
+
                      ]                       
          }
      }

@@ -13,11 +13,21 @@
         "body": 
         {
            "oneOf": [
-                      { "$ref": "otherProperties.json#/definitions/audiencePropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "otherProperties.json#/definitions/audiencePropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/itemAudiencePropertyFound" },
+                        { "$ref": "otherProperties.json#/definitions/sourceAudiencePropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               {  "$ref": "otherProperties.json#/definitions/audiencePropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "otherProperties.json#/definitions/audiencePropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/itemAudiencePropertyFound" },
+                                  { "$ref": "otherProperties.json#/definitions/sourceAudiencePropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }

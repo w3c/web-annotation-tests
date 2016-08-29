@@ -13,11 +13,19 @@
         "body": 
         {
            "oneOf": [
-                      { "$ref": "specificResource.json#/definitions/styleClassDetected" },
+                      { "anyOf": [
+                        { "$ref": "otherProperties.json#/definitions/styleClassDetected" },
+                        { "$ref": "otherProperties.json#/definitions/itemStyleClassPropertyDetected" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "specificResource.json#/definitions/styleClassDetected" }
+                               { "anyOf": [
+                                  { "$ref": "otherProperties.json#/definitions/styleClassDetected" },
+                                  { "$ref": "otherProperties.json#/definitions/itemStyleClassPropertyDetected" }
+                                 ]
+                               }
                              }     
                          }                          
                        }
