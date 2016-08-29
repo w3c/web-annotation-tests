@@ -16,7 +16,8 @@
                       { "allOf": 
                         [
                          { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                         { "$ref": "otherProperties.json#/definitions/canonicalPropertyFound" }
+                         { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" },
+                         { "required": ["canonical"] }
                          ]
                        },
                        { "not":
@@ -26,7 +27,8 @@
                                { "allOf": 
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                                  { "$ref": "otherProperties.json#/definitions/canonicalPropertyFound" }
+                                  { "$ref": "otherProperties.json#/definitions/canonicalValidIfPresent" },
+                                  { "required": ["canonical"] }
                                  ]
                                }
                              }     

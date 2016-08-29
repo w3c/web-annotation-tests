@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "3.2.4-bodyETBTypeText.json",
-    "assertionType": "should",
+    "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "The description of an Embedded Textual Body should include type key which includes the value of Text.",    
