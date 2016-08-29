@@ -13,11 +13,11 @@
         "body": 
         {
            "oneOf": [
-                      {  "$ref": "bodyTarget.json#/definitions/creatorPropertyFound"},
+                      {  "$ref": "otherProperties.json#/definitions/creatorPropertyFound"},
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "bodyTarget.json#/definitions/creatorPropertyFound"}
+                               { "$ref": "otherProperties.json#/definitions/creatorPropertyFound"}
                              }     
                          }                          
                        }
