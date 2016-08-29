@@ -383,10 +383,10 @@
     { "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Collate: styleClass key with qualifying body/target classes",
       "description": "Supports implementation check of styleClass (if/when) used on Specific Resources (Sections 4.4)",
-      "$ref": "#/definitions/sourceDetected" ,
       "allOf": [
-         {"required": ["styleClass"]},
-         {"$ref": "#/definitions/styleClassDefinition"}
+         { "$ref": "#/definitions/sourceDetected" },
+         { "required": ["styleClass"]},
+         { "$ref": "#/definitions/styleClassDefinition"}
       ]
     },
 
@@ -444,10 +444,10 @@
     { "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Collate: renderedVia key with qualifying body/target classes",
       "description": "Supports implementation check of renderedVia (if/when) used on Specific Resources (Sections 4.4)",
-      "$ref": "#/definitions/sourceDetected",
       "allOf": [
-         {"required": ["renderedVia"]},
-         {"$ref": "#/definitions/renderedViaDefinition"}
+         { "$ref": "#/definitions/sourceDetected" },      
+         { "required": ["renderedVia"] },
+         { "$ref": "#/definitions/renderedViaDefinition" }
       ]
     },
 

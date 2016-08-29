@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "The description of a Specific Resource body  may include renderedVia key with one or more values.",    
-    "title": "Implements **Specific Resource Body _renderedVia_ key** which has one or more values - [model 4.4](https://www.w3.org/TR/annotation-model/#styles)",
+    "title": "Implements **Specific Resource Body _renderedVia_ key** which has one or more values - [model 4.5](https://www.w3.org/TR/annotation-model/#rendering-software)",
     "description": "True when Annotation includes one or more Specific Resource bodies, one or more of which include renderedVia key with one or more values. (Section 4.4)",
     "type": "object",
     "properties":
