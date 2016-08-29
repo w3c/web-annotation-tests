@@ -14,16 +14,16 @@
         {
            "oneOf": [
                       { "anyOf": [
-                        { "$ref": "otherProperties.json#/definitions/styleClassDetected" },
-                        { "$ref": "otherProperties.json#/definitions/itemStyleClassPropertyDetected" }
+                        { "$ref": "specificResource.json#/definitions/styleClassDetected" },
+                        { "$ref": "specificResource.json#/definitions/itemStyleClassPropertyDetected" }
                         ]
                       },
                        { "not":
                          { "items": 
                             { "not":
                                { "anyOf": [
-                                  { "$ref": "otherProperties.json#/definitions/styleClassDetected" },
-                                  { "$ref": "otherProperties.json#/definitions/itemStyleClassPropertyDetected" }
+                                  { "$ref": "specificResource.json#/definitions/styleClassDetected" },
+                                  { "$ref": "specificResource.json#/definitions/itemStyleClassPropertyDetected" }
                                  ]
                                }
                              }     

@@ -14,16 +14,16 @@
         {
            "oneOf": [
                       { "anyOf": [
-                        { "$ref": "otherProperties.json#/definitions/renderedViaDetected" },
-                        { "$ref": "otherProperties.json#/definitions/itemRenderedViaPropertyDetected" }
+                        { "$ref": "specificResource.json#/definitions/renderedViaDetected" },
+                        { "$ref": "specificResource.json#/definitions/itemRenderedViaPropertyDetected" }
                         ]
                       },
                        { "not":
                          { "items": 
                             { "not":
                                { "anyOf": [
-                                  { "$ref": "otherProperties.json#/definitions/renderedViaDetected" },
-                                  { "$ref": "otherProperties.json#/definitions/itemRenderedViaPropertyDetected" }
+                                  { "$ref": "specificResource.json#/definitions/renderedViaDetected" },
+                                  { "$ref": "specificResource.json#/definitions/itemRenderedViaPropertyDetected" }
                                  ]
                                }
                              }     
