@@ -252,6 +252,46 @@
 
     },
 
+    "itemRecognizedTypeFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having type key with qualifying body/target classes",
+      "description": "Supports implementation check of items having type (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/recognizedTypeFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
+    "sourceRecognizedTypeFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: Specific Resource source having type key",
+      "description": "Supports implementation check of type (if/when) used on Specific Resource source (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "source": 
+          {
+              "type": "object",
+              "required": ["type"] ,
+              "$ref": "#/definitions/resourceTypeRecognizedIfPresent" 
+          }
+      },
+      "required": ["source"]      
+    },
+
     "formatValueCheck":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -323,6 +363,46 @@
         ]
     },
 
+    "itemFormatPropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having format key with qualifying body/target classes",
+      "description": "Supports implementation check of items having format (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/formatPropertyFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
+    "sourceFormatPropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: Specific Resource source having format key",
+      "description": "Supports implementation check of format (if/when) used on Specific Resource source (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "source": 
+          {
+              "type": "object",
+              "required": ["format"] ,
+              "$ref": "#/definitions/formatValidIfPresent" 
+          }
+      },
+      "required": ["source"]      
+    },
+
     "singleFormatPropertyFound":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -339,6 +419,46 @@
         { "required": ["format"] },
         { "$ref": "#/definitions/formatSingularIfPresent" }
         ]
+    },
+
+    "itemSingleFormatPropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having singular format key with qualifying body/target classes",
+      "description": "Supports implementation check of items having singular format (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/singleFormatPropertyFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
+    "sourceSingleFormatPropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: Specific Resource source having single format key value",
+      "description": "Supports implementation check of singular format (if/when) used on Specific Resource source (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "source": 
+          {
+              "type": "object",
+              "required": ["format"] ,
+              "$ref": "#/definitions/formatSingularIfPresent" 
+          }
+      },
+      "required": ["source"]      
     },
 
     "languageValueCheck" :
@@ -417,6 +537,46 @@
         ]
     },
 
+    "itemLanguagePropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having language key with qualifying body/target classes",
+      "description": "Supports implementation check of items having language (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/languagePropertyFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
+    "sourceLanguagePropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: Specific Resource source having language key",
+      "description": "Supports implementation check of language (if/when) used on Specific Resource source (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "source": 
+          {
+              "type": "object",
+              "required": ["language"] ,
+              "$ref": "#/definitions/languageValidIfPresent" 
+          }
+      },
+      "required": ["source"]      
+    },
+
     "singleLanguagePropertyFound":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -433,6 +593,46 @@
         { "required": ["language"] },
         { "$ref": "#/definitions/languageSingularIfPresent" }
         ]
+    },
+
+    "itemSingleLanguagePropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having singular language key with qualifying body/target classes",
+      "description": "Supports implementation check of items having singular language (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/singleLanguagePropertyFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
+    "sourceSingleLanguagePropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: Specific Resource source having single language key value",
+      "description": "Supports implementation check of singular language (if/when) used on Specific Resource source (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "source": 
+          {
+              "type": "object",
+              "required": ["language"] ,
+              "$ref": "#/definitions/languageSingularIfPresent" 
+          }
+      },
+      "required": ["source"]      
     },
 
     "processingLanguageValidIfPresent":
@@ -475,6 +675,46 @@
         ]
     },
 
+    "itemProcessingLanguagePropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having processingLanguage key with qualifying body/target classes",
+      "description": "Supports implementation check of items having processingLanguage (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/processingLanguagePropertyFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
+    "sourceProcessingLanguagePropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: Specific Resource source having processingLanguage key",
+      "description": "Supports implementation check of processingLanguage (if/when) used on Specific Resource source (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "source": 
+          {
+              "type": "object",
+              "required": ["processingLanguage"] ,
+              "$ref": "#/definitions/processingLanguageValidIfPresent" 
+          }
+      },
+      "required": ["source"]      
+    },
+
     "textDirectionValidIfPresent":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -515,6 +755,46 @@
         { "required": ["textDirection" ] },
         { "$ref": "#/definitions/textDirectionValidIfPresent" }
         ]
+    },
+
+    "itemTextDirectionPropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having textDirection key with qualifying body/target classes",
+      "description": "Supports implementation check of items having textDirection (if/when) used on External Web Resources, Specific Resources, Textual Body Resources (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/textDirectionPropertyFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
+    "sourceTextDirectionPropertyFound":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: Specific Resource source having textDirection key",
+      "description": "Supports implementation check of textDirection (if/when) used on Specific Resource source (Sections 3.2.1-6, 3.3)",
+      "type": "object",
+      "properties":
+      {
+          "source": 
+          {
+              "type": "object",
+              "required": ["textDirection"] ,
+              "$ref": "#/definitions/textDirectionValidIfPresent" 
+          }
+      },
+      "required": ["source"]      
     },
 
     "ewrWithItems" :

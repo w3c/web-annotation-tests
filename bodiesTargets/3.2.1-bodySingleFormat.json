@@ -13,12 +13,22 @@
         "body": 
         {
            "oneOf": [
-                      {  "$ref": "bodyTarget.json#/definitions/singleFormatPropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "bodyTarget.json#/definitions/singleFormatPropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/itemSingleFormatPropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/sourceSingleFormatPropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "bodyTarget.json#/definitions/singleFormatPropertyFound" }
-                             }
+                               { "anyOf": [
+                                  { "$ref": "bodyTarget.json#/definitions/singleFormatPropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/itemSingleFormatPropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/sourceSingleFormatPropertyFound" }
+                                 ]
+                               }
+                             }     
                          }                          
                        }
                      ]                       

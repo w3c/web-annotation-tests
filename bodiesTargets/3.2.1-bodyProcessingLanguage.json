@@ -13,11 +13,21 @@
         "body": 
         {
            "oneOf": [
-                      {  "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" },
-                      { "not":
+                      { "anyOf": [
+                        { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/itemProcessingLanguagePropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/sourceProcessingLanguagePropertyFound" }
+                        ]
+                      },
+                       { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/itemProcessingLanguagePropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/sourceProcessingLanguagePropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }

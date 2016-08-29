@@ -13,11 +13,21 @@
         "body": 
         {
            "oneOf": [
-                      {  "$ref": "bodyTarget.json#/definitions/textDirectionPropertyFound" },
-                      { "not":
+                      { "anyOf": [
+                        { "$ref": "bodyTarget.json#/definitions/textDirectionPropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/itemTextDirectionPropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/sourceTextDirectionPropertyFound" }
+                        ]
+                      },
+                       { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "bodyTarget.json#/definitions/textDirectionPropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "bodyTarget.json#/definitions/textDirectionPropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/itemTextDirectionPropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/sourceTextDirectionPropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }

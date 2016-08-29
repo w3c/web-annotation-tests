@@ -13,11 +13,21 @@
         "body": 
         {
            "oneOf": [
-                      { "$ref": "bodyTarget.json#/definitions/formatPropertyFound" },
+                      { "anyOf": [
+                        { "$ref": "bodyTarget.json#/definitions/formatPropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/itemFormatPropertyFound" },
+                        { "$ref": "bodyTarget.json#/definitions/sourceFormatPropertyFound" }
+                        ]
+                      },
                        { "not":
                          { "items": 
                             { "not":
-                               { "$ref": "bodyTarget.json#/definitions/formatPropertyFound" }
+                               { "anyOf": [
+                                  { "$ref": "bodyTarget.json#/definitions/formatPropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/itemFormatPropertyFound" },
+                                  { "$ref": "bodyTarget.json#/definitions/sourceFormatPropertyFound" }
+                                 ]
+                               }
                              }     
                          }                          
                        }
