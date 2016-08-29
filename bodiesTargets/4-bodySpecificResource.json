@@ -12,14 +12,19 @@
     {
         "body": 
         {
-           "oneOf": [
+           "anyOf": [
                       { "$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+                      { "$ref": "specificResource.json#/definitions/itemSpecificResourceDetected"},
                       { "not":
                          {
                            "items": 
                             { "not":
-                                  { "$ref": "specificResource.json#/definitions/specificeResourceDetected" }
-                            }     
+                               { "anyOf": [
+                                  { "$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+                                  { "$ref": "specificResource.json#/definitions/itemSpecificResourceDetected"}
+                                 ]
+                               }
+                            }                               
                           }                          
                       }
                      ]                       
