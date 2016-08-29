@@ -390,6 +390,28 @@
       ]
     },
 
+    "itemStyleClassPropertyDetected":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having styleClass key with qualifying body/target classes",
+      "description": "Supports implementation check of items having styleClass (if/when) used on Specific Resources (Sections 4.4)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/styleClassDetected" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },
+
     "renderedViaDefinition":
     {   "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Definition: renderedVia property value",
@@ -427,6 +449,28 @@
          {"required": ["renderedVia"]},
          {"$ref": "#/definitions/renderedViaDefinition"}
       ]
+    },
+
+    "itemRenderedViaPropertyDetected":
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "Collate: items having renderedVia key with qualifying body/target classes",
+      "description": "Supports implementation check of items having renderedVia (if/when) used on Specific Resources (Sections 4.4)",
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/renderedViaDetected" } }
+              }
+          }
+      },
+      "required": ["items"]      
     },
 
     "scopeDefinition":
