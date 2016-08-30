@@ -18,7 +18,7 @@
                       { "$ref": "bodyTarget.json#/definitions/sourceEwrDetected"  },
                       { "not": { "items": { "not": { "$ref": "bodyTarget.json#/definitions/sourceEwrDetected" } } } },
                       { "$ref": "bodyTarget.json#/definitions/itemEwrDetected"  },
-                      { "not": { "items": { "not": { "$ref": "bodyTarget.json#/definitions/itemEwrDetected" } } } },
+                      { "not": { "items": { "not": { "$ref": "bodyTarget.json#/definitions/itemEwrDetected" } } } }
                      ]                                }
          }
      }
