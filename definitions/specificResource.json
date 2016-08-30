@@ -616,15 +616,45 @@
                ] 
         },
 
-        "specificResourceWithSource" :
+    "itemSRWithItems":
+    {
+      "type": "object",
+      "properties":
         {
-           "description": "True if both value and items keys are present.",
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/specificResourceWithItems" } } }
+          }
+        },
+      "required": ["items"]
+    },    
+
+        "specificResourceWithValue" :
+        {
+           "description": "True if both source and value keys are present.",
             "allOf":
                [
                 { "$ref": "#/definitions/sourceDetected"},
-                { "required": [ "source" ] }
+                { "required": [ "value" ] }
                ] 
-        }
+        },
+        
+    "itemSRWithValue":
+    {
+      "type": "object",
+      "properties":
+        {
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/specificResourceWithValue" } } }
+          }
+        },
+      "required": ["items"]
+    }        
 
   }
 }

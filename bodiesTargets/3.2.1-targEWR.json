@@ -12,17 +12,14 @@
     {
         "target": 
         {
-           "oneOf": [
-                      { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
-                      { "not":
-                         {
-                           "items": 
-                            { "not":
-                                  { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" }
-                            }     
-                          }                          
-                      }
-                     ]                       
+           "anyOf": [
+                      { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected"  },
+                      { "not": { "items": { "not": { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" } } } },
+                      { "$ref": "bodyTarget.json#/definitions/sourceEwrDetected"  },
+                      { "not": { "items": { "not": { "$ref": "bodyTarget.json#/definitions/sourceEwrDetected" } } } },
+                      { "$ref": "bodyTarget.json#/definitions/itemEwrDetected"  },
+                      { "not": { "items": { "not": { "$ref": "bodyTarget.json#/definitions/itemEwrDetected" } } } },
+                     ]                                }
          }
      }
 }

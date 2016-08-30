@@ -14,7 +14,11 @@
         {
            "allOf": [
                       { "not": { "$ref": "bodyTarget.json#/definitions/ewrWithItems" } },
-                      { "items": { "not": { "$ref": "bodyTarget.json#/definitions/ewrWithItems" } } }   
+                      { "items": { "not": { "$ref": "bodyTarget.json#/definitions/ewrWithItems" } } },
+                      { "not": { "$ref": "bodyTarget.json#/definitions/sourceEwrWithItems" } },
+                      { "items": { "not": { "$ref": "bodyTarget.json#/definitions/sourceEwrWithItems" } } },
+                      { "not": { "$ref": "bodyTarget.json#/definitions/itemEwrWithItems" }  },
+                      { "items": { "not": { "$ref": "bodyTarget.json#/definitions/itemEwrWithItems" } } }
                      ]                       
          }
      }

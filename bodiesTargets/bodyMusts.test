@@ -20,6 +20,6 @@
     "bodiesTargets/3.2.7-bodyEmbeddedTextualNoItems.json",
     "bodiesTargets/4-bodyEmbeddedTextualNoSource.json",
     "bodiesTargets/3.2.7-bodySpecificResourceNoItems.json",
-    "bodiesTargets/4-bodySpecificResourceNoSource.json"
+    "bodiesTargets/4-bodySpecificResourceNoValue.json"
   ]
 }

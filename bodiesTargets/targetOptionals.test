@@ -1,7 +1,7 @@
 {
   "@context": "https://www.w3.org/ns/JSONtest-v1.jsonld",
-  "name": "Bodies implement optional keys and meet optional key value constraints",
-  "description": "Bodies of Web Annotations: <ul> <li>Should include certain properties (keys)</li> <li>May include additional keys</li> <li>should have Annotation key values that conform to model recommended constraints</li> </ul> Note: failing an assertion indicates that a recommended or optional feature has not been implemented or has not been implemented correctly.",
+  "name": "Targets implement optional keys and meet optional key value constraints",
+  "description": "Targets of Web Annotations: <ul> <li>Should include certain properties (keys)</li> <li>May include additional keys</li> <li>should have Annotation key values that conform to model recommended constraints</li> </ul> Note: failing an assertion indicates that a recommended or optional feature has not been implemented or has not been implemented correctly.",
   "testType": "manual",
   "ref": "https://www.w3.org/TR/annotation-model/#bodies-and-targets",
   "assertions": [

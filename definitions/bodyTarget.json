@@ -22,6 +22,29 @@
       }
     },
 
+    "sourceEwrDetected":
+    {
+      "type": "object",
+      "properties":
+        {
+          "source": {"$ref": "#/definitions/externalWebResourceDetected"}
+        }
+    },    
+
+    "itemEwrDetected":
+    {
+      "type": "object",
+      "properties":
+        {
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/externalWebResourceDetected" } } }
+          }
+        }
+    },    
+
     "textualBodyFound" :
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -37,6 +60,20 @@
       },
       "required": [ "value" ]
     } ,
+
+    "itemETBDetected":
+    {
+      "type": "object",
+      "properties":
+        {
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/textualBodyFound" } } }
+          }
+        }
+    },    
 
     "targetResourcesFound" :
     {
@@ -798,13 +835,39 @@
     },
 
     "ewrWithItems" :
-    {
+    { 
+      "type": "object",
       "allOf":
         [
         { "$ref": "#/definitions/externalWebResourceDetected"},
         { "required": [ "items" ] }
         ] 
     },
+    
+    "sourceEwrWithItems":
+    {
+      "type": "object",
+      "properties":
+        {
+          "source": {"$ref": "#/definitions/ewrWithItems"}
+        },
+      "required": ["source"]
+    },    
+
+    "itemEwrWithItems":
+    {
+      "type": "object",
+      "properties":
+        {
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/ewrWithItems" } } }
+          }
+        },
+      "required": ["items"]
+    },    
 
     "ewrWithPurpose" :
     {
@@ -815,6 +878,31 @@
         ] 
     },
 
+    "sourceEwrWithPurpose":
+    {
+      "type": "object",
+      "properties":
+        {
+          "source": {"$ref": "#/definitions/ewrWithPurpose"}
+        },
+      "required": ["source"]
+    },    
+
+    "itemEwrWithPurpose":
+    {
+      "type": "object",
+      "properties":
+        {
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/ewrWithPurpose" } } }
+          }
+        },
+      "required": ["items"]
+    },    
+
     "embeddedTextualBodyWithItems" :
     {
       "allOf":
@@ -823,6 +911,21 @@
         { "required": [ "items" ] }
         ] 
     },
+
+    "itemETBWithItems":
+    {
+      "type": "object",
+      "properties":
+        {
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/embeddedTextualBodyWithItems" } } }
+          }
+        },
+      "required": ["items"]
+    },    
 
     "embeddedTextualBodyWithSource" :
     {
@@ -833,49 +936,114 @@
         ] 
     },
     
+    "itemETBWithSource":
+    {
+      "type": "object",
+      "properties":
+        {
+          "items": {
+             "type": "array",
+             "minItems": 1,
+             "not": 
+                { "items": {"not": { "$ref": "#/definitions/embeddedTextualBodyWithSource" } } }
+          }
+        },
+      "required": ["items"]
+    },    
+
     "embeddedTextTypeIncludesTextualBody":
     {
+        "allOf":
+        [
+          { "$ref": "#/definitions/textualBodyFound" }, 
+          { "required": ["type"] }, 
+          { "properties":
+           {
+               "type":
+               {
+                   "oneOf": 
+                   [
+                       { "type": "string",
+                         "enum": ["TextualBody"] },
+                       { "type": "array",
+                         "minItems": 1,
+                         "not":
+                         { "items":
+                             { "not": { "enum": [ "TextualBody"] } }                          
+                         }
+                       }
+                   ]
+               }
+           }
+          }
+        ]
+    }, 
+    
+    "itemEmbeddedTextTypeIncludesTextualBody":
+    {
+        "type": "object",
         "properties":
         {
-            "type":
-            {
-                "oneOf": 
-                [
-                    { "type": "string",
-                      "enum": ["TextualBody"] },
-                    { "type": "array",
-                      "minItems": 1,
-                      "not":
-                      { "items":
-                          { "not": { "enum": [ "TextualBody"] } }                          
-                      }
-                    }
-                ]
-            }
-        }
+           "items":
+           {
+               "type": "array",
+               "minItems": 1,
+               "not":
+                 {
+                   "items":
+                    { "not": { "$ref": "#/definitions/embeddedTextTypeIncludesTextualBody" } }
+                 }
+           }
+        },
+        "required": ["items"]
     },
     
     "embeddedTextTypeIncludesText":
     {
+        "allOf":
+        [
+          { "$ref": "#/definitions/textualBodyFound" }, 
+          { "required": ["type"] }, 
+          { "properties":
+            {
+               "type":
+               {
+                   "oneOf": 
+                   [
+                       { "type": "string",
+                         "enum": ["Text"] },
+                       { "type": "array",
+                         "minItems": 1,
+                         "not":
+                         { "items":
+                             { "not": { "enum": [ "Text"] } }                          
+                         }
+                       }
+                   ]
+               }
+            }
+          }
+        ]
+    },
+
+    "itemEmbeddedTextTypeIncludesText":
+    {
+        "type": "object",
         "properties":
         {
-            "type":
-            {
-                "oneOf": 
-                [
-                    { "type": "string",
-                      "enum": ["Text"] },
-                    { "type": "array",
-                      "minItems": 1,
-                      "not":
-                      { "items":
-                          { "not": { "enum": [ "Text"] } }                          
-                      }
-                    }
-                ]
-            }
-        }
-    }    
+           "items":
+           {
+               "type": "array",
+               "minItems": 1,
+               "not":
+                 {
+                   "items":
+                    { "not": { "$ref": "#/definitions/embeddedTextTypeIncludesText" } }
+                 }
+           }
+        },
+        "required": ["items"]
+    }
 
   }
 }
