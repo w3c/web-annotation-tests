@@ -844,6 +844,53 @@
       },
       "required": ["items"]      
     },
+    
+    "creatorAgentWithIdFound":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "id.json#/definitions/idValueFound" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "id.json#/definitions/idValueFound" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithIdFound":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithIdFound" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithIdFound":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithIdFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },        
 
     "agentTypeDefinition":
     {
@@ -885,6 +932,53 @@
       {"$ref": "#/definitions/agentTypeDefinition"}
       ]
     },
+    
+    "creatorAgentWithTypeFound":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "#/definitions/agentTypeFound" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "#/definitions/agentTypeFound" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithTypeFound":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithTypeFound" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithTypeFound":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithTypeFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },        
 
     "agentNameDefinition":
     {
@@ -942,6 +1036,53 @@
       ]
     },
 
+    "creatorAgentWithNameFound":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "#/definitions/agentNameFound" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "#/definitions/agentNameFound" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithNameFound":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithNameFound" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithNameFound":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithNameFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },        
+
     "agentSingularNameFound":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -952,6 +1093,53 @@
       {"$ref": "#/definitions/agentSingularNameDefinition"}
       ]
     },
+
+    "creatorAgentWithSingularNameFound":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "#/definitions/agentSingularNameFound" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "#/definitions/agentSingularNameFound" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithSingularNameFound":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithSingularNameFound" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithSingularNameFound":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithSingularNameFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },        
 
     "agentSingularNicknameDefinition":
     {
@@ -986,6 +1174,53 @@
       {"$ref": "#/definitions/agentSingularNicknameDefinition"}
       ]
     },
+
+    "creatorAgentWithSingularNicknameFound":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "#/definitions/agentSingularNicknameFound" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "#/definitions/agentSingularNicknameFound" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithSingularNicknameFound":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithSingularNicknameFound" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithSingularNicknameFound":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithSingularNicknameFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },        
 
     "agentEmailDefinition":
     {
@@ -1024,6 +1259,53 @@
       ]
     },
 
+    "creatorAgentWithEmailFound":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "#/definitions/agentEmailFound" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "#/definitions/agentEmailFound" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithEmailFound":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithEmailFound" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithEmailFound":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithEmailFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },        
+
     "agentEmail_sha1Definition":
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -1056,6 +1338,53 @@
       {"$ref": "#/definitions/agentEmail_sha1Definition"}
       ]
     },
+
+    "creatorAgentWithEmail_sha1Found":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "#/definitions/agentEmail_sha1Found" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "#/definitions/agentEmail_sha1Found" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithEmail_sha1Found":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithEmail_sha1Found" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithEmail_sha1Found":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithEmail_sha1Found" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    },        
 
     "agentHomepageDefinition":
     {
@@ -1090,7 +1419,54 @@
       {"required": ["homepage"]},
       {"$ref": "#/definitions/agentHomepageDefinition"}
       ]
-    }
+    },
+
+    "creatorAgentWithHomepageFound":
+    { "type": "object",
+      "properties":
+      {  "creator":
+        { "oneOf":
+          [
+          { "$ref": "#/definitions/agentHomepageFound" },
+          { "type": "array",
+            "minItems": 1,
+            "not":
+            { "items": { "not": { "$ref": "#/definitions/agentHomepageFound" } } }
+          }
+          ]
+        }
+      },
+      "required": ["creator"]
+    },
+
+    "sourceCreatorAgentWithHomepageFound":
+    { "type": "object",
+      "properties":
+        {
+            "source":
+            { "$ref": "#/definitions/creatorAgentWithHomepageFound" }
+        },
+       "required": ["source"]        
+    },
+    
+    "itemCreatorAgentWithHomepageFound":
+    {
+      "type": "object",
+      "properties":
+      {
+          "items": 
+          {
+              "type": "array",
+              "minItems": 1,
+              "not": 
+              {
+                  "items":
+                  { "not": { "$ref": "#/definitions/creatorAgentWithHomepageFound" } }
+              }
+          }
+      },
+      "required": ["items"]      
+    }        
 
   }
 }
