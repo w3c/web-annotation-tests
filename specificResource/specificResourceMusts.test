@@ -5,16 +5,16 @@
   "testType": "manual",
   "ref": "https://www.w3.org/TR/annotation-model/#specific-resources",
   "assertions": [
-    "specificResources/4.2-selectorValidIfPresent.json",
-    "specificResources/4.3-stateValidIfPresent.json",
-    "specificResources/4.3.3-refinedByValidated.json",
-    "specificResources/4.4-styleClassValidIfPresent.json",
-    "specificResources/4.2-fragmentCssXPathSelectorValid.json",
-    "specificResources/4.2.4-textQuoteSelectorValid.json",
-    "specificResources/4.2-TextDataPositionSelectorValid.json",
-    "specificResources/4.2.7-svgSelectorValid.json",
-    "specificResources/4.2.8-rangeSelectorValid.json",
-    "specificResources/4.3.1-timeStateValid.json",
-    "specificResources/4.3.2-httpRequestStateValid.json"
+    "specificResource/4.2-selectorValidIfPresent.json",
+    "specificResource/4.3-stateValidIfPresent.json",
+    "specificResource/4.3.3-refinedByValidated.json",
+    "specificResource/4.4-styleClassValidIfPresent.json",
+    "specificResource/4.2-fragmentCssXPathSelectorValid.json",
+    "specificResource/4.2.4-textQuoteSelectorValid.json",
+    "specificResource/4.2-TextDataPositionSelectorValid.json",
+    "specificResource/4.2.7-svgSelectorValid.json",
+    "specificResource/4.2.8-rangeSelectorValid.json",
+    "specificResource/4.3.1-timeStateValid.json",
+    "specificResource/4.3.2-httpRequestStateValid.json"
   ]
 }
