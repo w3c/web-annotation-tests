@@ -171,6 +171,18 @@
       ]
     },
     
+    "conformsToPropertyFound":
+    {
+      "title": "Detection: fragment selector with conformsTo key",
+      "description": "True when object is a fragment selelctor with a conformsTo key (Section 4.2.1)",
+      "type": "object",
+      "allOf":
+      [
+        { "$ref": "#/definitions/fragmentSelectorDetected"},
+        { "required": ["conformsTo"] }
+      ]
+    },
+    
     "fragmentSelectorTypeValidIfPresent":
     {
        "description": "True if Selector Type not detected (i.e., not present), or if both Type and Selector detected (i.e., Selector constraints met); note, Selector cannot be detected if Selector Type not detected.",
@@ -288,6 +300,30 @@
       ]      
     },
 
+    "prefixPropertyFound":
+    {
+      "title": "Detection: text quote selector with prefix key",
+      "description": "True when object is a text quote selelctor with a prefix key (Section 4.2.4)",
+      "type": "object",
+      "allOf":
+      [
+        { "$ref": "#/definitions/textQuoteSelectorDetected"},
+        { "required": ["prefix"] }
+      ]
+    },
+    
+    "suffixPropertyFound":
+    {
+      "title": "Detection: text quote selector with suffix key",
+      "description": "True when object is a text quote selelctor with a suffix key (Section 4.2.4)",
+      "type": "object",
+      "allOf":
+      [
+        { "$ref": "#/definitions/textQuoteSelectorDetected"},
+        { "required": ["suffix"] }
+      ]
+    },
+    
     "textQuoteSelectorTypeValidIfPresent":
     {
        "description": "True if Selector Type not detected (i.e., not present), or if both Type and Selector detected (i.e., Selector constraints met); note, Selector cannot be detected if Selector Type not detected.",
@@ -583,6 +619,18 @@
       ]
     },
 
+    "cachedPropertyFound":
+    {
+      "title": "Detection: time state with cached key",
+      "description": "True when object is a time state with a cached key (Section 4.3.1)",
+      "type": "object",
+      "allOf":
+      [
+        { "$ref": "#/definitions/timeStateDetected"},
+        { "required": ["cached"] }
+      ]
+    },
+    
     "timeStateTypeValidIfPresent":
     {
        "description": "True if State Type not detected (i.e., not present), or if both Type and State detected (i.e., State constraints met); note, State cannot be detected if State Type not detected.",
@@ -740,33 +788,43 @@
       "title": "Detection: refinedBy ",
       "description": "True when object tested has selector or state that has refinedBy(s) that is(are) recognized as being one or more of the refinedBys described in the model (Section 4.2)",
       "type": "object",
-       "patternProperties":
-        {
-         "^(state|selector)$":
-        {"oneOf": 
-         [
-           { "type": "object",
-             "$ref": "#/definitions/refinedByDefined",       
-             "required": ["refinedBy"] 
-           },      
-           { "type": "array",
-             "minItems": 1,
-             "not":
-             {
-              "items": 
-               {"not":
-                  { "type": "object",
-                    "$ref": "#/definitions/refinedByDefined",       
-                    "required": ["refinedBy"] 
-                  }
-               }
-             }
-           }
-        ]
-       }
-      }
+      "anyOf":
+       [
+         { "properties":
+            { "state" : { "$ref ": "#/definitions/refinedByWithinStateSelector" } },
+            "required": ["state"]
+         },
+         { "properties":
+            { "selector" : { "$ref ": "#/definitions/refinedByWithinStateSelector" } },
+            "required": ["selector"]
+         }
+       ]
     },
     
+    "refinedByWithinStateSelector":
+    {
+    "oneOf": 
+      [
+        { "type": "object",
+          "$ref": "#/definitions/refinedByDefined",       
+          "required": ["refinedBy"] 
+        },      
+        { "type": "array",
+          "minItems": 1,
+          "not":
+          {
+           "items": 
+            {"not":
+               { "type": "object",
+                 "$ref": "#/definitions/refinedByDefined",       
+                 "required": ["refinedBy"] 
+               }
+            }
+          }
+        }
+      ]
+    },
+
     "styleClassDefinition":
     { "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Definition: styleClass property value",

@@ -15,6 +15,6 @@
     "specificResources/4.2.7-svgSelectorValid.json",
     "specificResources/4.2.8-rangeSelectorValid.json",
     "specificResources/4.3.1-timeStateValid.json",
-    "specificResources/4.3.2-httpRequestStateValid.json",
+    "specificResources/4.3.2-httpRequestStateValid.json"
   ]
 }
