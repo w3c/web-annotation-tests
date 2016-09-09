@@ -4,13 +4,13 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "The description of a Body may include processingLanguage key with a single value that is a language code.",    
+    "errorMessage": "The description of a Body may include processingLanguage key with a single value that is a language code.",
     "title": "Implements **body _processingLanguage_ key** with a **single value** that is a **language code** [model 3.2.1](https://www.w3.org/TR/annotation-model/#bodies-and-targets)",
     "description": "True when Annotation includes one or more Bodies, one or more of which include single processingLanguage key with a language code as value. (Section 3.2.1)",
     "type": "object",
     "properties":
     {
-        "body": 
+        "body":
         {
            "oneOf": [
                       { "anyOf": [
@@ -20,7 +20,7 @@
                         ]
                       },
                        { "not":
-                         { "items": 
+                         { "items":
                             { "not":
                                { "anyOf": [
                                   { "$ref": "bodyTarget.json#/definitions/processingLanguagePropertyFound" },
@@ -28,10 +28,10 @@
                                   { "$ref": "bodyTarget.json#/definitions/sourceProcessingLanguagePropertyFound" }
                                  ]
                                }
-                             }     
-                         }                          
+                             }
+                         }
                        }
-                     ]                       
+                     ]
          }
      }
 }

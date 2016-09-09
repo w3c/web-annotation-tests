@@ -9,7 +9,7 @@
   "description": "True when type for Target Creator (Agent) is implemented (Section 3.3.2)",
     "properties":
     {
-        "target": 
+        "target":
         {
            "oneOf": [
                       { "anyOf": [
@@ -19,7 +19,7 @@
                         ]
                       },
                        { "not":
-                         { "items": 
+                         { "items":
                             { "not":
                                { "anyOf": [
                                   { "$ref": "otherProperties.json#/definitions/creatorAgentWithTypeFound" },
@@ -27,10 +27,10 @@
                                   { "$ref": "otherProperties.json#/definitions/itemCreatorAgentWithTypeFound" }
                                  ]
                                }
-                             }     
-                         }                          
+                             }
+                         }
                        }
-                     ]                       
+                     ]
          }
      }
 }

@@ -4,16 +4,16 @@
     "assertionType": "should",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "The description of an Embedded Textual Body should include type key which includes the value of TextualBody.",    
+    "errorMessage": "The description of an Embedded Textual Body should include type key which includes the value of TextualBody.",
     "title": "Implements **Embedded Textual Body _type_ key** which includes a value of **TextualBody** [model 3.2.4](https://www.w3.org/TR/annotation-model/#embedded-textual-body)",
     "description": "True when Annotation includes one or more Embedded Textual Bodies (incl. as part of body Choice or Set), one or more of which includes a type key which includes a value of TextualBody. (Section 3.2.4)",
     "type": "object",
     "properties":
     {
-        "body": 
+        "body":
         {
            "oneOf": [
-                      { "anyOf": 
+                      { "anyOf":
                         [
                           { "$ref": "bodyTarget.json#/definitions/embeddedTextTypeIncludesTextualBody" },
                           { "$ref": "bodyTarget.json#/definitions/itemEmbeddedTextTypeIncludesTextualBody" }
@@ -21,18 +21,18 @@
                        },
                        { "not":
                          {
-                           "items": 
+                           "items":
                             { "not":
-                               { "anyOf": 
+                               { "anyOf":
                                 [
                                   { "$ref": "bodyTarget.json#/definitions/embeddedTextTypeIncludesTextualBody" },
                                   { "$ref": "bodyTarget.json#/definitions/itemEmbeddedTextTypeIncludesTextualBody" }
                                 ]
                                }
-                             }     
-                         }                          
+                             }
+                         }
                        }
-                     ]                       
+                     ]
          }
      }
 }

@@ -4,12 +4,12 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "The description of a Specific Resource may include timeState State .",    
+    "errorMessage": "The description of a Specific Resource may include timeState State .",
     "title": "Implements **Specific Resource Time State** - [model 4.3.1](https://www.w3.org/TR/annotation-model/#time-state)",
     "description": "True when Annotation includes one or more Specific Resources, one or more of which includes a timeState State. (Section 4.3.1)",
     "type": "object",
     "anyOf":
-     [   
+     [
       { "properties":
          { "body":
             { "oneOf":
@@ -21,25 +21,25 @@
                       { "$ref": "#/definitions/itemSchema" }
                     ]
                  },
-                 { "type": "array", 
+                 { "type": "array",
                    "minItems": 1,
-                   "not": 
+                   "not":
                     { "items":
-                       { "not": 
+                       { "not":
                           { "oneOf":
                              [
                                { "$ref": "#/definitions/stateSchema" },
                                { "$ref": "#/definitions/itemSchema" }
-                             ]                                
-                          }                             
+                             ]
+                          }
                        }
                     }
                  }
                ]
-            }          
+            }
          },
-         "required": [ "body" ]          
-      },       
+         "required": [ "body" ]
+      },
       { "properties":
          { "target":
             { "oneOf":
@@ -51,52 +51,52 @@
                       { "$ref": "#/definitions/itemSchema" }
                     ]
                  },
-                 { "type": "array", 
+                 { "type": "array",
                    "minItems": 1,
-                   "not": 
+                   "not":
                     { "items":
-                        { "not": 
+                        { "not":
                            { "oneOf":
                               [
                                 { "$ref": "#/definitions/stateSchema" },
                                 { "$ref": "#/definitions/itemSchema" }
-                              ]                                
-                           }                             
+                              ]
+                           }
                         }
                     }
                  }
                ]
-            }          
-         }         
+            }
+         }
        }
-     ],     
+     ],
      "definitions":
       {
         "stateSchema":
          { "type": "object",
-           "properties": 
+           "properties":
             { "state":
                { "oneOf":
                   [
                     { "type": "object",
-                      "$ref": "specificResource.json#/definitions/timeStateDetected" 
+                      "$ref": "specificResource.json#/definitions/timeStateDetected"
                     },
                     { "type": "array",
                       "minItems": 1,
                       "not":
                        { "items":
                           { "not": { "$ref": "specificResource.json#/definitions/timeStateDetected" } }
-                       }                        
+                       }
                     }
-                  ]                   
+                  ]
                }
             },
-            "required": [ "state" ]           
+            "required": [ "state" ]
          },
-         
+
         "itemSchema":
          { "type": "object",
-           "properties": 
+           "properties":
             { "items":
                { "type": "array",
                  "minItems": 1,
@@ -104,7 +104,7 @@
                   { "items":
                       { "not": { "$ref": "#/definitions/stateSchema" } }
                   }
-               }                
+               }
             },
             "required": [ "items" ]
          }

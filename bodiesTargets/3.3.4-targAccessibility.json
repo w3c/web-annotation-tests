@@ -4,13 +4,13 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "The description of a Target may include accessibility key which has one or more values.",    
+    "errorMessage": "The description of a Target may include accessibility key which has one or more values.",
     "title": "Implements **target _accessibility_ key** which has one or more values - [model 3.3.4](#https://www.w3.org/TR/annotation-model/#accessibility-of-content)",
     "description": "True when Annotation includes one or more Targets, one or more of which include accessibility key which has one or more values. (Section 3.3.4)",
     "type": "object",
     "properties":
     {
-        "target": 
+        "target":
         {
            "oneOf": [
                       { "anyOf": [
@@ -20,7 +20,7 @@
                         ]
                       },
                        { "not":
-                         { "items": 
+                         { "items":
                             { "not":
                                { "anyOf": [
                                   { "$ref": "otherProperties.json#/definitions/accessibilityPropertyFound" },
@@ -28,11 +28,11 @@
                                   { "$ref": "otherProperties.json#/definitions/sourceAccessibilityPropertyFound" }
                                  ]
                                }
-                             }     
-                         }                          
+                             }
+                         }
                        }
 
-                     ]                       
+                     ]
          }
      }
 }

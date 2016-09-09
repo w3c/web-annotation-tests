@@ -4,13 +4,13 @@
     "assertionType": "must",
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
-    "errorMessage": "The description of an External Web Resource target cannot include an purpose key. purpose key is only valid with Specific Resources and Embedded Textual Bodies.",    
+    "errorMessage": "The description of an External Web Resource target cannot include an purpose key. purpose key is only valid with Specific Resources and Embedded Textual Bodies.",
     "title": "If an **External Web Resource** is a target, it does NOT have an **_purpose_ key** - [model 3.3.5](https://www.w3.org/TR/annotation-model/#motivation-and-purpose)",
     "description": "True when no External Web Resource targets or when none of the External Web Recource targets include the purpose key. (Section 3.3.5)",
     "type": "object",
     "properties":
     {
-        "target": 
+        "target":
         {
            "allOf": [
                       { "not": { "$ref": "bodyTarget.json#/definitions/ewrWithPurpose" } },
@@ -19,7 +19,7 @@
                       { "items": { "not": { "$ref": "bodyTarget.json#/definitions/sourceEwrWithPurpose" } } },
                       { "not": { "$ref": "bodyTarget.json#/definitions/itemEwrWithPurpose" }  },
                       { "items": { "not": { "$ref": "bodyTarget.json#/definitions/itemEwrWithPurpose" } } }
-                     ]                       
+                     ]
          }
      }
 }

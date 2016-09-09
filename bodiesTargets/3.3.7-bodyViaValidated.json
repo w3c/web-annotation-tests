@@ -4,40 +4,40 @@
     "assertionType": "must",
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
-    "errorMessage": "ERROR: A body or body/source has one or more via key values that are not of format uri.",    
+    "errorMessage": "ERROR: A body or body/source has one or more via key values that are not of format uri.",
     "title": "If present all body-level or body/source-level **_via_ key values** are strings of **format uri** - [model 3.3.7](https://www.w3.org/TR/annotation-model/#other-identities)",
     "description": "True when no body-level or body/source-level (SR body) via key present or when all via key values are strings of format uri (Section 3.3.7)",
     "type": "object",
-    "properties": 
+    "properties":
     {
       "body":
        {
-          "oneOf": 
+          "oneOf":
           [
             { "$ref": "id.json#/definitions/arraySingleStringUri" },
-            { "allOf": 
+            { "allOf":
                [
                   { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" },
-                  { "$ref": "specificResource.json#/definitions/sourceWithVia" } 
+                  { "$ref": "specificResource.json#/definitions/sourceWithVia" }
                ]
             },
             {
                 "type": "array",
                 "minItems": 1,
-                "items": 
+                "items":
                 {
-                    "oneOf": 
+                    "oneOf":
                     [
                         { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "allOf": 
+                        { "allOf":
                            [
                               { "$ref": "otherProperties.json#/definitions/viaValidIfPresent" },
-                              { "$ref": "specificResource.json#/definitions/sourceWithVia" } 
+                              { "$ref": "specificResource.json#/definitions/sourceWithVia" }
                            ]
                         }
                     ]
                 }
-            }            
+            }
           ]
        }
    }}

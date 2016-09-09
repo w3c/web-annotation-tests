@@ -12,14 +12,14 @@
    [
     { "required": ["stylesheet"] },
     { "not":
-      { 
+      {
         "anyOf":
          [
           { "$ref": "#/definitions/bodyHasStyleClass" },
           { "$ref": "#/definitions/targHasStyleClass" }
          ]
       }
-    } 
+    }
    ],
   "definitions":
    {
@@ -27,61 +27,61 @@
       {
         "properties":
         {
-            "body": 
+            "body":
             {
-               "oneOf": 
+               "oneOf":
                [
-                  { "anyOf": 
+                  { "anyOf":
                   [
                     { "$ref": "specificResource.json#/definitions/styleClassDetected" },
                     { "$ref": "specificResource.json#/definitions/itemStyleClassPropertyDetected" }
                    ]
                   },
                    { "not":
-                     { "items": 
+                     { "items":
                         { "not":
                            { "anyOf": [
                               { "$ref": "specificResource.json#/definitions/styleClassDetected" },
                               { "$ref": "specificResource.json#/definitions/itemStyleClassPropertyDetected" }
                              ]
                            }
-                         }     
-                     }                          
+                         }
+                     }
                    }
-               ]                       
+               ]
              }
          },
          "required": ["body"]
       },
-      
+
       "targHasStyleClass":
       {
         "properties":
         {
-            "target": 
+            "target":
             {
-               "oneOf": 
+               "oneOf":
                [
-                  { "anyOf": 
+                  { "anyOf":
                    [
                     { "$ref": "specificResource.json#/definitions/styleClassDetected" },
                     { "$ref": "specificResource.json#/definitions/itemStyleClassPropertyDetected" }
                    ]
                   },
                    { "not":
-                     { "items": 
+                     { "items":
                         { "not":
                            { "anyOf": [
                               { "$ref": "specificResource.json#/definitions/styleClassDetected" },
                               { "$ref": "specificResource.json#/definitions/itemStyleClassPropertyDetected" }
                              ]
                            }
-                         }     
-                     }                          
+                         }
+                     }
                    }
-               ]                       
+               ]
              }
-         }                    
+         }
       }
-   } 
+   }
 }

@@ -4,13 +4,13 @@
     "assertionType": "may",
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
-    "errorMessage": "The description of a body may include language key with one or more values that are each a language code.",    
+    "errorMessage": "The description of a body may include language key with one or more values that are each a language code.",
     "title": "Implements **body _language_ key** with one or more values each of which is a **language code** [model 3.2.1](https://www.w3.org/TR/annotation-model/#bodies-and-targets)",
     "description": "True when Annotation includes one or more bodies, one or more of which include language key with one or more values that are each a language code. (Section 3.2.1)",
     "type": "object",
     "properties":
     {
-        "body": 
+        "body":
         {
            "oneOf": [
                       { "anyOf": [
@@ -20,7 +20,7 @@
                         ]
                       },
                        { "not":
-                         { "items": 
+                         { "items":
                             { "not":
                                { "anyOf": [
                                   { "$ref": "bodyTarget.json#/definitions/languagePropertyFound" },
@@ -28,10 +28,10 @@
                                   { "$ref": "bodyTarget.json#/definitions/sourceLanguagePropertyFound" }
                                  ]
                                }
-                             }     
-                         }                          
+                             }
+                         }
                        }
-                     ]                       
+                     ]
          }
      }
 }

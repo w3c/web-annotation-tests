@@ -4,40 +4,40 @@
     "assertionType": "must",
     "expectedResult": "valid",
     "onUnexpectedResult" : "failAndContinue",
-    "errorMessage": "ERROR: A body or body/source has one or more rights key values that are not of format uri.",    
+    "errorMessage": "ERROR: A body or body/source has one or more rights key values that are not of format uri.",
     "title": "If present all body-level or body/source-level **_rights_ key values** are strings of **format uri** - [model 3.3.6](https://www.w3.org/TR/annotation-model/#rights-information)",
     "description": "True when no body-level or body/source-level (SR body) rights key present or when all rights key values are strings of format uri (Section 3.3.6)",
     "type": "object",
-    "properties": 
+    "properties":
     {
       "body":
        {
-          "oneOf": 
+          "oneOf":
           [
             { "$ref": "id.json#/definitions/arraySingleStringUri" },
-            { "allOf": 
+            { "allOf":
                [
                   { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" },
-                  { "$ref": "specificResource.json#/definitions/sourceWithRights" } 
+                  { "$ref": "specificResource.json#/definitions/sourceWithRights" }
                ]
             },
             {
                 "type": "array",
                 "minItems": 1,
-                "items": 
+                "items":
                 {
-                    "oneOf": 
+                    "oneOf":
                     [
                         { "$ref": "id.json#/definitions/arraySingleStringUri" },
-                        { "allOf": 
+                        { "allOf":
                            [
                               { "$ref": "otherProperties.json#/definitions/rightsValidIfPresent" },
-                              { "$ref": "specificResource.json#/definitions/sourceWithRights" } 
+                              { "$ref": "specificResource.json#/definitions/sourceWithRights" }
                            ]
                         }
                     ]
                 }
-            }            
+            }
           ]
        }
    }

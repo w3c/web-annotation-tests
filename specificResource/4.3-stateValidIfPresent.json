@@ -11,24 +11,24 @@
   "patternProperties":
   {
     "^(body|target)$":
-    {"oneOf": 
+    {"oneOf":
      [
-      { "$ref": "id.json#/definitions/stringUri" }, 
+      { "$ref": "id.json#/definitions/stringUri" },
       { "type": "object",
         "allOf":
         [
           { "$ref": "specificResource.json#/definitions/stateDefined" },
           { "$ref": "specificResource.json#/definitions/itemStateValidIfPresent" }
-        ] 
-      },      
+        ]
+      },
          { "type": "array",
            "minItems": 1,
-           "items": 
+           "items":
             {"oneOf":
               [
-                { "$ref": "id.json#/definitions/stringUri" }, 
+                { "$ref": "id.json#/definitions/stringUri" },
                 { "type": "object",
-                  "allOf": 
+                  "allOf":
                   [
                    { "$ref": "specificResource.json#/definitions/stateDefined" },
                    { "$ref": "specificResource.json#/definitions/itemStateValidIfPresent" }

@@ -12,29 +12,29 @@
   {
     "^(body|target)$":
       {
-        "oneOf": 
+        "oneOf":
          [
-           { "$ref": "id.json#/definitions/stringUri" }, 
-           { 
+           { "$ref": "id.json#/definitions/stringUri" },
+           {
             "allOf":
-            [           
+            [
              { "$ref": "specificResource.json#/definitions/checkForRefinedBy" },
              { "$ref": "specificResource.json#/definitions/itemRefinedByValidIfPresent" }
-            ]             
+            ]
            },
            { "type": "array",
              "minItems": 1,
-             "items": 
-              { 
+             "items":
+              {
                 "oneOf":
                 [
                    { "$ref": "id.json#/definitions/stringUri" },
-                   { 
+                   {
                     "allOf":
-                    [           
+                    [
                      { "$ref": "specificResource.json#/definitions/checkForRefinedBy" },
                      { "$ref": "specificResource.json#/definitions/itemRefinedByValidIfPresent" }
-                    ]             
+                    ]
                    }
                 ]
               }

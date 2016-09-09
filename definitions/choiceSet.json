@@ -3,7 +3,7 @@
   "id": "choiceSet.json",
   "title": "Definitions: Choice, Composite, List, Independents.",
   "description": "Schemas in #/definitions detect or validate keys/objects used in describing Choice, Composite, List, Independents (Sections 3.2.7 and 3.2.8).",
-  "definitions": 
+  "definitions":
   {
 
     "itemsDetected" :
@@ -25,8 +25,8 @@
                 { "$ref": "bodyTarget.json#/definitions/externalWebResourceDetected" },
                 { "$ref": "bodyTarget.json#/definitions/textualBodyFound" },
                 { "$ref": "id.json#/definitions/stringUri" },
-                { "allOf": 
-                  [ 
+                { "allOf":
+                  [
                      { "$ref" : "#/definitions/choiceOrSetTypeDefinition" },
                      { "$ref": "#/definitions/itemsDetected"  }
                   ]
@@ -111,10 +111,10 @@
        "$schema": "http://json-schema.org/draft-04/schema#",
        "title": "Definition: Choice or Set type",
        "description": "True when object has type key and object's type is any of 'Choice', 'Composite', 'List', 'Independents' (Section 3.2.7)",
-       "type": "object", 
+       "type": "object",
        "properties":
        {
-         "type": 
+         "type":
          {
            "type": "string",
            "enum": ["Choice", "Composite", "List", "Independents"]
@@ -170,7 +170,7 @@
         { "$ref": "#/definitions/itemsDetected" }
         ]
     },
-    
+
     "choiceOrSetDetected": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Detection: Choice or Set",
@@ -182,14 +182,14 @@
            { "$ref": "#/definitions/itemsDetected" }
         ]
     },
-    
+
     "choiceSetWithValue" :
     {
         "allOf":
            [
             { "$ref": "#/definitions/choiceOrSetDetected" },
             { "required": [ "value" ] }
-           ] 
+           ]
     },
 
     "choiceSetWithSource" :
@@ -198,7 +198,7 @@
            [
             { "$ref": "#/definitions/choiceOrSetDetected" },
             { "required": [ "source" ] }
-           ] 
+           ]
     },
 
     "choiceSetWithPurpose" :
@@ -207,8 +207,8 @@
            [
             { "$ref": "#/definitions/choiceOrSetDetected" },
             { "required": [ "purpose" ] }
-           ] 
-    }    
+           ]
+    }
 
   }
 }
