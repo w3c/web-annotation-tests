@@ -1,0 +1,10 @@
+{
+  "@context": "https://www.w3.org/ns/JSONtest-v1.jsonld",
+  "name": "Annotation implements optional keys and meets optional key value constraints for Creator and Generator Agents",
+  "description": "Agents (Creators, Generators) involved in an Annotation: <ul> <li>Should include certain properties (keys)</li> <li>May include additional keys</li> <li>should have Agent key values that conform to model recommended constraints</li> </ul> Note: failing an assertion indicates that a recommended or optional feature has not been implemented or has not been implemented correctly.",
+  "testType": "manual",
+  "ref": "https://www.w3.org/TR/annotation-model/#other-properties",
+  "assertions": [
+        "annotations/bodiesTargets/3.3.2-targCreatorAgentHomepageImplemented.json"
+  ]
+}
