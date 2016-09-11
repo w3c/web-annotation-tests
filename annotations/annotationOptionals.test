@@ -22,22 +22,6 @@
        "assertionFile": "annotations/3.1-bodyKeyFound.json",
        "onUnexpectedResult" : "passAndSkip"            
       },
-       [
-        {
-         "$schema": "http://json-schema.org/draft-04/schema#",
-         "assertionType": "may",
-         "expectedResult": "valid",
-         "onUnexpectedResult" : "passAndSkip",
-         "errorMessage": "A Body may be an object or an array that includes objects (none found).",
-         "title": "Implements object(s) as annotation **Body** [model 3.2](https://www.w3.org/TR/annotation-model/#bodies-and-targets)",
-         "description": "True when Annotation includes one or more objects as Annotation Body. (Section 3.2)",
-         "type": "object",
-         "properties":
-          {
-           "body":   
-            { "not": { "$ref": "id.json#/definitions/arraySingleStringUri" } }
-          }
-        },
         "annotations/bodiesTargets/3.2.1-bodySingleFormat.json",
         "annotations/bodiesTargets/3.2.1-bodySingleLanguage.json",
         "annotations/bodiesTargets/3.3.1-bodySingleCreator.json",
@@ -57,7 +41,8 @@
         "annotations/bodiesTargets/3.2.1-bodyEWR.json",
         [
           {
-           "assertionFile": "annotations/bodiesTargets/3.2.4-bodyETB.json"
+           "assertionFile": "annotations/bodiesTargets/3.2.4-bodyETB.json",
+           "onUnexpectedResult": "passAndSkip"
           },
           "annotations/bodiesTargets/3.2.4-bodyETBTypeTextualBody.json",
           "annotations/bodiesTargets/3.2.4-bodyETBTypeText.json"
@@ -72,7 +57,7 @@
           "annotations/bodiesTargets/3.2.8-bodyComposite.json",
           "annotations/bodiesTargets/3.2.8-bodyIndependents.json"
         ]
-      ]
+      
     ],
     [
       {
