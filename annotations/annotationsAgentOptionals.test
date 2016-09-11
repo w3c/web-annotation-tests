@@ -8,7 +8,7 @@
     [  
         {
           "assertionFile": "annotations/3.3.1-annotationCreatorImplemented.json",
-          "onUnexpectedResult" : "passAndSkip"
+          "onUnexpectedResult" : "failndSkip"
         },
         "annotations/3.3.2-annotationCreatorAgentIdImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentTypeImplemented.json",
@@ -22,7 +22,7 @@
     [
         {
           "assertionFile": "annotations/3.3.1-annotationGeneratorImplemented.json",
-          "onUnexpectedResult" : "passAndSkip"
+          "onUnexpectedResult" : "failAndSkip"
         },
         "annotations/3.3.2-annotationGeneratorAgentIdImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentTypeImplemented.json",
@@ -36,7 +36,7 @@
     [
         {
           "assertionFile": "annotations/bodiesTargets/3.3.1-bodyCreator.json",
-          "onUnexpectedResult" : "passAndSkip"
+          "onUnexpectedResult" : "failAndSkip"
         },
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentTypeImplemented.json",
@@ -50,7 +50,7 @@
     [
         {
           "assertionFile": "annotations/bodiesTargets/3.3.1-targCreator.json",
-          "onUnexpectedResult" : "passAndSkip"
+          "onUnexpectedResult" : "failAndSkip"
         },
         "annotations/bodiesTargets/3.3.2-targCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentTypeImplemented.json",
