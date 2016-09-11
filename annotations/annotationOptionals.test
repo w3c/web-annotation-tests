@@ -39,42 +39,8 @@
         "annotations/bodiesTargets/3.3.7-bodyCanonical.json",
         "annotations/bodiesTargets/3.3.7-bodyVia.json",
         "annotations/bodiesTargets/3.2.1-bodyEWR.json",
-        [
-          {
-           "assertionFile": "annotations/bodiesTargets/3.2.4-bodyETB.json",
-           "onUnexpectedResult": "passAndSkip"
-          },
-          "annotations/bodiesTargets/3.2.4-bodyETBTypeTextualBody.json",
-          "annotations/bodiesTargets/3.2.4-bodyETBTypeText.json"
-        ],        
-        [
-          {
-           "assertionFile": "annotations/bodiesTargets/4-bodyChoiceSetFound.json",
-           "onUnexpectedResult" : "passAndSkip"            
-          },
-          "annotations/bodiesTargets/3.2.7-bodyChoice.json",
-          "annotations/bodiesTargets/3.2.8-bodyList.json",
-          "annotations/bodiesTargets/3.2.8-bodyComposite.json",
-          "annotations/bodiesTargets/3.2.8-bodyIndependents.json"
-        ]
       
     ],
-    [
-      {
-       "$schema": "http://json-schema.org/draft-04/schema#",
-       "assertionType": "may",
-       "expectedResult": "valid",
-       "onUnexpectedResult" : "passAndSkip",
-       "errorMessage": "A Target may be an object or an array that includes objects (none found).",
-       "title": "Implements object(s) as annotation **Target** [model 3.2](https://www.w3.org/TR/annotation-model/#bodies-and-targets)",
-       "description": "True when Annotation includes one or more objects as Annotation Target. (Section 3.2)",
-       "type": "object",
-       "properties":
-        {
-         "target":   
-          { "not": { "$ref": "id.json#/definitions/arraySingleStringUri" } }
-        }
-      },    
       "annotations/bodiesTargets/3.2.1-targSingleFormat.json",
       "annotations/bodiesTargets/3.2.1-targSingleLanguage.json",
       "annotations/bodiesTargets/3.3.1-targSingleCreator.json",
@@ -92,44 +58,12 @@
       "annotations/bodiesTargets/3.3.7-targCanonical.json",
       "annotations/bodiesTargets/3.3.7-targVia.json",      
       "annotations/bodiesTargets/3.2.1-targEWR.json",
-      [
-        {
-             "assertionFile": "annotations/bodiesTargets/4-targChoiceSetFound.json",
-             "onUnexpectedResult" : "passAndSkip"            
-        },
-        "annotations/bodiesTargets/3.2.7-targChoice.json",
-        "annotations/bodiesTargets/3.2.8-targList.json",
-        "annotations/bodiesTargets/3.2.8-targComposite.json",
-        "annotations/bodiesTargets/3.2.8-targIndependents.json"
-      ]
-    ],
-    [
-     {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "assertionType": "may",
-      "expectedResult": "valid",
-      "onUnexpectedResult" : "passAndSkip",
-      "errorMessage": "A Specific Resource may be used as an Annotation Body or Target (not found).",
-      "title": "Implements **Specific Resource** as Body or Target (or item in Choice / Set Body or Target) with **_source_ and at least one of _purpose, selector, state, style, renderedVia, scope_ keys** as a body of the Annotation  [model 4](https://www.w3.org/TR/annotation-model/#specific-resources)",
-      "description": "True when Annotation includes one or more Specific Resources as Annotation Body or Target. (Section 4)",
-      "type": "object",      
-      "anyOf":
-      [
-        { "$ref": "annotations/bodiesTargets/4-bodySpecificResource.json" },
-        { "$ref": "annotations/bodiesTargets/4-targSpecificResource.json" }
-      ]
-     },
       "annotations/bodiesTargets/4-bodySpecificResource.json",
       "annotations/bodiesTargets/4-targSpecificResource.json",
       "annotations/specificResource/4.3.3-refinedBy.json",
       "annotations/specificResource/4.4-styleClass.json",
       "annotations/specificResource/4.5-renderedVia.json",
       "annotations/specificResource/4.6-scope.json",
-      [ 
-        {
-           "assertionfile": "annotations/specificResource/4.2-selectorFound.json",
-           "onUnexpectedResult" : "passAndSkip"                      
-        },
         "annotations/specificResource/4.2.1-fragmentSelector.json",
         "annotations/specificResource/4.2.1-conformsTo.json",
         "annotations/specificResource/4.2.2-cssSelector.json",
@@ -141,16 +75,5 @@
         "annotations/specificResource/4.2.6-dataPositionSelector.json",
         "annotations/specificResource/4.2.7-svgSelector.json",
         "annotations/specificResource/4.2.8-rangeSelector.json"
-      ],
-      [
-        {
-           "assertionfile": "annotations/specificResource/4.3-stateFound.json",
-           "onUnexpectedResult" : "passAndSkip"                      
-        },
-        "annotations/specificResource/4.3.1-timeState.json",
-        "annotations/specificResource/4.3.2-requestHeaderState.json",
-        "annotations/specificResource/4.3.1-cached.json"
-      ]
-    ]
   ]
 }
