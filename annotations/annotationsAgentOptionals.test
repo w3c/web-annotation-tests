@@ -5,10 +5,10 @@
   "testType": "manual",
   "ref": "https://www.w3.org/TR/annotation-model/#other-properties",
   "assertions": [
-      
+    [  
         {
           "assertionFile": "annotations/3.3.1-annotationCreatorImplemented.json",
-          "onUnexpectedResult" : "failndSkip"
+          "onUnexpectedResult" : "passAndSkip"
         },
         "annotations/3.3.2-annotationCreatorAgentIdImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentTypeImplemented.json",
@@ -18,11 +18,11 @@
         "annotations/3.3.2-annotationCreatorAgentEmailImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentEmail_sha1Implemented.json",
         "annotations/3.3.2-annotationCreatorAgentHomepageImplemented.json"
-    ,
+    ],
     [
         {
           "assertionFile": "annotations/3.3.1-annotationGeneratorImplemented.json",
-          "onUnexpectedResult" : "failAndSkip"
+          "onUnexpectedResult" : "passAndSkip"
         },
         "annotations/3.3.2-annotationGeneratorAgentIdImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentTypeImplemented.json",
@@ -36,7 +36,7 @@
     [
         {
           "assertionFile": "annotations/bodiesTargets/3.3.1-bodyCreator.json",
-          "onUnexpectedResult" : "failAndSkip"
+          "onUnexpectedResult" : "passAndSkip"
         },
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentTypeImplemented.json",
@@ -50,7 +50,7 @@
     [
         {
           "assertionFile": "annotations/bodiesTargets/3.3.1-targCreator.json",
-          "onUnexpectedResult" : "failAndSkip"
+          "onUnexpectedResult" : "passAndSkip"
         },
         "annotations/bodiesTargets/3.3.2-targCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentTypeImplemented.json",
