@@ -5,7 +5,7 @@
   "testType": "manual",
   "ref": "https://www.w3.org/TR/annotation-model/#other-properties",
   "assertions": [
-    [  
+      
         {
           "assertionFile": "annotations/3.3.1-annotationCreatorImplemented.json",
           "onUnexpectedResult" : "failndSkip"
@@ -18,7 +18,7 @@
         "annotations/3.3.2-annotationCreatorAgentEmailImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentEmail_sha1Implemented.json",
         "annotations/3.3.2-annotationCreatorAgentHomepageImplemented.json"
-    ],
+    ,
     [
         {
           "assertionFile": "annotations/3.3.1-annotationGeneratorImplemented.json",
