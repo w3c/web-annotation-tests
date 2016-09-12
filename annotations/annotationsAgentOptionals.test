@@ -4,12 +4,10 @@
   "description": "Agents (Creators, Generators) involved in an Annotation: <ul> <li>Should include certain properties (keys)</li> <li>May include additional keys</li> <li>should have Agent key values that conform to model recommended constraints</li> </ul> Note: failing an assertion indicates that a recommended or optional feature has not been implemented or has not been implemented correctly.",
   "testType": "manual",
   "ref": "https://www.w3.org/TR/annotation-model/#other-properties",
-  "assertions": [
+  "assertions": 
+  [
     [  
-        {
-          "assertionFile": "annotations/3.3.1-annotationCreatorImplemented.json",
-          "onUnexpectedResult" : "passAndSkip"
-        },
+        "annotations/3.3.1-annotationCreatorImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentIdImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentTypeImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentNicknameImplemented.json",
@@ -20,10 +18,7 @@
         "annotations/3.3.2-annotationCreatorAgentHomepageImplemented.json"
     ],
     [
-        {
-          "assertionFile": "annotations/3.3.1-annotationGeneratorImplemented.json",
-          "onUnexpectedResult" : "passAndSkip"
-        },
+        "annotations/3.3.1-annotationGeneratorImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentIdImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentTypeImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentNicknameImplemented.json",
@@ -34,10 +29,7 @@
         "annotations/3.3.2-annotationGeneratorAgentHomepageImplemented.json"
     ],
     [
-        {
-          "assertionFile": "annotations/bodiesTargets/3.3.1-bodyCreator.json",
-          "onUnexpectedResult" : "passAndSkip"
-        },
+        "annotations/bodiesTargets/3.3.1-bodyCreator.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentTypeImplemented.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentNicknameImplemented.json",
@@ -48,10 +40,7 @@
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentHomepageImplemented.json"
     ],
     [
-        {
-          "assertionFile": "annotations/bodiesTargets/3.3.1-targCreator.json",
-          "onUnexpectedResult" : "passAndSkip"
-        },
+        "annotations/bodiesTargets/3.3.1-targCreator.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentTypeImplemented.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentNicknameImplemented.json",
