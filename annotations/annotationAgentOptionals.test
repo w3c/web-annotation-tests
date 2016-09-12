@@ -1,25 +1,8 @@
 {
   "@context": "https://www.w3.org/ns/JSONtest-v1.jsonld",
-  "name": "Annotation implements optional keys and meets optional key value constraints for Creator and Generator Agents",
-  "description": "Agents (Creators, Generators) involved in an Annotation: <ul> <li>Should include certain properties (keys)</li> <li>May include additional keys</li> <li>should have Agent key values that conform to model recommended constraints</li> </ul> Note: failing an assertion indicates that a recommended or optional feature has not been implemented or has not been implemented correctly.",
+  "name": "Deprecated version of test",
+  "description": "Check that Annotation contains proper @context",
   "assertions": [
-      "annotations/3.3.1-annotationGeneratorImplemented.json",
-      "annotations/bodiesTargets/3.3.1-bodyCreator.json",
-      "annotations/bodiesTargets/3.3.1-targCreator.json",
-      [
-        {
-          "assertionFile": "annotations/3.3.1-annotationCreatorImplemented.json",
-          "errorMessage": "Annotation Creator not present, so skip the rest of this section",
-          "onUnexpectedResult" : "failAndSkip"
-        },
-        "annotations/3.3.2-annotationCreatorAgentIdImplemented.json",
-        "annotations/3.3.2-annotationCreatorAgentTypeImplemented.json",
-        "annotations/3.3.2-annotationCreatorAgentNicknameImplemented.json",
-        "annotations/3.3.2-annotationCreatorAgentSingleNameImplemented.json",
-        "annotations/3.3.2-annotationCreatorAgentNameImplemented.json",
-        "annotations/3.3.2-annotationCreatorAgentEmailImplemented.json",
-        "annotations/3.3.2-annotationCreatorAgentEmail_sha1Implemented.json",
-        "annotations/3.3.2-annotationCreatorAgentHomepageImplemented.json"
-    ]
+    "annotations/3.1-annotationContextValidated.json"
   ]
 }

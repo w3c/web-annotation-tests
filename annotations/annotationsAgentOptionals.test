@@ -6,7 +6,6 @@
   "ref": "https://www.w3.org/TR/annotation-model/#other-properties",
   "assertions": 
   [
-    [  
         "annotations/3.3.1-annotationCreatorImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentIdImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentTypeImplemented.json",
@@ -15,9 +14,7 @@
         "annotations/3.3.2-annotationCreatorAgentNameImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentEmailImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentEmail_sha1Implemented.json",
-        "annotations/3.3.2-annotationCreatorAgentHomepageImplemented.json"
-    ],
-    [
+        "annotations/3.3.2-annotationCreatorAgentHomepageImplemented.json",
         "annotations/3.3.1-annotationGeneratorImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentIdImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentTypeImplemented.json",
@@ -26,9 +23,7 @@
         "annotations/3.3.2-annotationGeneratorAgentNameImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentEmailImplemented.json",
         "annotations/3.3.2-annotationGeneratorAgentEmail_sha1Implemented.json",
-        "annotations/3.3.2-annotationGeneratorAgentHomepageImplemented.json"
-    ],
-    [
+        "annotations/3.3.2-annotationGeneratorAgentHomepageImplemented.json",
         "annotations/bodiesTargets/3.3.1-bodyCreator.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentTypeImplemented.json",
@@ -37,9 +32,7 @@
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentNameImplemented.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentEmailImplemented.json",
         "annotations/bodiesTargets/3.3.2-bodyCreatorAgentEmail_sha1Implemented.json",
-        "annotations/bodiesTargets/3.3.2-bodyCreatorAgentHomepageImplemented.json"
-    ],
-    [
+        "annotations/bodiesTargets/3.3.2-bodyCreatorAgentHomepageImplemented.json",
         "annotations/bodiesTargets/3.3.1-targCreator.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentIdImplemented.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentTypeImplemented.json",
@@ -49,6 +42,5 @@
         "annotations/bodiesTargets/3.3.2-targCreatorAgentEmailImplemented.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentEmail_sha1Implemented.json",
         "annotations/bodiesTargets/3.3.2-targCreatorAgentHomepageImplemented.json"
-    ]
   ]
 }
