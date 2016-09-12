@@ -1,8 +1,0 @@
-{
-  "@context": "https://www.w3.org/ns/JSONtest-v1.jsonld",
-  "name": "Deprecated version of test",
-  "description": "Check that Annotation contains proper @context",
-  "assertions": [
-    "annotations/3.1-annotationContextValidated.json"
-  ]
-}
