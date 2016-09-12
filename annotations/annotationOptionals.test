@@ -67,8 +67,6 @@
     "annotations/bodiesTargets/3.2.8-targIndependents.json",
     "annotations/bodiesTargets/4-bodySpecificResource.json",
     "annotations/bodiesTargets/4-targSpecificResource.json",
-    "annotations/bodiesTargets/4-bodySpecificResource.json",
-    "annotations/bodiesTargets/4-targSpecificResource.json",
     "annotations/specificResource/4.3.3-refinedBy.json",
     "annotations/specificResource/4.4-styleClass.json",
     "annotations/specificResource/4.5-renderedVia.json",
