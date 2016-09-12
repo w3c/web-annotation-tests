@@ -5,7 +5,7 @@
     "expectedResult": "valid",
     "onUnexpectedResult" : "passAndContinue",
     "errorMessage": "The description of a target rresource may include canonical key with a single value that is of format uri.",
-    "title": "Implements **target _canonical_ key** with a **single value** that is of **format uri** [model 3.3.7](https://www.w3.org/TR/annotation-model/#targets-and-targets)",
+    "title": "Implements **target _canonical_ key** with a **single value** that is of **format uri** [model 3.3.7](https://www.w3.org/TR/annotation-model/#bodies-and-targets)",
     "description": "True when Annotation includes one or more targets, one or more of which include canonical key with a single value of format uri. (Section 3.3.7)",
     "type": "object",
     "properties":
