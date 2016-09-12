@@ -10,7 +10,7 @@
         {
           "assertionFile": "annotations/3.3.1-annotationCreatorImplemented.json",
           "errorMessage": "Annotation Creator not present, so skip the rest of this section",
-          "onUnexpectedResult" : "failndSkip"
+          "onUnexpectedResult" : "failAndSkip"
         },
         "annotations/3.3.2-annotationCreatorAgentIdImplemented.json",
         "annotations/3.3.2-annotationCreatorAgentTypeImplemented.json",
