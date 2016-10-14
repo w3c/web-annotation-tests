@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "3.3.2-collectionCreatorAgentIdImplemented.json",
-  "assertionType": "should",
+  "assertionType": "may",
   "expectedResult": "valid",
   "onUnexpectedResult" : "passAndContinue",
   "errorMessage": "Id for Annotation Collection Creator (Agent) not found or more than 1 found. Agents should have exactly one id of format uri.",
