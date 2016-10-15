@@ -9,7 +9,7 @@
   "description": "True when the Annotation Collection implements exactly one modified key value (Section 3.3.1, 5.1)",
   "allOf":
     [
-    { "$ref": "otherProperties.json#/definitions/modifiedPropertyFound"},
+    { "$ref": "otherProperties.json#/definitions/modifiedValidIfPresent"},
     { "type": "object",
       "required": [ "modified" ] }
     ]

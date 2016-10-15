@@ -6,7 +6,5 @@
   "onUnexpectedResult" : "failAndContinue",
   "errorMessage": "ERROR: Annotation Collection is missing type key or 'AnnotationCollection' is not a value of type.",
   "title": "Implements **Annotation Collection _type_ key** such that '**AnnotationCollection**' is **a value of _type_** - [model 5.1](https://www.w3.org/TR/annotation-model/#annotation-collection)",
-  "allOf": [
-  { "$ref": "collections.json#/definitions/annotationCollectionTypeValueFound"}
-  ]
+  "$ref": "collections.json#/definitions/annotationCollectionTypeValueFound"
 }
