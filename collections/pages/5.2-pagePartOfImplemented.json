@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "5.2-pagePartOfImplemented.json",
-  "assertionType": "may",
+  "assertionType": "should",
   "expectedResult": "valid",
   "onUnexpectedResult" : "passAndContinue",
   "errorMessage": "Annotation Page has no partOf key.",
