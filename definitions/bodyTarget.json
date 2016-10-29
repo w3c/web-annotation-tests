@@ -97,15 +97,15 @@
       "title": "Definition: Resources that can be used as Body",
       "description": "True when the string is format uri or the object is recognized as a valid body resource (Sections 3.2 and 4).",
       "type" : ["string", "object"],
-      "oneOf": [
+      "anyOf": [
       {"$ref": "id.json#/definitions/stringUri"},
       {"$ref": "choiceSet.json#/definitions/choiceDetected" },
       {"$ref": "choiceSet.json#/definitions/compositeDetected" },
-        {"$ref": "choiceSet.json#/definitions/independentsDetected" },
-        {"$ref": "choiceSet.json#/definitions/listDetected" },
-          {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
-          {"$ref": "#/definitions/externalWebResourceDetected" },
-            {"$ref": "#/definitions/textualBodyFound" }
+      {"$ref": "choiceSet.json#/definitions/independentsDetected" },
+      {"$ref": "choiceSet.json#/definitions/listDetected" },
+      {"$ref": "specificResource.json#/definitions/specificeResourceDetected" },
+      {"$ref": "#/definitions/externalWebResourceDetected" },
+      {"$ref": "#/definitions/textualBodyFound" }
       ]
     },
 
