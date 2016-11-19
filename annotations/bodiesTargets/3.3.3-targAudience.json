@@ -7,7 +7,7 @@
     "errorMessage": "The description of a target may include audience key which has one or more values with each audience instance described using schema.org/Audience classes and properties.",
     "title": "Implements **target _audience_ key** which has one or more values with each audience instance described using **[schema.org/Audience](http://schema.org/Audience) classes and properties** - [model 3.3.3](https://www.w3.org/TR/annotation-model/#intended-audience)",
     "description": "True when Annotation includes one or more targets, one or more of which include audience key which has one or more values with each audience instance described using schema.org/Audience classes and properties.. (Section 3.3.3)",
-    "type": "object",
+    "type": "object",    
     "properties":
     {
         "target":
@@ -32,7 +32,7 @@
                          }
                        }
                      ]
-         }, 
-         "required": [ "target" ]
-     }
+         } 
+     },
+    "required": [ "target" ]
 }

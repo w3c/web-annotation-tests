@@ -34,5 +34,5 @@
                      ]
          }
      },
-     "required": [ "target" ]
+    "required": [ "target" ]
 }
