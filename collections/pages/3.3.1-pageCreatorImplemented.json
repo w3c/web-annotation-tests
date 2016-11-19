@@ -23,6 +23,6 @@
         { "type": "object",
           "required": [ "creator" ] }
        ]
-    }    
+    }
   }
 }

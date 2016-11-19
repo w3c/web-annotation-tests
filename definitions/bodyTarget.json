@@ -1043,7 +1043,7 @@
            }
         },
         "required": ["items"],
-        "not": { "$ref": "id.json#/definitions/idValueFound" } 
+        "not": { "$ref": "id.json#/definitions/idValueFound" }
     },
 
 "embeddedTextTypeIncludesText":

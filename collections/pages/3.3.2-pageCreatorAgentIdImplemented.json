@@ -11,7 +11,7 @@
   "properties":
   {
     "partOf":
-           { "$ref": "#/definitions/creatorAgentIdFound" }  
+           { "$ref": "#/definitions/creatorAgentIdFound" }
   },
   "required": [ "partOf" ],
   "definitions": {
