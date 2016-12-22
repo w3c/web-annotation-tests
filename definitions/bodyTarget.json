@@ -71,7 +71,8 @@
              "not":
                 { "items": {"not": { "$ref": "#/definitions/textualBodyFound" } } }
           }
-        }
+        },
+      "required": [ "items" ]
     },
 
     "targetResourcesFound" :
