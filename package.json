@@ -1,0 +1,27 @@
+{
+  "name": "web-annotation-tests",
+  "version": "1.0.0",
+  "description": " Tests for the Web Annotation Working Group's deliverables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w3c/web-annotation-tests.git"
+  },
+  "keywords": [
+    "Web",
+    "Annotation",
+    "JSON",
+    "Schema",
+    "JSON-LD",
+    "Validation"
+  ],
+  "author": "W3C Web Annotation Working Group Members",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/w3c/web-annotation-tests/issues"
+  },
+  "homepage": "https://github.com/w3c/web-annotation-tests#readme"
+}
